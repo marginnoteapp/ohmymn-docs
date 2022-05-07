@@ -25,9 +25,13 @@ import { coreTeamMembers } from '../contributors'
         mt-5
         children:my0
       >
-        <a class="btn bg-yellow-600 hover:bg-yellow-600 dark:bg-yellow-600 dark:hover:bg-yellow-700 saturate-80" href="/guide/" rel="noopener noreferrer">
+        <a class="btn bg-indigo-500 hover:bg-indigo-600 dark:bg-indigo-600 dark:hover:bg-indigo-700 saturate-80" href="/guide/" rel="noopener noreferrer">
           <span class="i-carbon:page-last inline-block text-lg" />
           <span ma>使用指南</span>
+        </a>
+        <a class="btn bg-yellow-500 hover:bg-yellow-600 dark:bg-yellow-600 dark:hover:bg-yellow-700 saturate-80" href="/guide/" rel="noopener noreferrer">
+          <span class="i-carbon:download inline-block text-lg" />
+          <span ma>立即下载</span>
         </a>
         <a class="btn bg-lime-500 hover:bg-lime-600 dark:bg-lime-600 dark:hover:bg-lime-700 saturate-80" href="/dev/" rel="noopener noreferrer">
           <span class="i-carbon:list-checked inline-block text-lg" />

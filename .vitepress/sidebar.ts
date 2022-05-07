@@ -26,6 +26,10 @@ const sidebar: DefaultTheme.SideBarConfig | DefaultTheme.MultiSideBarConfig = {
         {
           text: "注意事项",
           link: "/guide/fundation/attention"
+        },
+        {
+          text: "MN 使用技巧",
+          link: "/guide/fundation/tips"
         }
       ]
     },

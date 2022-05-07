@@ -169,15 +169,21 @@ export const DefaultRenderMap: Readonly<RendererMap> = {
     return `<audio src=${src} controls></audio>`
   },
 
-  video(src: string, poster: string, md: MarkdownIt) {
-    let attrs = `src="${src}"`
-
-    poster = md.normalizeLink(poster)
-    if (poster && md.validateLink(poster)) {
-      attrs += ` poster="${poster}"`
+  video(src: string, caption: string, md: MarkdownIt) {
+    let span = ""
+    if (caption) {
+      if (
+        /^https?:\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]$/.test(
+          caption
+        )
+      )
+        span = `<a style="color: #909090;font-size: 0.5rem;" href="${md.normalizeLink(
+          caption
+        )}">${caption}</a>`
+      else
+        span = `<span style="color: #909090;font-size: 0.5rem;">${caption}</span>`
     }
-
-    return `<video playsinline="" controls="" preload="metadata" ${attrs} style="display: block; width: 100%;"></video>`
+    return `<video playsinline="" controls="" preload="metadata" src="${src}" style="display: block; width: 100%;"></video>${span}`
   },
 
   // 仍然加上 controls 避免无法播放
