@@ -13,7 +13,7 @@
 
 使用第一种能力的模块通常以 Auto 开头，比如 AutoTitle，AutoDef，表示可以在摘录时自动执行（默认不执行，需要开启 `摘录时自动执行`）。使用第一种能力的模块通常还会使用第二种能力，以便处理已经存在的卡片。
 
-第二种能力和第三种能力也通常同时使用，比如用来复制，搜索，导出。它们有一个共同的名字 —— 动作（Action）。所有模块的动作都会出现在 `MagicAction for Card` 和 `MagicAction for Text` 中，也就是一个按钮，点击就会执行相应的动作。
+第二种能力和第三种能力也通常同时使用，比如用来复制，搜索，导出。它们有一个共同的名字 —— 动作（Action）。所有模块的动作都会出现在 [MagicAction for Card](../modules//magicaction4card.md) 和 [MagicAction for Text](../modules/magicaction4text.md) 中，也就是一个按钮，点击就会执行相应的动作。
 
 除此之外，所有模块被分为了两大类：
 
