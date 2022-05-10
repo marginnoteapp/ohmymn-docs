@@ -41,4 +41,4 @@
 ### 显示文档信息
 没法自动读取文档信息，都需要你自己填写。包括作者，出版社，页码偏移量等信息，这些信息都将作为 [模版变量](../advance/vars.md) 在模版中使用，比如 [Auto Comment](../modules/autocomment.md) 可以自动添加文献引用的信息。
 
-页码偏移量也可以配合 [Go To Real Page]() 使用，这是我修改的 [Go To Page]() 插件。
+页码偏移量也可以配合 [Go To Real Page](https://github.com) 使用，这是我修改的 [Go To Page](https://github.com) 插件。

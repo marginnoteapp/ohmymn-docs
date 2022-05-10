@@ -30,7 +30,7 @@
    - AutoX
      - [Another AutoTitle](/guide/modules/anotherautotitle)
      - [Another AutoDef](/guide/modules/anotherautodef)
-     - [AutoFormat](/guide/modules/AutoFormatd)
+     - [AutoFormat](/guide/modules/autoformat)
      - [AutoComplete](/guide/modules/autocomplete)
      - [AutoReplace](/guide/modules/autoreplace)
      - [AutoList](/guide/modules/autolist)
@@ -41,4 +41,4 @@
    - Export to X
      - [Export to Flomo](/guide/modules/export2anki)
      - [Export to Anki](/guide/modules/export2flomo)
-     - [Export to Devonthink](/guide/modules/export2devonthink.md)
+     - [Export to Devonthink](/guide/modules/export2devonthink)
