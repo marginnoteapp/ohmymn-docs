@@ -46,7 +46,7 @@ export default defineConfig({
       {
         name: "keywords",
         content:
-          "vitest, vite, test, coverage, snapshot, react, vue, preact, svelte, solid, lit, ruby, cypress, puppeteer, jsdom, happy-dom, test-runner, jest, typescript, esm, tinypool, tinyspy, c8, node"
+          "ohmymn, marginnote, addon"
       }
     ],
     ["meta", { property: "og:title", content: ohmymnName }],
@@ -69,7 +69,7 @@ export default defineConfig({
     ]
   ],
   themeConfig: {
-    repo: "mnaddon/docs-cn",
+    repo: "marginnoteapp/ohmymn-docs",
     logo: "/logo.svg",
     docsDir: ".",
     docsBranch: "main",
@@ -95,12 +95,12 @@ export default defineConfig({
         text: "交流",
         items: [
           {
-            text: "论坛",
+            text: "中文论坛",
             link: "http://bbs.marginnote.cn/"
           },
           {
-            text: "社区",
-            link: "http://bbs.marginnote.cn/"
+            text: "英文论坛",
+            link: "https://forum.marginnote.com/"
           }
         ]
       },

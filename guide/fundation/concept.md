@@ -9,7 +9,7 @@
 
 前面说了卡片就是节点，节点就是卡片，文档中可能那个顺口就写那个。学过数据结构就知道有一种结构就是树，MN 的脑图就是树结构的。
 
-![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220507100906.png?x-oss-process=base_webp)
+![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220521005122.png?x-oss-process=base_webp)
 
 父子节点应该好理解，父节点就是与当前节点相连的上一个节点，一个节点只会有一个父节点（MN5 中虽然两边都支持添加新的节点，但父节点仍然只有一个，就是中间的那个）。子节点可以有很多个。
 

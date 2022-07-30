@@ -17,9 +17,6 @@ const modules = {
     ["CopySearch", "copysearch"],
     ["AutoOCR", "autoocr"],
     ["AutoTranslate", "autotranslate"],
-    ["Export to Flomo", "export2flomo"],
-    ["Export to Anki", "export2anki"],
-    ["Export to Devonthink", "export2devonthink"]
   ]
 } as {
   const: [string, string][]
