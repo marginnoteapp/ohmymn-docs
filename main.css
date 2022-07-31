@@ -8,6 +8,25 @@
   --cm-ttc-c-track: white;
 }
 
+code {
+  color: #eb5757;
+}
+
+p,
+ol,
+ul {
+  line-height: 1.5 !important;
+}
+
+li {
+  margin: 8px 0;
+}
+
+body,
+.sidebar>.sidebar-links>.sidebar-link>.sidebar-links>.sidebar-link>.sidebar-link-item {
+  font-weight: 500 !important;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --c-bg: #1a1a1a !important;
@@ -24,20 +43,22 @@
   tr:nth-child(2n) {
     background-color: var(--c-bg) !important;
   }
+
   tr {
     border-top: 1px solid var(--code-inline-bg-color) !important;
   }
 
   code {
-    color: #aac8e4;
+    color: #57eb9c;
   }
 }
 
-main.home ul > li {
+main.home ul>li {
   opacity: 0.8;
   transition: 0.1s ease;
 }
-main.home ul > li:hover {
+
+main.home ul>li:hover {
   opacity: 1;
 }
 
@@ -63,26 +84,18 @@ main.home::before {
 }
 
 main.home {
-  background: radial-gradient(
-      ellipse,
+  background: radial-gradient(ellipse,
       rgba(var(--bg-gradient), 1) 50%,
-      rgba(var(--bg-gradient), 0.4) 120%
-    ),
-    radial-gradient(
-      ellipse at top,
+      rgba(var(--bg-gradient), 0.4) 120%),
+    radial-gradient(ellipse at top,
       rgba(var(--bg-gradient), 0.8) 20%,
-      rgba(var(--bg-gradient), 0) 100%
-    ),
-    radial-gradient(
-      ellipse at left,
+      rgba(var(--bg-gradient), 0) 100%),
+    radial-gradient(ellipse at left,
       rgba(var(--bg-gradient), 0.6) 20%,
-      rgba(var(--bg-gradient), 0) 100%
-    ),
-    radial-gradient(
-      ellipse at right,
+      rgba(var(--bg-gradient), 0) 100%),
+    radial-gradient(ellipse at right,
       rgba(var(--bg-gradient), 0.6) 20%,
-      rgba(var(--bg-gradient), 0) 100%
-    );
+      rgba(var(--bg-gradient), 0) 100%);
 }
 
 .custom-block.tip {
@@ -136,32 +149,28 @@ img.resizable-img {
 }
 
 @media (prefers-color-scheme: dark) {
-  .algolia-search-box > button {
+  .algolia-search-box>button {
     --docsearch-searchbox-background: transparent;
-    --docsearch-searchbox-focus-background: var(
-      --docsearch-searchbox-background
-    );
+    --docsearch-searchbox-focus-background: var(--docsearch-searchbox-background);
     --docsearch-text-color: #90a4b7;
-    --docsearch-key-gradient: linear-gradient(
-      -225deg,
-      --docsearch-searchbox-background,
-      --docsearch-searchbox-background
-    );
+    --docsearch-key-gradient: linear-gradient(-225deg,
+        --docsearch-searchbox-background,
+        --docsearch-searchbox-background);
   }
-  .algolia-search-box > button:hover {
+
+  .algolia-search-box>button:hover {
     --c-brand: #ca931c;
     --docsearch-text-color: #ca931c;
     --docsearch-muted-color: #ca931c;
   }
-  .algolia-search-box
-    > button:hover
-    > .DocSearch-Button-Keys
-    > .DocSearch-Button-Key {
+
+  .algolia-search-box>button:hover>.DocSearch-Button-Keys>.DocSearch-Button-Key {
     color: #ca931c;
     box-shadow: inset 0 -1px 0 0 var(--docsearch-muted-color),
       inset 0 0 1px 1px var(--docsearch-muted-color),
       0 1px 1px 1px var(--docsearch-muted-color);
   }
+
   .DocSearch-Modal {
     --docsearch-modal-background: rgb(20, 20, 20);
     --docsearch-primary-color: #ca931c;
@@ -174,43 +183,50 @@ img.resizable-img {
     --docsearch-footer-background: rgb(20, 20, 20);
     --docsearch-modal-shadow: none;
   }
+
   .DocSearch-Commands-Key {
     color: #ca931c;
     --docsearch-text-color: #ca931c;
     --docsearch-highlight-color: var(--docsearch-text-color);
   }
+
   .DocSearch-Dropdown {
     scrollbar-color: var(--cm-ttc-c-thumb) var(--cm-ttc-c-track) !important;
   }
+
   .DocSearch-Dropdown::-webkit-scrollbar-track {
     background: var(--cm-ttc-c-track) !important;
   }
+
   .DocSearch-Dropdown::-webkit-scrollbar-thumb {
     background-color: var(--cm-ttc-c-thumb) !important;
     border: 2px solid var(--cm-ttc-c-thumb) !important;
   }
+
   .DocSearch-Footer {
     --docsearch-footer-shadow: 0 -1px 0 0 #90a4b7,
       0 -3px 6px 0 rgba(69, 98, 155, 0.12);
-    --docsearch-key-gradient: linear-gradient(
-      -225deg,
-      --docsearch-searchbox-background,
-      --docsearch-searchbox-background
-    );
+    --docsearch-key-gradient: linear-gradient(-225deg,
+        --docsearch-searchbox-background,
+        --docsearch-searchbox-background);
     --docsearch-key-shadow: inset 0 -1px 0 0 #ca931c, inset 0 0 1px 1px #ca931c,
       0 1px 1px 1px #ca931c;
   }
-  .DocSearch-Hit > a {
+
+  .DocSearch-Hit>a {
     --docsearch-hit-background: transparent;
     --docsearch-hit-shadow: none;
     border: 1px solid #ca931c;
   }
+
   .DocSearch-Hit-Container {
     --docsearch-hit-color: #90a4b7;
   }
+
   .DocSearch-Hit[aria-selected="true"] a {
     --docsearch-highlight-color: #f5e716;
   }
+
   .DocSearch-Hit[aria-selected="true"] .DocSearch-Hit-action,
   .DocSearch-Hit[aria-selected="true"] .DocSearch-Hit-icon,
   .DocSearch-Hit[aria-selected="true"] .DocSearch-Hit-path,
@@ -219,9 +235,11 @@ img.resizable-img {
   .DocSearch-Hit[aria-selected="true"] .DocSearch-Hit-Tree {
     --docsearch-hit-active-color: rgb(45, 45, 45);
   }
+
   .DocSearch-Hit[aria-selected="true"] mark {
     --docsearch-hit-active-color: rgb(20, 20, 20);
   }
+
   .DocSearch-Reset {
     --docsearch-icon-color: #90a4b7;
   }

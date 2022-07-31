@@ -38,7 +38,7 @@
      - [AutoStyle](/guide/modules/autostyle)
      - [AutoOCR](/guide/modules/autoocr)
      - [AutoTranslate](/guide/modules/autotranslate)
-   - Export to X
-     - [Export to Flomo](/guide/modules/export2anki)
-     - [Export to Anki](/guide/modules/export2flomo)
-     - [Export to Devonthink](/guide/modules/export2devonthink)
+   - ~~Export to X~~
+     - ~~Export to Flomo~~
+     - ~~Export to Anki~~
+     - ~~Export to Devonthink~~

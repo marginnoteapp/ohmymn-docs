@@ -16,7 +16,7 @@ defineProps<{
     <img loading="lazy" :src="avatar" width="100" height="100" rounded-full min-w-25 min-h-25 h-25 w-25
       :alt="`${name}'s avatar`">
     <div>
-      <a text-xl mt-1 mb-1 :href="`https://bbs.marginnote.cn/u/${github}`">
+      <a text-xl mt-1 mb-1 :href="`https://github.com/${github}`">
         {{ name }}
       </a>
     </div>

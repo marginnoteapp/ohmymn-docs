@@ -17,6 +17,7 @@ const modules = {
     ["CopySearch", "copysearch"],
     ["AutoOCR", "autoocr"],
     ["AutoTranslate", "autotranslate"],
+    ["AutoComment", "autocomment"],
   ]
 } as {
   const: [string, string][]

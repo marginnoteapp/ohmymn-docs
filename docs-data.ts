@@ -14,7 +14,7 @@ export const font = `${googleapis}/css2?family=Readex+Pro:wght@200;400;600&displ
 
 /* ohmymn head */
 export const ogUrl = "https://ohmymn.vercel.app/"
-export const ogImage = `${ogUrl}og.png`
+export const ogImage = `${ogUrl}apple-touch-icon.png`
 
 /* GitHub and social links */
 export const releases = "https://github.com/marginnoteapp/ohmymn/releases"

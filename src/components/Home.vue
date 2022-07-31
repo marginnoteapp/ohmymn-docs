@@ -22,7 +22,7 @@ import "uno.css"
           <span ma>使用指南</span>
         </a>
         <a class="btn bg-yellow-500 hover:bg-yellow-600 dark:bg-yellow-600 dark:hover:bg-yellow-700 saturate-80"
-          href="/guide/" rel="noopener noreferrer">
+          href="https://bbs.marginnote.cn/t/topic/20501" rel="noopener noreferrer">
           <span class="i-carbon:download inline-block text-lg" />
           <span ma>立即下载</span>
         </a>

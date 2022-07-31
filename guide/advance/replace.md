@@ -25,4 +25,4 @@
 
 如果你只想要 `这是重点`，就必须使用 `(/^.*\*\*(.+?)\*\*.*$/, "$1")`。看出区别了吗，现在匹配的内容是整个字符串，然后把整个字符串替换为了 `newSubStr`。
 
-在 v3 之后，OhMyMN 中所有的提取操作都是直接将 `newSubStr` 作为了标题，可以直接写成 `(/\*\*(.+?)\*\*/, "$1")`。能实现这个效果，其实还需要用到 [match()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/match) 函数。当然，这个你不需要了解。只需要按照 [replace()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace) 函数的语法一样使用即可。
+在 v3 之后，OhMyMN 中所有的提取操作都是直接将 `newSubStr` 作为了返回值，可以直接写成 `(/\*\*(.+?)\*\*/, "$1")`。相当于只要正则匹配到了就返回 `newSubStr`，而使用捕获组，还可以将其捕获并返回。能实现这个效果，其实还需要用到 [match()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/match) 函数。当然，这个你不需要了解。只需要按照 [replace()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace) 函数的语法一样使用即可。

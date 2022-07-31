@@ -26,7 +26,7 @@ OhMyMN 中有大量的自定义，方便你定制。主要是三种格式：
 [replace()](replace) 函数其实是对应着一种输入格式，`(regex, newSubStr)`，一个正则，一个字符串。
 比如 `(/regex/, "newSubStr")`。表示当正则满足时，使用 `newSubStr` 作为返回的结果。
 
-其实还有第三个参数，`(regex, newSubStr, fnKey)`，`fnKey` 为整数，比如 `(/xxx/, "yyy", 0)`。只是 `FnKey` 默认为 0，可以不用写，用于一些特殊的设置，目前只有 [Another AutoDef](../modules/anotherautodef.md) 中用的到。
+其实还有第三个参数，`(regex, newSubStr, fnKey)`，`fnKey` 为整数，比如 `(/xxx/, "yyy", 0)`。只是 `FnKey` 默认为 0，可以不用写，用于一些特殊的设置。
 
 可以写多个，用 `;` 隔开，比如
 - `(/xxx/, "111"); (/yyy/, "222")`

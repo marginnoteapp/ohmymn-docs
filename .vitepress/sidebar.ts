@@ -59,6 +59,9 @@ const sidebar: DefaultTheme.SideBarConfig | DefaultTheme.MultiSideBarConfig = {
         {
           text: "自定义输入格式",
           link: "/guide/advance/custom"
+        }, {
+          text: "自动编号",
+          link: "/guide/advance/serial"
         }
       ]
     },
@@ -66,14 +69,14 @@ const sidebar: DefaultTheme.SideBarConfig | DefaultTheme.MultiSideBarConfig = {
       text: "固定模块",
       children: modules.const.map(k => ({
         text: k[0],
-        link: "../guide/modules/" + k[1]
+        link: "/guide/modules/" + k[1]
       }))
     },
     {
       text: "可选模块",
       children: modules.optional.map(k => ({
         text: k[0],
-        link: "../guide/modules/" + k[1]
+        link: "/guide/modules/" + k[1]
       }))
     }
   ]
