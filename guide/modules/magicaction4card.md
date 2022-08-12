@@ -81,6 +81,10 @@ OhMyMN 中最强大的功能前三吧，用于批量对卡片重命名，编号�
 ## 替换摘录文字
 来自于 [AutoReplace](autoreplace.md#替换摘录文字)
 
+### 修改摘录颜色
+来自于 [AutoStyle](autostyle.md#修改摘录颜色)
+### 修改摘录样式
+来自于 [AutoStyle](autostyle.md#修改摘录样式)
 
 ## 搜索卡片内容
 来自于 [CopySearch](copysearch.md)

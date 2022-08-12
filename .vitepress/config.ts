@@ -69,12 +69,17 @@ export default defineConfig({
     ]
   ],
   themeConfig: {
-    repo: "marginnoteapp/ohmymn-docs",
+    repo: "marginnoteapp/ohmymn",
     logo: "/logo.svg",
     docsDir: ".",
     docsBranch: "main",
-    editLinks: true,
-    editLinkText: "建议更改此页面",
+    editLinks: false,
+    // editLink: {
+    //   pattern: 'https://github.com/vitest-dev/vitest/tree/main/docs/:path',
+    //   text: '为此页提供修改建议'
+    // }
+
+    lastUpdated: true,
 
     /**
     algolia: {

@@ -1,5 +1,9 @@
 # Gesture
 
+::: warning
+不支持 Mac
+:::
+
 手势操作，让 [MagicAction](magicaction4card.md) 更加好用。
 
 @video[https://www.bilibili.com/video/BV1fb4y1E77b/]( https://video-direct-link.vercel.app/bili.mp4?aid=636163121&bvid=BV1fb4y1E77b&cid=499697321)
