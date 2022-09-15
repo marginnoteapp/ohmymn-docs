@@ -1,23 +1,45 @@
-# 为什么选择 OhMyMN？
+# 简介
 
-## 自定义
+::: tip
+模块可以类比插件，是 OhMyMN 内部的插件。
+:::
 
-所谓 OhMyMN，就是打造专属于你的 MarginNote（后面为了简便，统一称之为 MN）。MN 是一个功能强大，并且自定义程度很高的笔记软件，使得每个人都可以打造出一个专属的工作流。然而 MN 的插件在 OhMyMN 出现之前竟然无法自定义，比较典型的就是 [ReResearch](https://bbs.marginnote.cn/t/topic/7069)，由于无法自定义 URL，更无法自由切换，导致每个 URL 都必须单独一个插件。这也就导致了 MN 插件无法做复杂的功能。
+首先要明白 OhMyMN 本质上是一个控制面板。里面所有的功能都是单独的模块，每个模块都被赋予了三种能力：
 
-OhMyMN 提供给你最大的自由度，让你可以控制你的每一次摘录。
+1. 摘录时修改摘录的内容，或者获取摘录内容并进行其他操作。
+2. 脑图中选中卡片后，对卡片进行修改或获取信息并进行其他操作。
+3. 文档中选中文字后，获取文字或选区信息并进行其他操作。
 
-## 执行顺序
+有的模块可能三种能力都用了，有的可能只用了其中一个，也有的一个都没有，仅仅只是一些选项。
 
-MN 插件有个致命的缺点，就是无法控制每个插件的执行顺序，并且当两个插件功能相似时，也无法同时运行。所以当你启用了多个插件的时候，就会出现很多莫名其妙的问题。
+使用第一种能力的模块通常以 Auto 开头，比如 AutoTitle，AutoDef，表示可以在摘录时自动执行（默认不执行，需要开启 `摘录时自动执行`）。使用第一种能力的模块通常还会使用第二种能力，以便处理已经存在的卡片。
 
-在 OhMyMN 中，所有的模块都会有执行顺序，不冲突就会依次全部执行。如果两个模块有冲突，比如都可以自动生成标题，那么先按顺序执行，一旦某个模块成功生成了新标题，那么就不会执行剩余的模块。
+第二种能力和第三种能力也通常同时使用，比如用来复制，搜索，导出。它们有一个共同的名字 —— 动作（Action）。所有模块的动作都会出现在 [MagicAction for Card](./modules/magicaction4card.md) 和 [MagicAction for Text](./modules/magicaction4text.md) 中，也就是一个按钮，点击就会执行相应的动作。
 
-## 副作用
+除此之外，所有模块被分为了两大类：
 
-回想一下，以前你安装的插件需要怎么使用？先点击插件的图标，表示开启插件。然后点击摘录就可以跳到欧陆词典搜索单词。但是使用完之后还必须关闭这个插件，因为插件其实相当于你正常操作的一个 **副作用**。 如果你忘记关闭插件，当你正常点击了一个摘录，它可能会自动跳到欧陆进行搜索。这时候你可能会很困惑，然后才会意识到是插件忘关了。
+1. 固定模块：无法关闭的模块。
 
-OhMyMN 使用全新的主动触发方式和严格的被动触发条件，让插件可以在你需要的时候工作，不需要的时候关闭。比如选中单词后搜索，你可以通过设置手势，然后在选中文字时出现的工具栏上滑动来触发这个动作。这基本上不会带来误触，因为这个工具栏并不会一直显示。
+   - [OhMyMN](/guide/modules/ohmymn)
+   - [MagicAction for Card](/guide/modules/magicaction4card)
+   - [MagicAction for Text](/guide/modules/magicaction4text)
 
-## 结语
+2. 可选模块：可以选择开启的模块，可以在 `OhMyMN-模块快捷开关` 中启用
 
-看到这里如果还不知道 OhMyMN 是干啥的话，那么你可以将 OhMyMN 简单看作一个工具箱，内置了非常多神奇的插件。继续看 [功能介绍](./fundation/module.md)。
+   - [Gesture](/guide/modules/gesture)
+   - [CopySearch](/guide/modules/copysearch)
+   - AutoX
+     - [Another AutoTitle](/guide/modules/anotherautotitle)
+     - [Another AutoDef](/guide/modules/anotherautodef)
+     - [AutoFormat](/guide/modules/autoformat)
+     - [AutoComplete](/guide/modules/autocomplete)
+     - [AutoReplace](/guide/modules/autoreplace)
+     - [AutoList](/guide/modules/autolist)
+     - [AutoTag](/guide/modules/autotag)
+     - [AutoStyle](/guide/modules/autostyle)
+     - [AutoOCR](/guide/modules/autoocr)
+     - [AutoTranslate](/guide/modules/autotranslate)
+   - ~~Export to X~~
+     - ~~Export to Flomo~~
+     - ~~Export to Anki~~
+     - ~~Export to Devonthink~~

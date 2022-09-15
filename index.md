@@ -8,7 +8,7 @@ titleTemplate: MarginNote 插件控制面板及开发框架
 hero:
   name: OhMyMN
   text: MarginNote 插件控制面板及开发框架
-  tagline: 同时也是一个处理摘录和脑图卡片的强大插件
+  tagline: 同时也是一个可以自动化处理摘录的强大插件
   image:
     src: /logo-shadow.svg
     alt: ohmymn

@@ -15,12 +15,10 @@ export const ogUrl = "https://ohmymn.marginnote.cn/"
 export const ogImage = `${ogUrl}og.jpg`
 
 /* GitHub and social links */
-export const github = "https://github.com/vitest-dev/vitest"
-export const releases = "https://github.com/vitest-dev/vitest/releases"
+export const github = "https://github.com/marginnoteapp/ohmymn"
+export const releases = "https://github.com/marginnoteapp/ohmymn/releases"
 export const contributing =
-  "https://github.com/vitest-dev/vitest/blob/main/CONTRIBUTING.md"
-export const discord = "https://chat.vitest.dev"
-export const twitter = "https://twitter.com/vitest_dev"
+  "https://github.com/marginnoteapp/ohmymn/blob/main/CONTRIBUTING.md"
 
 /* Avatar/Image/Sponsors servers */
 export const preconnectLinks = [googleapis, gstatic]

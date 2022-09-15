@@ -13,10 +13,6 @@ const sidebar: DefaultTheme.Sidebar = {
           link: "/guide/"
         },
         {
-          text: "模块",
-          link: "/guide/fundation/module"
-        },
-        {
           text: "基本概念",
           link: "/guide/fundation/concept"
         },

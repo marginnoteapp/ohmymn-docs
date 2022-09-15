@@ -45,7 +45,7 @@ export default defineConfig({
     ["meta", { name: "twitter:image", content: ogImage }],
     ["meta", { name: "twitter:card", content: "summary_large_image" }],
     ["link", { href: font, rel: "stylesheet" }],
-    ["link", { rel: "mask-icon", href: "/logo.svg", color: "#ffffff" }],
+    // ["link", { rel: "mask-icon", href: "/logo.svg", color: "#ffffff" }],
     [
       "link",
       {
