@@ -1,6 +1,4 @@
 // noinspection ES6PreferShortImport: IntelliJ IDE hint to avoid warning to use `~/contributors`, will fail on build if changed
-/* PWA DISABLED */
-export const pwaDisabled = false
 
 /* Texts */
 export const ohmymnName = "OhMyMN"
@@ -12,14 +10,17 @@ export const googleapis = "https://fonts.googleapis.com"
 export const gstatic = "https://fonts.gstatic.com"
 export const font = `${googleapis}/css2?family=Readex+Pro:wght@200;400;600&display=swap`
 
-/* ohmymn head */
-export const ogUrl = "https://ohmymn.vercel.app/"
-export const ogImage = `${ogUrl}apple-touch-icon.png`
+/* vitepress head */
+export const ogUrl = "https://ohmymn.marginnote.cn/"
+export const ogImage = `${ogUrl}og.jpg`
 
 /* GitHub and social links */
-export const releases = "https://github.com/marginnoteapp/ohmymn/releases"
+export const github = "https://github.com/vitest-dev/vitest"
+export const releases = "https://github.com/vitest-dev/vitest/releases"
 export const contributing =
-  "https://github.com/marginnoteapp/ohmymn/blob/main/CONTRIBUTING.md"
+  "https://github.com/vitest-dev/vitest/blob/main/CONTRIBUTING.md"
+export const discord = "https://chat.vitest.dev"
+export const twitter = "https://twitter.com/vitest_dev"
 
 /* Avatar/Image/Sponsors servers */
 export const preconnectLinks = [googleapis, gstatic]
@@ -28,3 +29,8 @@ export const preconnectHomeLinks = [googleapis, gstatic]
 /* PWA runtime caching urlPattern regular expressions */
 export const pwaFontsRegex = new RegExp(`^${googleapis}/.*`, "i")
 export const pwaFontStylesRegex = new RegExp(`^${gstatic}/.*`, "i")
+// eslint-disable-next-line prefer-regex-literals
+export const githubusercontentRegex = new RegExp(
+  "^https://((i.ibb.co)|((raw|user-images).githubusercontent.com))/.*",
+  "i"
+)

@@ -8,23 +8,33 @@ import { resolve } from "pathe"
 import { VitePWA } from "vite-plugin-pwa"
 import fg from "fast-glob"
 import {
-  pwaDisabled,
+  githubusercontentRegex,
   pwaFontStylesRegex,
   pwaFontsRegex,
   ohmymnDescription,
   ohmymnName,
   ohmymnShortName
-} from "./docs-data"
+} from "./.vitepress/meta"
 
 export default defineConfig({
-  define: {
-    "process.env.__PWA_DISABLED__": pwaDisabled
+  ssr: {
+    format: "cjs"
+  },
+  legacy: {
+    buildSsrCjsExternalHeuristics: true
+  },
+  optimizeDeps: {
+    // vitepress is aliased with replacement `join(DIST_CLIENT_PATH, '/index')`
+    // This needs to be excluded from optimization
+    exclude: ["vitepress"]
   },
   plugins: [
+    // TODO remove cast when moved to Vite 3
     Components({
       include: [/\.vue/, /\.md/],
-      dts: true
-    }),
+      dirs: ".vitepress/components",
+      dts: ".vitepress/components.d.ts"
+    }) as Plugin,
     Unocss({
       shortcuts: [
         [
@@ -41,10 +51,9 @@ export default defineConfig({
           scale: 1.2
         })
       ]
-    }),
+    }) as unknown as Plugin,
     IncludesPlugin(),
     VitePWA({
-      disable: pwaDisabled,
       outDir: ".vitepress/dist",
       registerType: "autoUpdate",
       // include all static assets under public/
@@ -70,7 +79,7 @@ export default defineConfig({
           },
           {
             src: "logo.svg",
-            sizes: "100x100",
+            sizes: "165x165",
             type: "image/svg",
             purpose: "any maskable"
           }
@@ -78,6 +87,7 @@ export default defineConfig({
       },
       workbox: {
         navigateFallbackDenylist: [/^\/new$/],
+        globPatterns: ["**/*.{css,js,html,woff2}"],
         runtimeCaching: [
           {
             urlPattern: pwaFontsRegex,
@@ -106,16 +116,25 @@ export default defineConfig({
                 statuses: [0, 200]
               }
             }
+          },
+          {
+            urlPattern: githubusercontentRegex,
+            handler: "CacheFirst",
+            options: {
+              cacheName: "githubusercontent-images-cache",
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
+              },
+              cacheableResponse: {
+                statuses: [0, 200]
+              }
+            }
           }
         ]
       }
     })
-  ],
-
-  optimizeDeps: {
-    include: ["vue", "@vueuse/core"],
-    exclude: ["vue-demi"]
-  }
+  ]
 })
 
 function IncludesPlugin(): Plugin {

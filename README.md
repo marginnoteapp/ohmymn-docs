@@ -1,3 +1,1 @@
-<h1 align="center">
-OhMyMN
-</h1>
+# OhMyMN Document

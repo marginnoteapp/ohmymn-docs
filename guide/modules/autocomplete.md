@@ -10,6 +10,7 @@ v4 版本提供了本地数据库版本，体积较大，但不需要联网，�
 
 更为强大的是，不管你摘录的是不是原型，都可以自动判断，然后补全所有形式。
 
+![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic/f5ed247b373a2f5f053b6f3523.gif?x-oss-process=base_webp)
 ## 柯林斯星级筛选
 越常用的单词柯林斯星级就越高，一共 6 个等级，0-5 星。通常 5 星的单词都是比较简单的单词，可以排除。
 

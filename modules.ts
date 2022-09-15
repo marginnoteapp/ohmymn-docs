@@ -18,6 +18,7 @@ const modules = {
     ["AutoOCR", "autoocr"],
     ["AutoTranslate", "autotranslate"],
     ["AutoComment", "autocomment"],
+    ["AutoSimplify", "autosimplify"],
   ]
 } as {
   const: [string, string][]

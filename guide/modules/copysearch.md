@@ -41,15 +41,14 @@ CopySearch 给出的解决方案是 `动态选择`
 
 可以是网址，也可是其他软件的 URLScheme。
 
-格式：将 URL 搜索关键词的部分换成 `{{keyword}}`
-- 欧陆词典：`eudic://dict/{{keyword}}`
-- 百度搜索：`https://www.baidu.com/s?wd={{keyword}}`
-  - 指定 Edge 浏览器打开百度搜索：`microsoft-edge-https://baidu.com/s?wd={{keyword}}`
-
-
 1. [URL Schemes 使用详解 - 少数派](https://sspai.com/post/31500#07)
 
 2. [入门 iOS 自动化：读懂 URL Schemes - 少数派](https://sspai.com/post/44591)
 
 3. [URL Scheme 查询指南 - 少数派](https://sspai.com/post/66334)
+
+格式：将 URL 搜索关键词的部分换成 `{{keyword}}`
+- 欧陆词典：`eudic://dict/{{keyword}}`
+- 百度搜索：`https://www.baidu.com/s?wd={{keyword}}`
+  - 指定 Edge 浏览器打开百度搜索：`microsoft-edge-https://baidu.com/s?wd={{keyword}}`
 :::
