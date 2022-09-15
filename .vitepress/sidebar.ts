@@ -1,9 +1,12 @@
 import { DefaultTheme } from "vitepress"
 import modules from "../modules"
 const sidebar: DefaultTheme.Sidebar = {
+  "/dev/": [],
+  "/api/": [],
   "/": [
     {
       text: "基础",
+      collapsible: true,
       items: [
         {
           text: "简介",
@@ -33,6 +36,8 @@ const sidebar: DefaultTheme.Sidebar = {
     },
     {
       text: "进阶",
+      collapsible: true,
+      collapsed: true,
       items: [
         {
           text: "正则表达式",
@@ -66,6 +71,8 @@ const sidebar: DefaultTheme.Sidebar = {
     },
     {
       text: "固定模块",
+      collapsible: true,
+      collapsed: false,
       items: modules.const.map(k => ({
         text: k[0],
         link: "/guide/modules/" + k[1]
@@ -73,6 +80,8 @@ const sidebar: DefaultTheme.Sidebar = {
     },
     {
       text: "可选模块",
+      collapsible: true,
+      collapsed: true,
       items: modules.optional.map(k => ({
         text: k[0],
         link: "/guide/modules/" + k[1]

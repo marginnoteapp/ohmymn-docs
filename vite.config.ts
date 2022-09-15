@@ -1,7 +1,6 @@
 import fs from "fs"
 import type { Plugin } from "vite"
 import { defineConfig } from "vite"
-import Components from "unplugin-vue-components/vite"
 import Unocss from "unocss/vite"
 import { presetAttributify, presetIcons, presetUno } from "unocss"
 import { resolve } from "pathe"
@@ -29,12 +28,6 @@ export default defineConfig({
     exclude: ["vitepress"]
   },
   plugins: [
-    // TODO remove cast when moved to Vite 3
-    Components({
-      include: [/\.vue/, /\.md/],
-      dirs: ".vitepress/components",
-      dts: ".vitepress/components.d.ts"
-    }) as Plugin,
     Unocss({
       shortcuts: [
         [

@@ -63,19 +63,21 @@ export default defineConfig({
   },
   themeConfig: {
     logo: "/logo.svg",
+    outline: "deep",
+    outlineTitle: "TOC",
     editLink: {
-      repo: "marginnoteapp/ohmymn-docs",
+      pattern: "https://github.com/marginnoteapp/ohmymn-docs/tree/main/:path",
       text: "为此页提供修改建议"
     },
 
-    // algolia: {
-    //   appId: "ZTF29HGJ69",
-    //   apiKey: "9c3ced6fed60d2670bb36ab7e8bed8bc",
-    //   indexName: "ohmymn"
-    //   // searchParameters: {
-    //   //   facetFilters: ['tags:en'],
-    //   // },
-    // },
+    algolia: {
+      appId: "58GKGEP8Q0",
+      apiKey: "27d364ba4e1ef8bd5f374377f0941845",
+      indexName: "doc-cn"
+      // searchParameters: {
+      //   facetFilters: ['tags:en'],
+      // },
+    },
 
     localeLinks: {
       text: "简体中文",

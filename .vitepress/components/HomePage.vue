@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Contributors from './Contributors.vue';
 </script>
 
 <template>
@@ -6,13 +7,11 @@
     <div class="content-container">
       <main class="main">
         <div class="vp-doc" flex flex-col items-center mt-10>
-          <h2 id="the-team" op50 font-normal pt-5 pb-2>
-            贡献者
-          </h2>
+          <h2 id="the-team" op50 font-normal pt-5 pb-2>贡献者</h2>
           <p text-lg max-w-200 text-center leading-7>
             <Contributors />
-            <br>
-            加入我们将乐在其中！
+            <br />
+            欢迎参与，一起开发更加强大的插件！
           </p>
         </div>
       </main>
