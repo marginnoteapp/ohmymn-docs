@@ -1,5 +1,7 @@
 # 自定义输入格式
+
 OhMyMN 中有大量的自定义，方便你定制。主要是三种格式：
+
 1. [正则表达式](regex)
 2. [replace() 函数](replace)
 3. [模版](mustache)
@@ -9,11 +11,14 @@ OhMyMN 中有大量的自定义，方便你定制。主要是三种格式：
 当然，我建议不管是自定义什么，都不要在 OhMyMN 的输入框中直接输入，而是其他地方写好了再粘贴进来。因为 OhMyMN 不是实时保存，最后需要敲回车确定后才会保存。
 
 ## 正则表达式
+
 [正则表达式](regex.md) 有两个作用：
-1. 判断是否满足条件，比如 [Another AutoTitle](../modules/anotherautotitle.md) 中用来判断是否可以转为标题。
-2. 作为分隔点，将一段话分隔为多个部分，比如 [Another AutoDef](../modules/anotherautodef.md) 自定义定义联项，将定义分为定义项和被定义项两部分。
+
+1. 判断是否满足条件，比如 [Another AutoTitle](./modules/anotherautotitle.md) 中用来判断是否可以转为标题。
+2. 作为分隔点，将一段话分隔为多个部分，比如 [Another AutoDef](./modules/anotherautodef.md) 自定义定义联项，将定义分为定义项和被定义项两部分。
 
 有六种输入格式：
+
 1. 字符串 `xxx`，并非只是省略 `//` ，这里无法使用正则里特殊的字符。一般是用来直接匹配某个词。
 2. 正则表达式 `/xxx/`。
 3. 正则表达式数组，`[/xxx/, /yyy/]`，`,` 隔开。`与` 的关系，也就是全部匹配才算匹配成功。
@@ -22,16 +27,21 @@ OhMyMN 中有大量的自定义，方便你定制。主要是三种格式：
 6. 正则表达式和正则表达式数组，`[/xxx/, /yyy/]; /xxx/; /yyy/`，`;` 隔开。`或` 的关系。
 
 如果特殊情况出现，我会在相应地方注明。
+
 ## replace() 函数
+
 [replace()](replace) 函数其实是对应着一种输入格式，`(regex, newSubStr)`，一个正则，一个字符串。
 比如 `(/regex/, "newSubStr")`。表示当正则满足时，使用 `newSubStr` 作为返回的结果。
 
 其实还有第三个参数，`(regex, newSubStr, fnKey)`，`fnKey` 为整数，比如 `(/xxx/, "yyy", 0)`。只是 `FnKey` 默认为 0，可以不用写，用于一些特殊的设置。
 
 可以写多个，用 `;` 隔开，比如
+
 - `(/xxx/, "111"); (/yyy/, "222")`
 - `(/xxx/, "111", 1); (/yyy/, "222")`
+
 ## MNLink
+
 所谓 MNLink 就是 `marginnote3app://note/F20F324D-61B3-4CA9-A64C-0C92645A1E33`，也就是笔记的链接。可以在这个地方获取到
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220506005857.png?x-oss-process=base_webp)
@@ -53,4 +63,5 @@ OhMyMN 中有大量的自定义，方便你定制。主要是三种格式：
 :::
 
 ## 模版
+
 这个就没什么好说的了，看 [模版语法](./mustache.md) 以及 [模版变量](./vars.md)。

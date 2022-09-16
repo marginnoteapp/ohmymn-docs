@@ -4,12 +4,12 @@
 
 :root {
   --vp-c-accent: #dab40b;
-  --vp-c-brand: #b0a815;
-  --vp-c-brand-light: #beb617;
   --vp-c-brand-lighter: #e9dd1b;
-  --vp-c-brand-dark: #42b176;
-  --vp-c-brand-darker:#3a9564;
-  --vp-c-text-code: #e33d3d;
+  --vp-c-brand-light: #beb617;
+  --vp-c-brand: #bc9f00;
+  --vp-c-brand-dark:#e9dd1b;
+  --vp-c-brand-darker: #beb617;
+  --vp-c-text-code: #EB5757;
   --vp-code-block-bg: rgba(125,125,125,0.04);
   /* fix TIP on light: the default one is too light (2 in contrast) */
   --vp-custom-block-tip-text: rgb(12, 124, 108);
@@ -23,7 +23,6 @@
 
 .dark {
   --vp-code-block-bg: rgba(0,0,0,0.2);
-  --vp-c-text-code: #3ad381;
   /* fix TIP: check the same above (these are the defaults) */
   --vp-custom-block-tip-text: rgb(18, 181, 157);
   --vp-custom-block-tip-border: rgba(18, 181, 157, 0.5);
@@ -42,7 +41,7 @@
   --vp-button-brand-border: var(--vp-c-brand-light);
   --vp-button-brand-text: var(--vp-c-text-dark-1);
   --vp-button-brand-bg: var(--vp-c-brand);
-  --vp-button-brand-hover-border: var(--vp-c-brand-light);
+  --vp-button-brand-hover-border: var(--vp-c-brand-lighter);
   --vp-button-brand-hover-text: var(--vp-c-text-dark-1);
   --vp-button-brand-hover-bg: var(--vp-c-brand-light);
   --vp-button-brand-active-border: var(--vp-c-brand-light);

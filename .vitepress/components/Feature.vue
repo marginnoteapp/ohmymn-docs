@@ -1,6 +1,20 @@
 <script setup lang="ts">
 import VPFeatures from './VPFeatures.vue';
 const features = {
+  "插件开发者": [
+    {
+      title: "现代化的开发框架",
+      details: "使用 TypeScript 开发，ESbuild 打包。封装大量 API，助力你开发更加强大的插件。"
+    },
+    {
+      title: "控制面板及配置管理",
+      details: "轻松创建具有控制面板的插件，拥有强大的配置管理功能。"
+    },
+    {
+      title: "模块化开发",
+      details: "像搭积木一样不断累加模块，最终开发出强大的插件。"
+    },
+  ],
   "普通用户": [
     {
       title: "自定义",
@@ -19,20 +33,6 @@ const features = {
       details: "通过手势快速对脑图卡片进行处理，效率满分。"
     }
   ],
-  "插件开发者": [
-    {
-      title: "现代化的开发框架",
-      details: "使用 TypeScript 开发，ESbuild 打包。封装大量 API，助力你开发更加强大的插件。"
-    },
-    {
-      title: "控制面板及配置管理",
-      details: "轻松创建具有控制面板的插件，拥有强大的配置管理功能。"
-    },
-    {
-      title: "模块化开发",
-      details: "像搭积木一样不断累加模块，最终开发出强大的插件。"
-    },
-  ]
 }
 </script>
 

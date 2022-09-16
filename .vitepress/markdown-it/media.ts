@@ -177,13 +177,10 @@ export const DefaultRenderMap: Readonly<RendererMap> = {
           caption
         )
       )
-        span = `<a style="color: #909090;font-size: 0.5rem;" href="${md.normalizeLink(
-          caption
-        )}">${caption}</a>`
-      else
-        span = `<span style="color: #909090;font-size: 0.5rem;">${caption}</span>`
+        span = `<a href="${md.normalizeLink(caption)}">> ${caption}</a>`
+      else span = `<span>${caption}</span>`
     }
-    return `<video playsinline="" controls="" preload="metadata" src="${src}" style="display: block; width: 100%;"></video>${span}`
+    return `<div class="betterVideo"><video playsinline="" controls="" preload="metadata" src="${src}" style="display: block; width: 100%;"></video>${span}</div>`
   },
 
   // 仍然加上 controls 避免无法播放

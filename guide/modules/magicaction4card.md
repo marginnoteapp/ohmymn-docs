@@ -1,7 +1,5 @@
 ---
-
 outline: deep
-
 ---
 
 # MagicAction for Card
@@ -14,7 +12,7 @@ outline: deep
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220521005544.png?x-oss-process=base_webp)
 
-父子节点的 [相关概念](../fundation/concept.md#2-卡片节点父子卡片父子节点祖先卡片祖先节点后代卡片后代节点)
+父子节点的 [相关概念](../concept.md#2-卡片节点父子卡片父子节点祖先卡片祖先节点后代卡片后代节点)
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220521005122.png?x-oss-process=base_webp)
 
@@ -24,13 +22,13 @@ outline: deep
 
 可以将 OhMyMN 的配置信息写入卡片中，也可以从卡片中读取配置。
 
-写入时请确保选中的卡片至少有 1 张子卡片，理论上子卡片越多越好，这样避免日积月累导致超过单张卡片的最大字数。写入卡片后，还可以打开 [OhMyMN->自动备份配置](../fundation//../modules/ohmymn.md#自动备份配置)，会在后台自动写入卡片中。
+写入时请确保选中的卡片至少有 1 张子卡片，理论上子卡片越多越好，这样避免日积月累导致超过单张卡片的最大字数。写入卡片后，还可以打开 [OhMyMN->自动备份配置](ohmymn.md#自动备份配置)，会在后台自动写入卡片中。
 
 读取配置会覆盖掉当前的配置信息，可以单独读取全局配置，笔记本配置，或者文档配置。
 
 ### 筛选卡片
 
-输入格式：[正则表达式](../advance/custom.md#正则表达式)
+输入格式：[正则表达式](../custom.md#正则表达式)
 
 可以单独筛选标题，摘录，评论，标签。筛选后还可以继续使用其他动作。
 
@@ -48,7 +46,7 @@ MN 自带的合并功能实在鸡肋，不但无法合并标题，还会把标�
 
 OhMyMN 中最强大的功能前三吧，用于批量对卡片重命名，编号，分层编号。
 
-输入格式：[replace 函数格式](../advance/custom.md#replace-函数)
+输入格式：[replace 函数格式](../custom.md#replace-函数)
 
 ::: tip
 由于大多数情况下是匹配整个标题，所以默认的正则就是 `/^.*$/`，你只需要输入新的标题即可，还可以用 `$&` 来引用当前标题。
@@ -58,9 +56,9 @@ OhMyMN 中最强大的功能前三吧，用于批量对卡片重命名，编号�
 
 <p/>
 
-@video[https://www.bilibili.com/video/BV1sP4y1A7mE](https://video-direct-link.vercel.app/bili.mp4?aid=893683501&bvid=BV1sP4y1A7mE&cid=499980330)
+@video[https://www.bilibili.com/video/BV1sP4y1A7mE](https://video.busiyi.world/bili.mp4?aid=893683501&bvid=BV1sP4y1A7mE&cid=499980330)
 
-这里用到了一个魔法变量，`%["1"]`，每次调用时都会递增,请自行查看[语法](../advance/serial.md#1-和-1)。
+这里用到了一个魔法变量，`%["1"]`，每次调用时都会递增,请自行查看[语法](../serial.md#1-和-1)。
 
 #### 如何分层编号？
 
@@ -68,9 +66,9 @@ OhMyMN 中最强大的功能前三吧，用于批量对卡片重命名，编号�
 分层编号是对其所有后代节点进行编号，自身不会编号。使用时请确保该卡片至少有子节点。
 :::
 
-@video[https://www.bilibili.com/video/BV1WY411t7vC](https://video-direct-link.vercel.app/bili.mp4?aid=253632393&bvid=BV1WY411t7vC&cid=499975972)
+@video[https://www.bilibili.com/video/BV1WY411t7vC](https://video.busiyi.world/bili.mp4?aid=253632393&bvid=BV1WY411t7vC&cid=499975972)
 
-视频中只使用 `#["1"] $&` 就达到了这个效果。`#["1"]` 也是一个魔法变量，请自行查看[语法](../advance/serial.md#1)。
+视频中只使用 `#["1"] $&` 就达到了这个效果。`#["1"]` 也是一个魔法变量，请自行查看[语法](../serial.md#1)。
 
 ### 合并卡片内文字
 
@@ -81,7 +79,7 @@ OhMyMN 中最强大的功能前三吧，用于批量对卡片重命名，编号�
 
 默认为 `%["1"]. $&\n\n`
 
-- `%["1"]` 前面提过，会自动递增的魔法变量，详细用法请查看[语法](../advance/serial.md#1-和-1)。
+- `%["1"]` 前面提过，会自动递增的魔法变量，详细用法请查看[语法](../serial.md#1-和-1)。
 - `$&` 表示当前的评论或者摘录。
 - `\n` 表示换行，这个到处都会用到，在 OhMyMN 里想要换行，就使用 `\n`。
 
@@ -92,7 +90,7 @@ OhMyMN 中最强大的功能前三吧，用于批量对卡片重命名，编号�
 
 ### 提取标题
 
-来自于 [Another AutoDef](../modules/anotherautodef.md#提取标题)
+来自于 [Another AutoDef](anotherautodef.md#提取标题)
 
 ### 优化摘录排版
 

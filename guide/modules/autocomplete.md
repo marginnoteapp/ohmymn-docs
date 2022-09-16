@@ -1,4 +1,5 @@
 # AutoComplete
+
 **Powered by [ECDICT](https://github.com/skywind3000/ECDICT) & [API](http://dict.e.opac.vip/dict.php)**
 ::: warning
 本模块会用到一个在线 API 来获取数据，需要联网，并且由于服务器在国内，国外用户有可能无法正常使用。
@@ -11,7 +12,9 @@ v4 版本提供了本地数据库版本，体积较大，但不需要联网，�
 更为强大的是，不管你摘录的是不是原型，都可以自动判断，然后补全所有形式。
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic/f5ed247b373a2f5f053b6f3523.gif?x-oss-process=base_webp)
+
 ## 柯林斯星级筛选
+
 越常用的单词柯林斯星级就越高，一共 6 个等级，0-5 星。通常 5 星的单词都是比较简单的单词，可以排除。
 
 ## 填充单词信息
@@ -19,7 +22,8 @@ v4 版本提供了本地数据库版本，体积较大，但不需要联网，�
 可以将单词的部分信息添加为评论，达到自动制卡的目的。
 
 ### 自定义
-自定义输入格式：[模版](../advance/custom.md#模版)
+
+自定义输入格式：[模版](../custom.md#模版)
 
 有以下几个变量
 ::: v-pre
@@ -34,20 +38,23 @@ v4 版本提供了本地数据库版本，体积较大，但不需要联网，�
 
 有两个输入栏，可以生成两个评论，通常第一栏填入音标，标签等信息，第二栏填入中文或者英文释义。这样方便在复习模式中将释义单独放在卡片背面。
 
-默认填充1: `{{#phonetic}}🔈[{{phonetic}}] {{/phonetic}} {{collins}}{{#tags}}\n🏷 {{tags}}{{/tags}}`
+默认填充 1: `{{#phonetic}}🔈[{{phonetic}}] {{/phonetic}} {{collins}}{{#tags}}\n🏷 {{tags}}{{/tags}}`
 
-默认填充2: `✍🏻\n{{zh}}\n👀`
+默认填充 2: `✍🏻\n{{zh}}\n👀`
 :::
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220730234119.png?x-oss-process=base_webp)
 
 ## 动态选择释义
+
 开启此选项后，摘录的时候会弹出弹窗来选择当前文中的含义（最多 9 个），如果没有，则可以在输入框中输入来自定义。
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220731000657.png?x-oss-process=base_webp)
 
 ### 多选释义
+
 通过在输入框中输入指定的变量，来多选释义。
+
 - `[all]`: 所有释义。
 - `[1-9]`: 编号 1-9 的释义。
 - `[123789]`：编号 1，2，3，7，8，9 的释义，依次类推。
@@ -56,20 +63,26 @@ v4 版本提供了本地数据库版本，体积较大，但不需要联网，�
 多选释义和自定义释义可以同时使用，比如 `[all] v.新的释义`。
 
 ## 动态选择单词原形
+
 有些单词比如 lay，既是 lie 的过去式，也是 laid 的原形。这时候就需要主动选择一下。
 
 ## 自动摘录上下文
+
 顾名思义，可以自动摘录当前单词所在的句子，从而保留语境，方便复习记忆。
 
 目前不支持 OCR Pro，如果 PDF 本身没有文字层，则无法正常工作。如果非常依赖这个功能，可以使用 Abbyy 来 OCR 整本书。
 
 ### 翻译上下文
+
 使用 [AutoTranslate](autotranslate.md) 来对上下文进行翻译。
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220730234119.png?x-oss-process=base_webp)
 
 ## [MagicAction for Card](magicaction4card.md#英文单词制卡)
+
 ### 英文单词制卡
+
 使用相同的配置。AutoComplete 生成的信息都属于评论，评论无法被修改，只能删除重新添加。
+
 - 追加：添加新的评论。
 - 替换: 先删除旧评论，再添加新的评论（图片可能会跑顶上去）。

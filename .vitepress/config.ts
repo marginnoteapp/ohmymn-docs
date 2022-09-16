@@ -57,6 +57,11 @@ export default defineConfig({
   ],
   lastUpdated: true,
   markdown: {
+    lineNumbers: true,
+    theme: {
+      light: "vitesse-light",
+      dark: "vitesse-dark"
+    },
     config(md) {
       return md.use(media)
     }

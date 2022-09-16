@@ -14,19 +14,19 @@ const sidebar: DefaultTheme.Sidebar = {
         },
         {
           text: "基本概念",
-          link: "/guide/fundation/concept"
-        },
-        {
-          text: "配置管理",
-          link: "/guide/fundation/profile"
+          link: "/guide/concept"
         },
         {
           text: "注意事项",
-          link: "/guide/fundation/attention"
+          link: "/guide/attention"
+        },
+        {
+          text: "配置管理",
+          link: "/guide/profile"
         },
         {
           text: "MN 使用技巧",
-          link: "/guide/fundation/tips"
+          link: "/guide/tips"
         }
       ]
     },
@@ -37,31 +37,31 @@ const sidebar: DefaultTheme.Sidebar = {
       items: [
         {
           text: "正则表达式",
-          link: "/guide/advance/regex"
+          link: "/guide/regex"
         },
         {
           text: "replace() 函数",
-          link: "/guide/advance/replace"
+          link: "/guide/replace"
         },
         {
           text: "split() 函数",
-          link: "/guide/advance/split"
+          link: "/guide/split"
         },
         {
           text: "模版语法",
-          link: "/guide/advance/mustache"
+          link: "/guide/mustache"
         },
         {
           text: "模版变量",
-          link: "/guide/advance/vars"
+          link: "/guide/vars"
         },
         {
           text: "自定义输入格式",
-          link: "/guide/advance/custom"
+          link: "/guide/custom"
         },
         {
           text: "自动编号",
-          link: "/guide/advance/serial"
+          link: "/guide/serial"
         }
       ]
     },

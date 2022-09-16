@@ -1,5 +1,6 @@
 # split() 函数
-[split()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/split) 函数目前只在 [Another AutoDef](../modules/anotherautodef) 中使用，用于将摘录的内容分割成标题和摘录两部分。
+
+[split()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/split) 函数目前只在 [Another AutoDef](./modules/anotherautodef) 中使用，用于将摘录的内容分割成标题和摘录两部分。
 
 只需要提供一个 [正则表达式](regex)，作为分割点，将字符串分割成两部分。
 

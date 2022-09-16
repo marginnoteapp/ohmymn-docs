@@ -6,7 +6,7 @@
 
 手势操作，让 [MagicAction](magicaction4card.md) 更加好用。
 
-@video[https://www.bilibili.com/video/BV1fb4y1E77b/]( https://video-direct-link.vercel.app/bili.mp4?aid=636163121&bvid=BV1fb4y1E77b&cid=499697321)
+@video[https://www.bilibili.com/video/BV1fb4y1E77b/](https://video.busiyi.world/bili.mp4?aid=636163121&bvid=BV1fb4y1E77b&cid=499697321)
 
 ::: tip
 尽量在中间区域滑动，滑动速度慢且距离长。
@@ -34,7 +34,6 @@
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220731101552.png?x-oss-process=base_webp)
 
-
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220731101619.png?x-oss-process=base_webp)
 
 这两个的菜单样式有所不同，但都属于文本选择工具栏。第一个会出现 `设置标题` `加为评论` 等选项，这是因为在选中这段文字之前，你已经选中了一段摘录的笔记。
@@ -42,6 +41,7 @@
 [MagicAction for Text](magicaction4text.md) 已经对此进行特别处理，具体可以自行查看，可以实现了公式 OCR 后直接添加到卡片中。
 
 ## 屏蔽区域
+
 其实这个手势检测是加在了整个 MN 界面上，理论上在任何地方滑动，OhMyMN 都会接收到信息。只是我做了屏蔽，使其只在指定几个区域上做出反应。
 
 但是这几个工具栏位置的判断并没有那么准确，所以可能会导致没有在工具栏上滑动，OhMyMN 却执行了动作。为了减少这种情况发生，我进一步限制了识别的区域，尤其是 `卡片单选工具栏`，限制最大。

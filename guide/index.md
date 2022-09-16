@@ -1,7 +1,7 @@
 # 简介
 
-::: tip
-模块可以类比插件，是 OhMyMN 内部的插件。
+::: tip 模块
+可以类比插件，是 OhMyMN 内部的插件。
 :::
 
 首先要明白 OhMyMN 本质上是一个控制面板。里面所有的功能都是单独的模块，每个模块都被赋予了三种能力：
@@ -39,6 +39,7 @@
      - [AutoStyle](/guide/modules/autostyle)
      - [AutoOCR](/guide/modules/autoocr)
      - [AutoTranslate](/guide/modules/autotranslate)
+     - [AutoSimplify](/guide/modules/autosimplify.md)
    - ~~Export to X~~
      - ~~Export to Flomo~~
      - ~~Export to Anki~~

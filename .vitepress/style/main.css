@@ -22,6 +22,10 @@ html:not(.dark) [img-dark] {
   border: 1px solid #8882;
 }
 
+.dark .vp-doc th {
+  background-color: var(--vp-c-bg-soft);
+}
+
 /* h3 breaks SEO => replaced with h2 with the same size */
 .home-content h2 {
   margin-top: 2rem;
@@ -78,4 +82,9 @@ img.resizable-img {
   .VPTeamMembersItem.small .profile .data .desc {
     min-height: unset;
   }
+}
+
+.betterVideo a {
+ color: #909090;
+ font-size: 12px;
 }
