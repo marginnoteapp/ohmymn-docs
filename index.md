@@ -3,29 +3,29 @@ layout: home
 sidebar: false
 
 title: OhMyMN
-titleTemplate: MarginNote 插件控制面板及开发框架
+titleTemplate: MarginNote Addon Control Panel and Development Framework
 
 hero:
   name: OhMyMN
-  text: MarginNote 插件控制面板及开发框架
-  tagline: 同时也是一个可以自动化处理摘录的强大插件
+  text: MarginNote Addon Control Panel and Development Framework
+  tagline: Also a powerful addon that can process excerpts automatically
   image:
     src: /logo-shadow.svg
     alt: ohmymn
   actions:
     - theme: brand
-      text: 使用指南
+      text: Guide
       link: /guide/
     - theme: alt
-      text: 开发文档
+      text: Development
       link: /dev/
     - theme: alt
-      text: API 文档
+      text: API
       link: /api/
     - theme: alt
-      text: 立即下载
+      text: Download
       link: https://bbs.marginnote.cn/t/topic/20501
     - theme: alt
-      text: 查看源码
+      text: View on GitHub
       link: https://github.com/marginnoteapp/ohmymn
 ---

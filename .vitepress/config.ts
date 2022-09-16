@@ -14,7 +14,7 @@ import {
 import sidebar from "./sidebar"
 
 export default defineConfig({
-  lang: "zh-CN",
+  lang: "en-US",
   title: ohmymnName,
   description: ohmymnDescription,
   head: [
@@ -72,21 +72,21 @@ export default defineConfig({
     outlineTitle: "TOC",
     editLink: {
       pattern: "https://github.com/marginnoteapp/ohmymn-docs/tree/main/:path",
-      text: "为此页提供修改建议"
+      text: "Edit this page on GitHub"
     },
 
-    algolia: {
-      appId: "58GKGEP8Q0",
-      apiKey: "27d364ba4e1ef8bd5f374377f0941845",
-      indexName: "doc-cn"
+    // algolia: {
+    //   appId: "58GKGEP8Q0",
+    //   apiKey: "27d364ba4e1ef8bd5f374377f0941845",
+    //   indexName: "doc-cn"
       // searchParameters: {
       //   facetFilters: ['tags:en'],
       // },
-    },
+    // },
 
     localeLinks: {
-      text: "简体中文",
-      items: [{ text: "English", link: "https://ohmymn.marginnote.com" }]
+      text: "English",
+      items: [{ text: "简体中文", link: "https://ohmymn.marginnote.cn" }]
     },
 
     socialLinks: [{ icon: "github", link: github }],
@@ -98,19 +98,15 @@ export default defineConfig({
     },
 
     nav: [
-      { text: "使用指南", link: "/guide/" },
-      { text: "开发", link: "/dev/" },
+      { text: "Guide", link: "/guide/" },
+      { text: "Devlopment", link: "/dev/" },
       { text: "API", link: "/api/" },
       {
         text: `v${version}`,
         items: [
           {
-            text: "版本发布",
+            text: "Release Notes",
             link: releases
-          },
-          {
-            text: "社区指南",
-            link: contributing
           }
         ]
       }
