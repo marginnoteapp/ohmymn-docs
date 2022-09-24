@@ -1,7 +1,7 @@
 # AutoStyle
 AutoStyle 可以单独设置并且固定文本摘录和图片摘录（划框和套索）默认的颜色和样式，同时还可以根据各种预设来自动设置颜色和样式。
 
-### 预设
+### Preset
 
 ::: warning
 OhMyMN 只能在摘录或修改摘录的时候才能触发，拖拽卡片，合并卡片均不会触发，但是可以用手势配合`修改摘录颜色-使用 AutoStyle 的配置`来刷新颜色。
@@ -38,10 +38,10 @@ OhMyMN 只能在摘录或修改摘录的时候才能触发，拖拽卡片，合�
 
     ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220804015411.gif?x-oss-process=base_webp)
 
-## [MagicAction for Card](magicaction4card.md#修改摘录颜色)
-### 修改摘录颜色
+## [MagicAction for Card](magicaction4card.md#modify-excerpt-color)
+### Modify Excerpt Color
 - 输入颜色索引，1-16，也就是色盘从左到右，从上到下。
 - `使用 AutoStyle 的配置`：使用预设来刷新颜色。
 
-### 修改摘录样式
+### Modify Excerpt Style
 - `使用 AutoStyle 的配置`：使用预设来刷新样式。

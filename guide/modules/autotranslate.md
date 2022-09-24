@@ -22,11 +22,11 @@ OhMyMN 的一大特点就是其中各个模块之间可以相互协作，在 Aut
 
 ## 限制触发的条件
 
-虽然我只提供了字数上的限制，低于某个字数就不会执行，这个和 [Another AutoTitle](./anotherautotitle.md#预设) 中的字数限制一模一样，分了类中文和类英文，这里不多说。
+虽然我只提供了字数上的限制，低于某个字数就不会执行，这个和 [Another AutoTitle](anotherautotitle.md#预设) 中的字数限制一模一样，分了类中文和类英文，这里不多说。
 
 底层我还加了一层限制，那就是如果摘录的语言本身不属于你选择的输入语言，就不会执行。当然，我也只能基于是否有字母，是否是半角来判断，可能不会太精确，比如英语和法语之间就没办法。
 
-## [MagicAction for Text](./magicaction4text.md#翻译选中文字)
+## [MagicAction for Text](magicaction4text.md#翻译选中文字)
 
 ### 翻译选中文字
 

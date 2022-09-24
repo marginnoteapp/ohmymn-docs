@@ -3,11 +3,11 @@ layout: home
 sidebar: false
 
 title: OhMyMN
-titleTemplate: MarginNote Addon Control Panel and Development Framework
+titleTemplate: MarginNote Addon Development Framework
 
 hero:
   name: OhMyMN
-  text: MarginNote Addon Control Panel and Development Framework
+  text: MarginNote Addon Development Framework
   tagline: Also a powerful addon that can process excerpts automatically
   image:
     src: /logo-shadow.svg

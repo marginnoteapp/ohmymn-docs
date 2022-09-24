@@ -2,7 +2,7 @@
 
 在摘录列表，选择题等等，往往需要单独换行，而 OCR 无法实现。
 
-## 预设
+## Preset
 
 提供了 3 个预设，每种预设包括自定义必须匹配到两个序号才会执行。
 
@@ -23,9 +23,11 @@
   - (1) （1） [1] 【1】有效
   - 1 `.、，,` 有效
 
-## 自定义
+## Custom
 
-输入格式：[replace 函数格式](../custom.md#replace-函数)
+::: warning Input Format
+[replace() Function Format —— Replace](../custom.md#replace-function)
+:::
 
 在匹配到的字符串前面或者后面加上 `\n` 即可，这就是换行符。
 
@@ -45,3 +47,9 @@
 
 - `(/[;；]/, "$&\n", 1)`
   - 表示在 `;` 或者 `；` 后换行。并且每一行用 1. 2. 3. 来编号
+
+## [MarginNote for Card](magicaction4card.md#add-line-break)
+
+## Add Line Break
+
+和自定义一致

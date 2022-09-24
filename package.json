@@ -1,13 +1,14 @@
 {
   "name": "ohmymn-doc",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "scripts": {
     "dev": "vitepress --port 3333",
-    "build": "nr prefetch && vitepress build && node .vitepress/scripts/build-pwa.mjs",
+    "build": "pnpm prefetch && vitepress build && node .vitepress/scripts/build-pwa.mjs",
     "build-no-prefetch": "vitepress build && node .vitepress/scripts/build-pwa.mjs",
     "serve": "vitepress serve",
-    "preview-https": "pnpm run build && serve .vitepress/dist",
-    "prefetch": "esno .vitepress/scripts/fetch-avatars.ts"
+    "docsearch": "docker run -it --env-file=.env -e \"CONFIG=$(cat docsearch.json | jq -r tostring)\" algolia/docsearch-scraper",
+    "preview-https": "pnpm build && serve .vitepress/dist",
+    "prefetch": "tsx .vitepress/scripts/fetch-avatars.ts"
   },
   "dependencies": {
     "@vueuse/core": "^9.2.0",
@@ -16,22 +17,19 @@
     "vue": "latest"
   },
   "devDependencies": {
-    "@antfu/ni": "^0.18.0",
     "@iconify-json/carbon": "^1.1.7",
     "@types/fs-extra": "^9.0.13",
     "@types/markdown-it": "^12.2.3",
     "@types/node": "^18.7.18",
     "@unocss/reset": "^0.45.21",
     "@vitejs/plugin-vue": "latest",
-    "esno": "^0.16.3",
     "fast-glob": "^3.2.12",
     "fs-extra": "^10.1.0",
-    "https-localhost": "^4.7.1",
     "ohmyfetch": "^0.4.18",
     "pathe": "^0.3.7",
     "pnpm": "7.11.0",
+    "tsx": "^3.9.0",
     "unocss": "^0.45.21",
-    "unplugin-vue-components": "^0.22.7",
     "vite": "^3.1.1",
     "vite-plugin-pwa": "0.12.7",
     "vitepress": "1.0.0-alpha.15",

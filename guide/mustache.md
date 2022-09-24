@@ -1,30 +1,30 @@
 ::: v-pre
 
-# 模版语法
+# Template Syntax
 
-OhMyMN 在 v4 版本中加入了 Mustache 模版引擎。如果你熟悉 Anki 模版，就会发现其实 Anki 用的也是这个。标志就是两个大胡子 `{{}}`。相较于之前 [AutoComplete](./modules/autocomplete) 或者 [CopySearch](./modules/copysearch) 我自己实现的模版~~引擎~~，Mustache 更加强大，带来了数组，对象，函数的支持。
+OhMyMN 在 v4 版本中加入了 Mustache 模版引擎。如果你熟悉 Anki 模版，就会发现其实 Anki 用的也是这个。标志就是两个大胡子 `{{}}`。相较于之前 [AutoComplete](modules/autocomplete) 或者 [CopySearch](modules/copysearch) 我自己实现的模版~~引擎~~，Mustache 更加强大，带来了数组，对象，函数的支持。
 
 ## 在哪里可以使用
 
-1. [AutoComplete](./modules/autocomplete)
-2. [CopySearch](./modules/copysearch)
+1. [AutoComplete](modules/autocomplete)
+2. [CopySearch](modules/copysearch)
 3. ~~Export to Anki~~
 4. ~~Export to Flomo~~
 
-其实不仅如此，OhMyMN v4 将模版与 [replace()](./replace) 函数相融合，你可以在 `newSubStr` 中使用模版。不过并不是任何地方使用都有意义，所以我限制了使用区域。
+其实不仅如此，OhMyMN v4 将模版与 [replace()](replace) 函数相融合，你可以在 `newSubStr` 中使用模版。不过并不是任何地方使用都有意义，所以我限制了使用区域。
 
-1. [Another AutoDef](./modules/anotherautodef)：提取或设置标题。
-2. [AutoTag](./modules/autotag.md)：提取或设置标签。
-3. [AutoReplace](./modules/autoreplace.md)：修改摘录内容。
-4. [AutoComment](./modules/autocomment.md)：提取或设置评论。
-5. [MagicAction for Card](./modules/magicaction4card)
+1. [Another AutoDef](modules/anotherautodef)：提取或设置标题。
+2. [AutoTag](modules/autotag.md)：提取或设置标签。
+3. [AutoReplace](modules/autoreplace.md)：修改摘录内容。
+4. [AutoComment](modules/autocomment.md)：提取或设置评论。
+5. [MagicAction for Card](modules/magicaction4card)
    - 重命名标题
    - 提取标题
    - 添加标签
    - 添加评论
    - 替换摘录文字
 
-除了 AutoComplete 的数据来自于词典，其他地方均使用当前卡片或摘录笔记的数据，详细内容请查看 [模版变量](./vars.md)。
+除了 AutoComplete 的数据来自于词典，其他地方均使用当前卡片或摘录笔记的数据，详细内容请查看 [Template Variable](vars.md)。
 
 ## 变量
 
@@ -76,9 +76,9 @@ OhMyMN 在 v4 版本中加入了 Mustache 模版引擎。如果你熟悉 Anki �
 > aaa, bbb, ccc, ddd,
 ```
 
-其实这不是很智能，最后会多出一个 `,` 。这时候我们可以用自定义的 [join 函数](./vars.md#函数)，`{{#join}}{{titles}}, {{/join}}`
+其实这不是很智能，最后会多出一个 `,` 。这时候我们可以用自定义的 [join 函数](vars.md#函数)，`{{#join}}{{titles}}, {{/join}}`
 
-更神奇的是如果一个数组是对象数组，比如 [模版变量](vars) 里的 `children` 变量，他是一个对象数组，每一个元素都有 `titles` 属性，类似
+更神奇的是如果一个数组是对象数组，比如 [Template Variable](vars) 里的 `children` 变量，他是一个对象数组，每一个元素都有 `titles` 属性，类似
 
 ```js
 {
@@ -103,7 +103,7 @@ OhMyMN 在 v4 版本中加入了 Mustache 模版引擎。如果你熟悉 Anki �
 
 ## 函数
 
-函数也非常有用，在 [模版变量](vars#函数) 中，提供了很多函数。就已 `nohl` 举例吧。
+函数也非常有用，在 [Template Variable](vars#函数) 中，提供了很多函数。就已 `nohl` 举例吧。
 
 默认情况下，如果你在 MN 中划了重点，插件获取的重点就会变成 `**重点**`，这其实是 Markdown 里的语法。如果是直接在 Markdown 中粘贴就还好，但是粘贴到其他不支持 Markdown 的软件中，就比较不舒服了。
 

@@ -28,14 +28,20 @@ CopySearch 给出的解决方案是 `动态选择`
 
 为什么是优先，当优先的内容为空时，就会按照 标题->摘录->自定义，往下递推，直到有不为空的出现。
 
-### 自定义
+### Custom
 
-输入格式： [模版](../custom.md#模版)
+::: warning 自定义格式
+[模版](../custom.md#模版)
+:::
 
 ::: v-pre
 
 - 比如最常用的 MarkDown 格式 MNLink: `[{{titles.0}}]({{url.pure}})`
 - 再或者是第一条评论: `{{comments.nopic.0}}`
+
+::: tip Update
+v4.1.0 Improved：自定义复制和自定义搜索可以单独设置。
+:::
 
 ### 多张卡片
 
@@ -57,5 +63,7 @@ CopySearch 给出的解决方案是 `动态选择`
 
 - 欧陆词典：`eudic://dict/{{keyword}}`
 - 百度搜索：`https://www.baidu.com/s?wd={{keyword}}`
+
   - 指定 Edge 浏览器打开百度搜索：`microsoft-edge-https://baidu.com/s?wd={{keyword}}`
-    :::
+
+:::

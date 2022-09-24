@@ -5,68 +5,68 @@ const sidebar: DefaultTheme.Sidebar = {
   "/api/": [],
   "/": [
     {
-      text: "基础",
+      text: "Foundation",
       collapsible: true,
       items: [
         {
-          text: "简介",
+          text: "Introduction",
           link: "/guide/"
         },
         {
-          text: "基本概念",
+          text: "Basic Concepts",
           link: "/guide/concept"
         },
         {
-          text: "注意事项",
+          text: "Points to Note",
           link: "/guide/attention"
         },
         {
-          text: "配置管理",
+          text: "Profile Management",
           link: "/guide/profile"
         },
         {
-          text: "MN 使用技巧",
+          text: "MN Tips",
           link: "/guide/tips"
         }
       ]
     },
     {
-      text: "进阶",
+      text: "Advanced",
       collapsible: true,
       collapsed: true,
       items: [
         {
-          text: "正则表达式",
+          text: "Regular Expressions",
           link: "/guide/regex"
         },
         {
-          text: "replace() 函数",
+          text: "replace() Function",
           link: "/guide/replace"
         },
         {
-          text: "split() 函数",
+          text: "split() Function",
           link: "/guide/split"
         },
         {
-          text: "模版语法",
+          text: "Template Syntax",
           link: "/guide/mustache"
         },
         {
-          text: "模版变量",
+          text: "Template Variable",
           link: "/guide/vars"
         },
         {
-          text: "自定义输入格式",
+          text: "Custom Input Format",
           link: "/guide/custom"
         },
         {
-          text: "自动编号",
+          text: "Auto Numbering",
           link: "/guide/serial"
         }
       ]
     },
     {
-      text: "固定模块",
+      text: "Fixed Module",
       collapsible: true,
       collapsed: false,
       items: modules.const.map(k => ({
@@ -75,7 +75,7 @@ const sidebar: DefaultTheme.Sidebar = {
       }))
     },
     {
-      text: "可选模块",
+      text: "Optional Module",
       collapsible: true,
       collapsed: true,
       items: modules.optional.map(k => ({

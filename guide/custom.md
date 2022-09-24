@@ -1,21 +1,21 @@
-# 自定义输入格式
+# Custom Input Format
 
 OhMyMN 中有大量的自定义，方便你定制。主要是三种格式：
 
-1. [正则表达式](regex)
-2. [replace() 函数](replace)
-3. [模版](mustache)
+1. [Regular Expression](regex)
+2. [replace() Function](replace)
+3. [Template ](mustache)
 
 另外，由于正则表达式或者 replace() 函数可以同时设置多个，也会涉及到执行顺序等问题，在 OhMyMN 的输入框中输入会比较麻烦，所以我创造性的将 MN 的脑图卡片作为了自定义的输入框。
 
 当然，我建议不管是自定义什么，都不要在 OhMyMN 的输入框中直接输入，而是其他地方写好了再粘贴进来。因为 OhMyMN 不是实时保存，最后需要敲回车确定后才会保存。
 
-## 正则表达式
+## Regular Expression
 
-[正则表达式](regex.md) 有两个作用：
+[Regular Expression](regex.md) 有两个作用：
 
-1. 判断是否满足条件，比如 [Another AutoTitle](./modules/anotherautotitle.md) 中用来判断是否可以转为标题。
-2. 作为分隔点，将一段话分隔为多个部分，比如 [Another AutoDef](./modules/anotherautodef.md) 自定义定义联项，将定义分为定义项和被定义项两部分。
+1. 判断是否满足条件：比如 [Another AutoTitle](modules/anotherautotitle.md) 中用来判断是否可以转为标题。
+2. 作为分割点，将一段话分割为多个部分，比如 [Another AutoDef](modules/anotherautodef.md) 自定义定义联项，将定义分为定义项和被定义项两部分。
 
 有六种输入格式：
 
@@ -28,12 +28,17 @@ OhMyMN 中有大量的自定义，方便你定制。主要是三种格式：
 
 如果特殊情况出现，我会在相应地方注明。
 
-## replace() 函数
+## replace() Function
 
 [replace()](replace) 函数其实是对应着一种输入格式，`(regex, newSubStr)`，一个正则，一个字符串。
-比如 `(/regex/, "newSubStr")`。表示当正则满足时，使用 `newSubStr` 作为返回的结果。
+比如 `(/regex/, "newSubStr")`。
 
-其实还有第三个参数，`(regex, newSubStr, fnKey)`，`fnKey` 为整数，比如 `(/xxx/, "yyy", 0)`。只是 `FnKey` 默认为 0，可以不用写，用于一些特殊的设置。
+其作用首先是进行正则判断，看是否满足条件，如果满足，
+
+1. [Replace](replace.md#替换)，将正则匹配的部分替换为 `newSubStr`，返回替换后的内容。
+2. [Extract](replace.md#提取)，返回 `newSubStr`。
+
+其实还有第三个参数，`(regex, newSubStr, fnKey)`，`fnKey` 为整数，比如 `(/xxx/, "yyy", 0)`。只是 `FnKey` 默认为 0，可以不用写，用于一些特殊的设置。用到时自会标注出来。
 
 可以写多个，用 `;` 隔开，比如
 
@@ -50,18 +55,20 @@ OhMyMN 中有大量的自定义，方便你定制。主要是三种格式：
 
 只需要创建一张卡片作为读取点，复制它的 MNLink 填入到对应的输入框中（支持上面这两种格式的都支持 MNLink）。然后实际读取的是子卡片的第一条评论，会把所有子卡片的评论通过 `; ` 合并起来构造最终的输入。
 
-::: tip
-这个表示禁用的颜色是第 4 排第 2 个。
+::: warning
+如果你修改了卡片上的内容，OhMyMN 无法自动读取，你必须在填入自定义的地方手动敲一下回车来更新配置，同时会检查是否输入正确。
+:::
+
+::: tip 表示禁用的颜色是
+第 4 排第 2 个
 :::
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220507095500.png?x-oss-process=base_webp)
 
 在当前版本中，MagicAction 同样支持 MNLink，甚至不要求必须符合上面这两种格式。
 
-::: warning
-如果你修改了卡片上的内容，OhMyMN 无法自动读取，你必须在填入自定义的地方手动敲一下回车来更新配置，同时会检查是否输入正确。
+## Template
+
+::: v-pre
+这个就没什么好说的了，就是 `{{变量}}`，看 [Template Syntax](mustache.md) 以及 [Template Variable](vars.md)。
 :::
-
-## 模版
-
-这个就没什么好说的了，看 [模版语法](./mustache.md) 以及 [模版变量](./vars.md)。

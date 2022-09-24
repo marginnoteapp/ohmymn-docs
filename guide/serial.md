@@ -1,13 +1,13 @@
-# 自动编号
+# Auto Numbering
 
 在 OhMyMN 里面随处可见自动编号的使用，比如给卡片编号，甚至是分层编号。合并卡片内的文字时给每一个评论添加编号。CopySearch 中搜索或复制多张卡片的内容时，也可以为每张卡片的内容进行编号。
 
 ::: v-pre
 在使用中会出现三种不同的写法
 
-1. `%["1"]`，在 [重命名标题](./modules/magicaction4card.md#重命名标题) 中为选中卡片依次进行编号。另外，在 [合并卡片内文字](./modules/magicaction4card.md#合并卡片内文字) 和 [CopySeach](./modules/copysearch.md) 设置多张卡片的前后修饰都会用到。
+1. `%["1"]`，在 [重命名标题](modules/magicaction4card.md#重命名标题) 中为选中卡片依次进行编号。另外，在 [合并卡片内文字](modules/magicaction4card.md#合并卡片内文字) 和 [CopySeach](modules/copysearch.md) 设置多张卡片的前后修饰都会用到。
 2. `$["1"]`，本质上和 `%["1"]` 相同，用于 [模版函数](vars.md#函数) `{{#join} $["1"]{{titles}} {{/join}}` 中。至于为什么要设置不同的前缀，因为在重命名标题中可能会同时使用到这两个。
-3. `#["1"]`，在 [重命名标题](./modules/magicaction4card.md#重命名标题) 中为选中卡片的子卡片进行分层编号。
+3. `#["1"]`，在 [重命名标题](modules/magicaction4card.md#重命名标题) 中为选中卡片的子卡片进行分层编号。
    :::
 
 ## `%["1"]` 和 `$["1"]`
@@ -41,7 +41,7 @@
 
 ## `#["1"]`
 
-目前就只有 [重命名标题](./modules/magicaction4card.md#重命名标题) 的分层编号在使用。
+目前就只有 [重命名标题](modules/magicaction4card.md#重命名标题) 的分层编号在使用。
 
 `#["1"]` 的完整写法为 `#["1","1","1","1",[".",4, false]]`
 

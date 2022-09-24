@@ -2,7 +2,6 @@ import { defineConfig } from "vitepress"
 import { version } from "../package.json"
 import media from "./markdown-it/media"
 import {
-  contributing,
   font,
   github,
   ogImage,
@@ -99,13 +98,17 @@ export default defineConfig({
 
     nav: [
       { text: "Guide", link: "/guide/" },
-      { text: "Devlopment", link: "/dev/" },
+      { text: "Dev", link: "/dev/" },
       { text: "API", link: "/api/" },
       {
         text: `v${version}`,
         items: [
           {
-            text: "Release Notes",
+            text: "Signed Version",
+            link: "https://bbs.marginnote.cn/t/topic/20501"
+          },
+          {
+            text: "Unsigned Version",
             link: releases
           }
         ]
