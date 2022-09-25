@@ -14,7 +14,7 @@ The priority of customization is always the highest in all module presets.
 
 ::: warning 3
 
-Do not use notebooks that do not contain documents. OhMyMN can only read configuration information when the a document is being opened.
+Do not use notebooks that do not contain documents. OhMyMN can only read configuration information when a document is being opened.
 
 :::
 
@@ -34,13 +34,13 @@ Do not use OhMyMN and other plugins that execute automatically during excerpting
 
 You need to press `Enter` to confirm the custom input, 
 
-The prompt of saving successfully will appear and the input method editor will be cloased. Otherwise, there is an input error.
+The prompt of saving successfully will appear and the input method editor will be closed. Otherwise, there is an input error.
 
 :::
 
 ::: warning 7
 
-Deactivating OhMyMN in the plugin settings will `clear the config`. If an error causes a crash, you can disable and re-enable the plugin. Of course, in most cases there is no need to clear the configuration, since it will be very inconvenient to reset it.
+Deactivating OhMyMN in the plugin settings will `clear the config`. If an error causes a crash, you can disable and re-enable the plugin. Of course, in most cases, there is no need to clear the configuration since it will be very inconvenient to reset it.
 
 :::
 
