@@ -1,47 +1,46 @@
 # Introduction
 
 ::: tip Module
-可以类比插件，是 OhMyMN 内部的插件。
+It can be analogous to plugins, which are internal to OhMyMN.
 :::
 
-首先要明白 OhMyMN 本质上是一个控制面板。里面所有的功能都是单独的模块，每个模块都被赋予了三种能力：
+OhMyMN is essentially a control panel. All the functionalities inside are in separate modules, each of which is provided with three capabilities:
 
-1. 摘录时，修改摘录的内容或者获取摘录内容并进行其他操作。
-2. 脑图中选中卡片后，对卡片进行修改或获取信息并进行其他操作。
-3. 文档中选中文字后，获取文字或选区信息并进行其他操作。
+1. When excerpting, modify the excerpted content or get the excerpted content and perform other operations.
+2. After selecting a card in the mindmap, make changes to the card or get information and perform other operations.
+3. After selecting text in a document, get the text or selection information and perform other operations.
 
-有的模块可能三种能力都用了，有的可能只用了其中一个，也有的一个都没有，仅仅只是一些选项。
+Some modules may use all three capabilities, some may use only one of them, and some may use none of them with only a few options.
 
-使用第一种能力的模块通常以 Auto 开头，比如 AutoTitle，AutoDef，表示可以在摘录时自动执行（默认不执行，需要开启 `摘录时自动执行`）。使用第一种能力的模块通常还会使用第二种能力，以便处理已经存在的卡片。
+Modules that use the first capability usually start with Auto, such as AutoTitle and AutoDef, indicating that they can be executed automatically on excerpt (this is not by default though. You need to turn on ``Automatic execution on excerpt``). Modules that use the first capability usually also use the second capability in order to handle cards that already exist.
 
-第二种能力和第三种能力也通常同时使用，比如用来复制，搜索，导出。它们有一个共同的名字 —— 动作（Action）。所有模块的动作都会出现在 [MagicAction for Card](modules/magicaction4card.md) 和 [MagicAction for Text](modules/magicaction4text.md) 中，也就是一个按钮，点击就会执行相应的动作。
+The second and third capabilities are also often used together, for example, for copying, searching, and exporting. They have a common name - Action. The actions of all modules are in [MagicAction for Card](modules/magicaction4card.md) and [MagicAction for Text](modules/magicaction4text.md). The button, when clicked, performs the corresponding action.
 
-除此之外，所有模块被分为了两大类：
+Apart from that, all modules are divided into two main categories.
 
-1. 固定模块：无法关闭的模块。
-
+1. Fixed modules: Modules that cannot be disabled.
    - [OhMyMN](./modules/ohmymn)
-   - [MagicAction for Card](./modules/magicaction4card)：一些与卡片有关的动作
-   - [MagicAction for Text](./modules/magicaction4text)：一些与文本有关的动作
+   - [MagicAction for Card](./modules/magicaction4card): Some card-related actions
+   - [MagicAction for Text](./modules/magicaction4text): Some text-related actions
 
-2. 可选模块：可以选择开启的模块，可以在 `OhMyMN-模块快捷开关` 中启用
+2. Optional modules: You can select the modules to be enabled in the `OhMyMN-Module shortcut switch`.
 
-   - [Shortcut](./modules/shortcut)：使用 URL Scheme 触发动作，可自行设置快捷键来打开 URL Scheme。
-   - [Gesture](./modules/gesture)：使用手势触发动作。
-   - [CopySearch](./modules/copysearch)：复制或搜索选中的文字或选中的卡片。
+   - [Shortcut](./modules/shortcut): Use URL Scheme to trigger actions. You can set your own shortcut keys to open the URL Scheme.
+   - [Gesture](./modules/gesture): Use gestures to trigger actions.
+   - [CopySearch](./modules/copysearch): Copy or search for selected text or selected cards.
    - AutoX
-     - [Another AutoTitle](./modules/anotherautotitle)：自动转标题。
-     - [Another AutoDef](./modules/anotherautodef)：自动拆分摘录为标题和摘录两部分，提取标题。
-     - [AutoFormat](./modules/autoformat)：自动格式化摘录，比如自动添加空格。
-     - [AutoComplete](./modules/autocomplete)：自动补全英文单词词形，填充单词信息，制成单词卡片。
-     - [AutoReplace](./modules/autoreplace)：自动替换摘录中的内容。
-     - [AutoList](./modules/autolist)：自动在指定位置换行，添加序号。
-     - [AutoTag](./modules/autotag)：自动添加标签或者提取部分内容为标签。
-     - [AutoComment](./modules/autocomment)：自动添加评论或者提取部分内容为评论。
-     - [AutoStyle](./modules/autostyle)：自动设置摘录颜色和填充样式。
-     - [AutoOCR](./modules/autoocr)：自动对摘录的选区进行 OCR 识别或者矫正。
-     - [AutoTranslate](./modules/autotranslate)：自动翻译摘录的内容。
-     - [AutoSimplify](./modules/autosimplify)：自动将繁体转为简体中文。
+     - [Another AutoTitle](./modules/anotherautotitle): Auto convert titles.
+     - [Another AutoDef](./modules/anotherautodef): Auto split excerpts into two parts (title and excerpt) and extract the title.
+     - [AutoFormat](./modules/autoformat): Auto format excerpts, such as automatically adding spaces.
+     - [AutoComplete](./modules/autocomplete): Auto complete English word forms, fill in word information, and make word cards.
+     - [AutoReplace](./modules/autoreplace): Auto replace the content in the excerpt.
+     - [AutoList](./modules/autolist): Auto break the line at the specified position and add the serial number.
+     - [AutoTag](./modules/autotag): Auto add tags or extract parts of the content as tags.
+     - [AutoComment](./modules/autocomment): Auto add comments or extract parts of the content as comments.
+     - [AutoStyle](./modules/autostyle): Auto set the excerpt color and fill style.
+     - [AutoOCR](./modules/autoocr): Auto OCR recognition or correction of extracted selections.
+     - [AutoTranslate](./modules/autotranslate): Auto translate the excerpted content.
+     - [AutoSimplify](./modules/autosimplify): Auto convert from Traditional Chinese to Simplified Chinese.
    - ~~Export to X~~
      - ~~Export to Flomo~~
      - ~~Export to Anki~~
