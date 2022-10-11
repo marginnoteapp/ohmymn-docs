@@ -2,81 +2,82 @@
 
 **Powered by [ECDICT](https://github.com/skywind3000/ECDICT) & [API](http://dict.e.opac.vip/dict.php)**
 ::: warning
-本模块会用到一个在线 API 来获取数据，需要联网，并且由于服务器在国内，国外用户有可能无法正常使用。
+This module will use an online API to retrieve data, which requires the internet connection and may not work for foreign users as the server is in China.
 
-v4 版本提供了本地数据库版本，体积较大，但不需要联网，可以自行选择下载和开启。数据库较大，首次安装 OhMyMN 时会解压数据库，请耐心等待。
+The v4 version provides a local database version which is larger, but does not require the internet connection, so you can choose to download and open it. Please be patient as the database is large and will be decompressed when you first install OhMyMN.
+
 :::
 
-该模块用于解决使用 MN 学习英语，摘录英文单词的一个困扰，那就是在实际文章中，英文单词往往都不是原型，无法很好的利用标题链接。开启该功能后，会自动补全第三人称，复数，过去，完成，比较级等等形式。
+This feature is used to solve one of the issues of using MN to learn English and extract English words. In an English article, words are often not in basic forms and thus cannot make good use of the title links. When you turn on the AutoComplete feature, it will automatically complete the third-person singular form, plural form, past tense, perfect tense, comparative form, and other forms.
 
-更为强大的是，不管你摘录的是不是原型，都可以自动判断，然后补全所有形式。
+What's even more powerful is that the feature can automatically determine whether your excerpt is in the basic form or not, and then complete all forms.
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic/f5ed247b373a2f5f053b6f3523.gif?x-oss-process=base_webp)
 
-## 柯林斯星级筛选
+## Collins Rating Filtering
 
-越常用的单词柯林斯星级就越高，一共 6 个等级，0-5 星。通常 5 星的单词都是比较简单的单词，可以排除。
+The more commonly used the word is in the Collins dictionary, the higher the star rating. There are 6 levels from 0 to 5 stars. Usually, words with 5 stars are relatively simple words and can be filtered.
 
-## 填充单词信息
+## Fill in Word Information
 
-可以将单词的部分信息添加为评论，达到自动制卡的目的。
+It is possible to add some information about the words as comments to create cards automatically.
 
 ### Custom
 
-::: warning 自定义格式
-[模版](../custom.md#模版)
+::: warning Custom Format
+[Template](../custom.md#模版)
 :::
 
-有以下几个变量
+There are the following variables
 ::: v-pre
-| 变量名 | 备注 |
+| Variable | Comments |
 | --- | --- |
-| `word` | 单词原型 |
-| `phonetic` | 音标，大部分为英式音标 |
-| `zh` | 中文释义 |
-| `en` | 英文释义 |
-| `tags` | 高考、四六级等等标签 |
-| `collins` | 柯林斯星级 |
+| `word` | the basic form of the excerpted word |
+| `phonetic` | phonetic symbols (mostly in British IPA) |
+| `zh` | Chinese interpretation |
+| `en` | English interpretation |
+| `tags` | tags such as college entrance exams, CET 4, CET 6, etc.  |
+| `collins` | word frequency according to Collins Dictionary |
 
-有两个输入栏，可以生成两个评论，通常第一栏填入音标，标签等信息，第二栏填入中文或者英文释义。这样方便在复习模式中将释义单独放在卡片背面。
+There are two input fields, which can generate two comments. Usually, the first field is filled with information such as phonetic symbols, labels, etc., and the second field is filled with the interpretation in Chinese or English. This makes it easy to put the comments on the back of the card separately in the Review Mode.
 
-默认填充 1: `{{#phonetic}}🔈[{{phonetic}}] {{/phonetic}} {{collins}}{{#tags}}\n🏷 {{tags}}{{/tags}}`
+Default Placeholder 1: `{{#phonetic}}🔈[{{phonetic}}] {{/phonetic}} {{collins}}{{#tags}}\n🏷 {{tags}}{{/tags}}`
 
-默认填充 2: `✍🏻\n{{zh}}\n👀`
+Default Placeholder 2: `✍🏻\n{{zh}}\n👀`
 :::
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220730234119.png?x-oss-process=base_webp)
 
-## 动态选择释义
+## Dynamic Interpretation Selection
 
-开启此选项后，摘录的时候会弹出弹窗来选择当前文中的含义（最多 9 个），如果没有，则可以在输入框中输入来自定义。
+When this option is turned on, a pop-up window will appear during the excerpt to select the meaning in the current text (up to 9). If you are not satisfied with the results, you can enter a custom one in the input box.
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220731000657.png?x-oss-process=base_webp)
 
-### 多选释义
+### Multi-select Interpretation
 
-通过在输入框中输入指定的变量，来多选释义。
+Multi-select the interpretation by entering the specified variable in the input box.
 
-- `[all]`: 所有释义。
-- `[1-9]`: 编号 1-9 的释义。
-- `[123789]`：编号 1，2，3，7，8，9 的释义，依次类推。
-- `[adj]`: 词性为 adj 的释义，依次类推。
+- `[all]`: All interpretations.
+- `[1-9]`: Interpretations #1-9.
+- `[123789]`：Interpretations #1, 2, 3, 7, 8, 9, and so on.
+- `[adj]`: The interpretation of adjectives, and so on.
 
-多选释义和自定义释义可以同时使用，比如 `[all] v.新的释义`。
+Multi-select Interpretation and Custom Interpretation can be used simultaneously, such as `[all] v. new interpretation`。
 
-## 动态选择单词原形
+## Dynamic Basic Form Selection
 
-有些单词比如 lay，既是 lie 的过去式，也是 laid 的原形。这时候就需要主动选择一下。
+Some words, such as "lay", are both the past tense of "lie" and the basic form of "laid". This is where you need to make a choice.
 
-## 自动摘录上下文
+## Auto Excerpt Context
 
-顾名思义，可以自动摘录当前单词所在的句子，从而保留语境，方便复习记忆。
+As the name suggests, it can automatically extract the sentence in which the current word is located, thus preserving the context and making it easy to review and memorize.
 
-目前不支持 OCR Pro，如果 PDF 本身没有文字层，则无法正常工作。如果非常依赖这个功能，可以使用 Abbyy 来 OCR 整本书。
+OCR Pro is not currently supported, and will not work if the PDF itself does not have a text layer. If you rely heavily on this feature, you can use Abbyy to OCR the entire book.
 
-### 翻译上下文
+### Translate Context
 
-使用 [AutoTranslate](autotranslate.md) 来对上下文进行翻译。
+Use [AutoTranslate](autotranslate.md) to translate the context.
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220730234119.png?x-oss-process=base_webp)
 
@@ -84,7 +85,7 @@ v4 版本提供了本地数据库版本，体积较大，但不需要联网，�
 
 ### Generate Word Card
 
-使用相同的配置。AutoComplete 生成的信息都属于评论，评论无法被修改，只能删除重新添加。
+Using the same configuration, the information generated by AutoComplete belongs to comments, which cannot be modified and can only be deleted and re-added.
 
-- 追加：添加新的评论。
-- 替换: 先删除旧评论，再添加新的评论（图片可能会跑顶上去）。
+- Addition: add new comments
+- Replacement: First delete the old comment, and then add the new comment (Images may be moved to the top)
