@@ -1,6 +1,6 @@
 # AutoComment
 
-在匹配到正则的情况下自动添加指定评论，也可以从摘录中提取特定内容为评论。
+Automatically add specified comments if a regex is matched, or extract specific content from an excerpt as a comment.
 
 ## Custom
 
@@ -8,9 +8,9 @@
 [replace() Function Format —— Extract](../custom.md#replace-function)
 :::
 
-**例**
+**Example**
 
-- `(/./, "这是一个例子")` 即可每次都添加一条评论为“这是一个例子”。
+- `(/./, "This is an example")` will add one comment as "This is an example" for each iteration.
 
 ## [MagicAction for Card](magicaction4card.md#add-comment)
 
@@ -20,4 +20,4 @@
 [replace() Function Format —— Extract](../custom.md#replace-function)
 :::
 
-由于大部分情况下只是为了添加评论，而无须提取，所以你可以直接输入评论内容，我会将其补全为 `(/./, "评论")`。
+Since in most cases it's just to add a comment without extracting it, so you can just type in the comment content and I will complete it as `(/./, "<comment>")`.
