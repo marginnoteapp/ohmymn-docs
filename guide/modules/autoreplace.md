@@ -1,6 +1,6 @@
 # AutoReplace
 
-在摘录的时候自动替换某些字或词。就是常规 replace 函数的使用，不多说。
+Automatically replaces certain words or phrases in excerpts. This is the common use of the replace function, so there isn't much to say.
 
 ## Custom
 
@@ -8,12 +8,12 @@
 [replace() Function Format —— Replace](../custom.md#replace-function)
 :::
 
-## OCR Pro 常见错误（待补充）
+## OCR Pro Common Mistakes (to be added)
 
 ## [MagicAction for Card](magicaction4card.md#replace-excerpt-text)
 
 ### Replace Excerpt Text
 
-::: warni式
+::: warning Input Format
 [replace() Function Format —— Replace](../custom.md#replace-function)
 :::
