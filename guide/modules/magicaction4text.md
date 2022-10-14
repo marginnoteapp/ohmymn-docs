@@ -1,6 +1,6 @@
 # MagicAction for Text
 
-这里的动作和选中文字有关，大部分只是将结果复制到剪贴板上。在选中文字后，点击按钮来对选中的文字进行搜索或者复制。不止文字，框选一块区域也可以，甚至可以用来进行公式 OCR。
+The actions here are related to the selected text, which mostly just copy the result to the clipboard. After selecting the text, click the button to search or copy the selected text. Not only text, but also a selected area can be used, even for formula OCR.
 
 ## Pre OCR
 
@@ -8,7 +8,7 @@
 Only Current Document
 :::
 
-使用 [AutoOCR](autoocr.md) 来进行小语种的文字识别，从而方便后续的复制，搜索，以及翻译操作。
+Use [AutoOCR](autoocr.md) for foreign language text recognition, thus facilitating the subsequent copying, searching, and translation operations.
 
 ## Pre Simplify
 
@@ -20,54 +20,54 @@ v4.1.0 Added
 Only Current Document
 :::
 
-使用 [AutoSimplify](autosimplify.md) 来转换到简体中文。
+Use [AutoSimplify](autosimplify.md) to convert to Simplified Chinese.
 
-## 弹出更多选项
+## More Pop-up Options
 
-不知道你发现了没有，当你在文档中选中了一块摘录后，紧接着再用手型工具去选中一段文字，菜单里就会出现 `设置标题` `加为评论` 等选项。这样就可以直接把你选中的这段文字直接作为标题或者评论加到之前选中的摘录里。
+I do not know if you have noticed, when you select a piece of excerpt in the document, followed by the hand tool to select a paragraph of text, the menu will display `Set Title` , `Add as Comment`, and other options. This will allow you to select the text directly as the title or comments added to the previously selected excerpt.
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic/ebffda8ba4d486a3d3.gif?x-oss-process=base_webp)
 
-OhMyMN 利用了这一特性。当你在文档中选中了一块摘录后，紧接着再用手型工具去选中一段文字，此时再执行动作，某些会将执行结果复制到剪贴板的动作会弹出更多选项，比如设置标题，合并标题，设为评论等。
+OhMyMN takes advantage of this feature. When you select a piece of excerpt in a document, immediately use the hand tool to select a piece of text, and then execute the action , certain actions that copy the result of the execution to the clipboard will pop up more options, such as "set title", “merge title”, and “set as comment”, etc.
 
-## 动作
+## Action
 
-### 搜索选中文字
+### Search Selected Text
 
-来自于 [CopySearch](copysearch.md)
+From [CopySearch](copysearch.md)
 
-### 复制选中文字
-
-::: tip Update
-v4.1.0 Added
-:::
-
-来自于 [CopySearch](copysearch.md)
-
-### 公式识别
-
-来自于 [AutoOCR](autoocr.md)
-
-### 文字识别
-
-来自于 [AutoOCR](autoocr.md)
-
-### 手写识别
-
-来自于 [AutoOCR](autoocr.md)
-
-### 二维码识别
-
-来自于 [AutoOCR](autoocr.md)
-
-### 翻译选中文字
-
-来自于 [AutoTranslate](autotranslate.md)
-
-### 转为简体中文
+### Copy Selected Text
 
 ::: tip Update
 v4.1.0 Added
 :::
 
-来自于 [AutoSimplify](autosimplify.md)
+From [CopySearch](copysearch.md)
+
+### Formula Recognition
+
+From [AutoOCR](autoocr.md)
+
+### Text Recognition
+
+From [AutoOCR](autoocr.md)
+
+### Handwriting Recognition
+
+From [AutoOCR](autoocr.md)
+
+### QR Code Recognition
+
+From [AutoOCR](autoocr.md)
+
+### Translate Selected Text
+
+From [AutoTranslate](autotranslate.md)
+
+### Convert to Simplified Chinese
+
+::: tip Update
+v4.1.0 Added
+:::
+
+From [AutoSimplify](autosimplify.md)
