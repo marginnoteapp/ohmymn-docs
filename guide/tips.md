@@ -1,22 +1,22 @@
 # MN Tips
 
-### 手型工具、文本选择工具、矩形选择工具、多边形选择工具
+### Hand Tool, Text Tool, Rectangular Tool & Lasso Tool
 
-就和 PhotoShop 的选区工具一样，MN 也有很多选区工具，让你对文档中的某块区域或文字进行选择并摘录。除了手型工具外，其他几个选择工具会在选择后自动摘录。
+Just like PhotoShop's selection tools, MN has a number of selection tools that let you select and excerpt an area or text in a document. Except for the hand tools, other tools will automatically excerpt contents after selection.
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220507111341.png?x-oss-process=base_webp)
 
-我通常是使用手型工具，拖拽选区进入脑图中自动会摘录并创建卡片，这样也可以控制卡片位置。
+I usually use the hand tool. Dragging a selection area into the mindmap will automatically excerpt and create the card. This also allows you to control the position of the card.
 
-使用其他三种选择工具时会开启 `自动添加到脑图` 的功能，自动插入位置设置为 `选中位置`，这样就可以快速批量进行摘录，形成脑图。
+When using the other three selection tools, the `Auto Add to MindMap` function is enabled. The automatic insertion position is set to `Auto Insertion Position` so that you can quickly make batch excerpts and create a mindmap.
 
-### 拖拽选择区
+### Drag & Drop
 
-在 MN 的首页设置中，有一个 `拖拽选择区进入脑图` 的选项，当你将选区拖到脑图中，在已有卡片上松手，可以有两个效果
+In the Home Screen of MN, there is an entry of `Drag selection to MindMap`. When you drag the selected area A into the mindmap and drop it onto an existing card B, there are 2 options:
 
-1. 添加成为子节点
-2. 合并入
+1. Card A will become a child node of card B.
+2. Card A will be merged into card B.
 
-两个选项各有优劣，`添加成为子节点` 可以方便摘录，整理脑图结构。配合 [AutoStyle](modules/autostyle.md) 来自动将同层级卡片设置相同颜色。而 `合并入` 在 OhMyMN 中更是重要，配合 [AutoTitle](modules/anotherautotitle.md)，[AutoDef](modules/anotherautodef.md) 等可以生成标题的模块，同样可以将新的摘录转为标题继续合并，从而利用标题链接。
+There are pros and cons for each of the options. `Add as Child` is convenient for excerpting and managing mindmap structures. Use [AutoStyle](modules/autostyle.md) to automatically set the same color for cards at the same level. `Merge into` is more important in OhMyMN. Together with [AutoTitle](modules/anotherautotitle.md), [AutoDef](modules/anotherautodef.md), and other modules that can generate titles, it is also possible to turn new excerpts into titles and continue merging them, which utilizes the title links.
 
-那你可能会好奇有没有可能两者兼顾，其实是有的，当你拖拽选区到文档中已经摘录的选区中，就算你设置的是 `添加成为子节点`，也会直接合并。
+You may wonder if it is possible to do both. Actually, there is. When you drag and drop a selection onto a selection that has already been excerpted from the document, it will merge them directly even if you set it to `Add as Child`.

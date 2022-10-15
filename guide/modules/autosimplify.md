@@ -6,7 +6,7 @@ v4.1.0 Added
 
 **Powered by [OpenCC](https://github.com/BYVoid/OpenCC)**
 
-自动将摘录转换为简体中文。
+Automatic conversion of excerpts to Simplified Chinese.
 
 ## Custom
 
@@ -14,6 +14,6 @@ v4.1.0 Added
 [replace() Function Format —— Replace](../custom.md#replace-function)
 :::
 
-## 异体字
+## Variant Chinese character
 
-中国台湾和中国香港对于异体字的定义有所不同，因此在这两个地区的繁体中文中，可能会出现不同的异体字。
+Taiwan and Hong Kong have different definitions of variant characters, so different variant characters may appear in Traditional Chinese in these two regions.

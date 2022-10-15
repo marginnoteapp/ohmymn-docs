@@ -1,47 +1,51 @@
 # AutoStyle
-AutoStyle 可以单独设置并且固定文本摘录和图片摘录（划框和套索）默认的颜色和样式，同时还可以根据各种预设来自动设置颜色和样式。
+
+AutoStyle allows you to set and fix the default colors and styles for text excerpts and image excerpts (Rect and Lasso) respectively. Colors and styles can also be set automatically based on various presets.
 
 ### Preset
 
 ::: warning
-OhMyMN 只能在摘录或修改摘录的时候才能触发，拖拽卡片，合并卡片均不会触发，但是可以用手势配合`修改摘录颜色-使用 AutoStyle 的配置`来刷新颜色。
+OhMyMN can only be triggered when excerpting or modifying excerpts. Dragging cards and merging cards will not trigger OhMyMN, but you can use gestures with `Modify Excerpt Color - Use AutoStyle Config` to refresh the color.
 :::
 
-有四个预设，一个关于样式，三个关于颜色。
+There are four presets. One on style and three on color.
 
-1. 样式由字数或面积决定：因为一旦字数多了或面积大了，如果用填充，就会出现大面积的色块，从而分散注意力，此时应该切换为线框。
+1. The style is determined by the number of words or area: Once the number of words or the area is large, if you use fill, there will be a large area of color blocks, which is very distracting, so you should switch to the wireframe style at this time.
 
-    - 输入：`[类中文字数, 类英文字数, 选区面积]`
-    - 这里的字数和 [Another AutoTitle](anotherautotitle.md#预设) 中的字数是同一个概念。
-    - 选区面积可以通过打开 `显示选区面积` 来获取。
+    - Input: `[Chinese character-like word count, English word-like word count, selection area]`
+    - The word count here is the same concept as in [Another AutoTitle](anotherautotitle.md#预设).
+    - The selection area can be obtained by turning on `Show Selection Area`.
 
     ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220804014354.gif?x-oss-process=base_webp)
 
 ---
 
 ::: tip
-颜色预设有优先级，`颜色跟随卡片` ⇒ `颜色跟随兄弟卡片` ⇒ `颜色跟随父卡片` ⇒ `默认`
+The color presets have priority. `Color Follows Card` ⇒ `Color Follows Sibling Card` ⇒ `Color Follows Parent Card` ⇒ `Default`
 
-也就是说同时开启这三个预设，如果合并进卡片里，就跟随卡片。如果是作为子节点，有兄弟卡片，就跟随兄弟卡片，如果没有就跟随父卡片。
+When all three presets are enabled, if the excerpt is merged into a card, its color will follow the card. If it serves as a child node, and if it has any sibling card, it will follow the sibling card; if not, it will follow the parent card.
 :::
 
-2. 颜色跟随卡片：将下方选项（MN 主页设置）设置为 `合并入`，便可以在摘录时自动将颜色修改为拖拽合并进的卡片的颜色。
+2. Color follows card: Set the option below (MN Home Screen Settings) to `Merge In` to automatically change into color to the color of the card that the excerpt is drag-and-dropped and merged into when excerpting.
 
     ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220804004454.png?x-oss-process=base_webp)
 
     ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220804014701.gif?x-oss-process=base_webp)
-3. 颜色跟随兄弟卡片：所谓兄弟卡片，就是同一个父卡片的卡片，我设置的是跟随第一个兄弟卡片。使用该预设最好是将上方选项设置为 `添加为子节点`。
+
+3. Color follows sibling cards: The so-called sibling cards are the cards of the same parent card. I set it to follow the first sibling card. The best way to use this preset is to set the top option to `Add as Child Node`.
 
     ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220804015210.gif?x-oss-process=base_webp)
 
-4. 颜色跟随父卡片：将上方选项设置为 `添加为子节点`，就可以跟随其父卡片。
+4. Color follows parent card: Set the above option to `Add as Child Node` to follow its parent card.
 
     ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220804015411.gif?x-oss-process=base_webp)
 
 ## [MagicAction for Card](magicaction4card.md#modify-excerpt-color)
+
 ### Modify Excerpt Color
-- 输入颜色索引，1-16，也就是色盘从左到右，从上到下。
-- `使用 AutoStyle 的配置`：使用预设来刷新颜色。
+
+- Enter the color index, 1-16, which is the color palette from left to right, top to bottom.
+- `Use AutoStyle Config`: Use the presets to refresh the color.
 
 ### Modify Excerpt Style
-- `使用 AutoStyle 的配置`：使用预设来刷新样式。
+- `Use AutoStyle Config`: Use the presets to refresh the color.

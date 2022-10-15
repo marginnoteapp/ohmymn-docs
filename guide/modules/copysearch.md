@@ -1,69 +1,67 @@
 # CopySearch
 
 ::: tip
-CopySearch 没有以 Auto 开头，说明没法摘录时自动执行，可以通过手势或者在 MagicAction 中手动点击执行。
+CopySearch doesn't begin with “Auto”, which means it can't be executed automatically while excerpting, but can be executed by gestures or manual clicks in MagicAction.
 :::
 
-CopySearch 可以让你搜索和复制这张卡片上的一切，不管是看得见的摘录或者标题，还是看不见的 URL 或者修改时间。你还可以将各种属性进行自由组合，通过自定义 URL，将这些信息传入其他软件中，不管是导出还是搜索，一切都有可能实现。
+CopySearch allows you to search and copy everything on this card, whether it is a visible excerpt or title, the invisible URL, or the modification time. You can also freely combine various attributes. With custom URLs, pass this information into other software. Whether for export or searching, everything is possible.
 
-## 选择卡片内容
+## Select Card Content
 
-卡片的组成非常复杂，可能 OhMyMN 看到的卡片和你眼中的卡片还有所不同，一张卡片中可以有多个标题，多个摘录，多个评论。当你搜索或者复制的时候，如何精准选中你真正想要的。
+The composition of a card is very complex, and it may be that the card OhMyMN sees is different from the one you see. A card can have multiple titles, multiple excerpts, and multiple comments in it. When you search or copy, how to select precisely what you want?
 
-CopySearch 给出的解决方案是 `动态选择`
+The solution given by CopySearch is `Dynamic Selection`.
 
 ::: tip
-`默认搜索卡片内容` 只针对 `搜索卡片内容`。`复制卡片内容` 会在执行时弹出该选项，这样方便通过不同手势一步到位。由于 `搜索卡片内容` 既要选择搜索内容，也要选中搜索引擎。我觉得给不同搜索引擎设置不同手势会更重要一点。
+`Default Search Card Content` is only for `Search Card Content`. `Copy Card Content` will pop up when it is executed so that it can be easily done in one step with different gestures. Since `Search Card Content` has to select both the search content and the search engine, I think it would be important to have different gestures for different search engines.
 :::
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220731122447.png?x-oss-process=base_webp)
 
-`动态选择` 会给出所有标题，所有的摘录以及自定义，让你在搜索的时候进行选择。
+`Dynamic Selection` will give you all titles, all excerpts, and customizations for you to choose from when searching.
 
-除此之外，还有三个选项:
+In addition, there are three options:
 
-- 优先标题
-- 优先摘录
-- 自定义
+- Title Prioritized
+- Excerpt Prioritized
+- Custom
 
-为什么是优先，当优先的内容为空时，就会按照 标题->摘录->自定义，往下递推，直到有不为空的出现。
+Why is it prioritized? When the priority queue is empty, it will follow Title->Excerpt->Custom, recursively downwards until something that is not empty appears.
 
 ### Custom
 
-::: warning 自定义格式
-[模版](../custom.md#模版)
+::: warning Custom Format
+[Template](../custom.md#模版)
 :::
 
 ::: v-pre
 
-- 比如最常用的 MarkDown 格式 MNLink: `[{{titles.0}}]({{url.pure}})`
-- 再或者是第一条评论: `{{comments.nopic.0}}`
+- For example, the most commonly used MarkDown format MNLink: `[{{titles.0}}]({{url.pure}})`
+- Or the first comment: `{{comments.nopic.0}}`
 
 ::: tip Update
-v4.1.0 Improved：自定义复制和自定义搜索可以单独设置。
+v4.1.0 Improved: Custom copy and custom search can be set separately.
 :::
 
-### 多张卡片
+### Multiple Cards
 
-如果选中了多张卡片，就没法动态选择了，就默认第一个。对于多张卡片，不管是搜索还是复制，都是将所有卡片的指定内容合并在一起，而不是单独复制或搜索。
+If multiple cards are selected, there is no way to dynamically select them, and it defaults to the first card. For multiple cards, whether searching or copying, the specified contents of all cards are combined, not individually.
 
-这里涉及到了合并时进行编号或者换行。这个和 [MagicAction for Card -- 合并卡片内文字](magicaction4card.md#合并卡片内文字) 其实是一样的，完全可以照搬过来，这里就不多说了。
+Here it involves numbering or line breaks when merging. This is similar to [MagicAction for Card - Merge text in cards](magicaction4card.md#合并卡片内文字) It can be completely copied over, so I won't say much here.
 
-## 搜索 URL
+## Search URL
 
-可以是网址，也可是其他软件的 URLScheme。
+This can be a URL or a URL Scheme for other software.
 
-1. [URL Schemes 使用详解 - 少数派](https://sspai.com/post/31500#07)
+1. [URL Schemes Usage Explained -  sspai](https://sspai.com/post/31500#07)
 
-2. [入门 iOS 自动化：读懂 URL Schemes - 少数派](https://sspai.com/post/44591)
+2. [Getting Started with iOS Automation: Reading URL Schemes - sspai](https://sspai.com/post/44591)
 
-3. [URL Scheme 查询指南 - 少数派](https://sspai.com/post/66334)
+3. [URL Scheme Query Guide - sspai](https://sspai.com/post/66334)
 
-格式：将 URL 搜索关键词的部分换成 `{{keyword}}`
+Format: Replace the part of the URL search keyword with `{{keyword}}`
 
-- 欧陆词典：`eudic://dict/{{keyword}}`
-- 百度搜索：`https://www.baidu.com/s?wd={{keyword}}`
-
-  - 指定 Edge 浏览器打开百度搜索：`microsoft-edge-https://baidu.com/s?wd={{keyword}}`
+- Eurodictionary: `eudic://dict/{{keyword}}`
+- Specify Edge browser to use Baidu search engine: `microsoft-edge-https://baidu.com/s?wd={{keyword}}`
 
 :::

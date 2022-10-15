@@ -1,74 +1,75 @@
 # Custom Input Format
 
-OhMyMN 中有大量的自定义，方便你定制。主要是三种格式：
+There are a lot of options for customization in OhMyMN. They are mainly in three forms:
 
 1. [Regular Expression](regex)
 2. [replace() Function](replace)
 3. [Template ](mustache)
 
-另外，由于正则表达式或者 replace() 函数可以同时设置多个，也会涉及到执行顺序等问题，在 OhMyMN 的输入框中输入会比较麻烦，所以我创造性的将 MN 的脑图卡片作为了自定义的输入框。
+Besides, since multiple regular expressions or replace() functions can be set at the same time and there are also issues with the order of execution, it can be troublesome to enter in OhMyMN's input box, so I have creatively used MN's mindmap card as a custom input box.
 
-当然，我建议不管是自定义什么，都不要在 OhMyMN 的输入框中直接输入，而是其他地方写好了再粘贴进来。因为 OhMyMN 不是实时保存，最后需要敲回车确定后才会保存。
+Of course, for all customization, I don't recommend that you type it directly in the OhMyMN input box, but write it elsewhere and paste it in, because OhMyMN doesn't save input in real-time, and you need to hit "enter" at the end to make sure it is saved.
 
 ## Regular Expression
 
-[Regular Expression](regex.md) 有两个作用：
+[Regular Expression](regex.md) has two roles：
 
-1. 判断是否满足条件：比如 [Another AutoTitle](modules/anotherautotitle.md) 中用来判断是否可以转为标题。
-2. 作为分割点，将一段话分割为多个部分，比如 [Another AutoDef](modules/anotherautodef.md) 自定义定义联项，将定义分为定义项和被定义项两部分。
+1. Determine if the conditions are met: for example, in [Another AutoTitle](modules/anotherautotitle.md) it is used to determine whether something can be turned into a title
+2. As a delimiter, splitting a paragraph into multiple parts: for example, in [Another AutoDef](modules/anotherautodef.md) you can customize the split between the definition and the defined term.
 
-有六种输入格式：
+There are 6 types of input formats:
+1. String `xxx`. This is not simply omitting `//` . Special characters in regular cannot be used here. It is usually used to match a word directly.
+2. Regular Expression `/xxx/`
+3. Regular expression arrays `[/xxx/, /yyy/]`.`,` is the delimiter for `and` operator
+4. Multiple regular expressions `/xxx/; /yyy/`. `;` is the delimiter for `or` operator. If one regex is matched, then this is considered to be a successful match.
+5. Multiple regular expression arrays `[/xxx/, /yyy/]; [/xxx/]`. `;` is the delimiter for `or` operator. It is recommended to use this writing style to avoid most parsing errors.
+6. Regular expressions and regular expression arrays `[/xxx/, /yyy/]; /xxx/; /yyy/`. `;` is the delimiter for `or` operator.
 
-1. 字符串 `xxx`，并非只是省略 `//` ，这里无法使用正则里特殊的字符。一般是用来直接匹配某个词。
-2. 正则表达式 `/xxx/`。
-3. 正则表达式数组，`[/xxx/, /yyy/]`，`,` 隔开。`与` 的关系，也就是全部匹配才算匹配成功。
-4. 多个正则表达式 `/xxx/; /yyy/`，`;` 隔开。`或` 的关系，一个匹配就算匹配成功。
-5. 多个正则表达式数组，`[/xxx/, /yyy/]; [/xxx/]`，`;` 隔开。`或` 的关系。建议使用这种写法，可以避免掉大多数解析错误的情况。
-6. 正则表达式和正则表达式数组，`[/xxx/, /yyy/]; /xxx/; /yyy/`，`;` 隔开。`或` 的关系。
-
-如果特殊情况出现，我会在相应地方注明。
+If special circumstances arise, I will note them in the respective places.
 
 ## replace() Function
 
-[replace()](replace) 函数其实是对应着一种输入格式，`(regex, newSubStr)`，一个正则，一个字符串。
-比如 `(/regex/, "newSubStr")`。
+[replace()](replace) function actually corresponds to an input format. `(regex, newSubStr)` is one regular expression and one string.
 
-其作用首先是进行正则判断，看是否满足条件，如果满足，
+For example, `(/regex/, "newSubStr")`.
 
-1. [Replace](replace.md#替换)，将正则匹配的部分替换为 `newSubStr`，返回替换后的内容。
-2. [Extract](replace.md#提取)，返回 `newSubStr`。
+The first step is to make a pattern match to see if conditions are met. If so,
 
-其实还有第三个参数，`(regex, newSubStr, fnKey)`，`fnKey` 为整数，比如 `(/xxx/, "yyy", 0)`。只是 `FnKey` 默认为 0，可以不用写，用于一些特殊的设置。用到时自会标注出来。
+1. [Replace](replace.md#替换) replaces the matched part with `newSubStr` and returns the replaced content.
+2. [Extract](replace.md#提取) returns `newSubStr`。
 
-可以写多个，用 `;` 隔开，比如
+Actually, there is a third parameter in `(regex, newSubStr, fnKey)`. `fnKey` is an integer, such as in `(/xxx/, "yyy", 0)`. It is just that `FnKey` is defaulted to 0, which can be omitted. I will note this when it is used for special occasions.
 
+You can write multiple functions separated by `;`. For example:
 - `(/xxx/, "111"); (/yyy/, "222")`
 - `(/xxx/, "111", 1); (/yyy/, "222")`
 
 ## MNLink
 
-所谓 MNLink 就是 `marginnote3app://note/F20F324D-61B3-4CA9-A64C-0C92645A1E33`，也就是笔记的链接。可以在这个地方获取到
+An MNLink looks like this `marginnote3app://note/F20F324D-61B3-4CA9-A64C-0C92645A1E33`, also known as the note URL. It can be obtained here:
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220506005857.png?x-oss-process=base_webp)
 
-上面说了，不管是 `/xxx/` 还是 `(/xxx/, "yyy")` 都可以使用 `;` 隔开设置多个。我创造性的将脑图卡片当作了编辑器，这样就可以轻松停用或启用其中每一个正则。也可以修改他们的先后顺序。
+(Translation for the rectangle part: copy note URL)
 
-只需要创建一张卡片作为读取点，复制它的 MNLink 填入到对应的输入框中（支持上面这两种格式的都支持 MNLink）。然后实际读取的是子卡片的第一条评论，会把所有子卡片的评论通过 `; ` 合并起来构造最终的输入。
+As mentioned above, either `/xxx/` or `(/xxx/, "yyyy")` can be multiple using `;` separations. I creatively used the mindmap cards as editors, so that each regular expression can be easily disabled or enabled. You modify their order of precedence with ease.
+
+Simply create a card as an input field, copy its MNLink, and fill it into the corresponding input box (MNLink is supported for both formats above). The first comment of the child card will be read, and the comments of all child cards will be combined by `; ` to construct the final input.
 
 ::: warning
-如果你修改了卡片上的内容，OhMyMN 无法自动读取，你必须在填入自定义的地方手动敲一下回车来更新配置，同时会检查是否输入正确。
-:::
 
-::: tip 表示禁用的颜色是
-第 4 排第 2 个
+If you change the content on the card, OhMyMN cannot read it automatically. You must manually hit "enter" where you fill in the customization to update the configuration, and OhMyMN will check if it was entered correctly.:::
+
+::: tip indicates that the disabled color is
+in the 4th row and 2nd column
 :::
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220507095500.png?x-oss-process=base_webp)
 
-在当前版本中，MagicAction 同样支持 MNLink，甚至不要求必须符合上面这两种格式。
+In the current version, MagicAction also supports MNLink and does not even require that it conform to either of the 2 formats.
 
 ## Template
 
 ::: v-pre
-这个就没什么好说的了，就是 `{{变量}}`，看 [Template Syntax](mustache.md) 以及 [Template Variable](vars.md)。
+There's not much to say about this one, it's just `{{variable}}`. Please refer to [Template Syntax](mustache.md) and [Template Variable](vars.md).
 :::
