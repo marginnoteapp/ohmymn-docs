@@ -1,4 +1,4 @@
-## Document of [OhMyMN](https://github.com/marginnoteapp/ohmymn)
+# Document of [OhMyMN](https://github.com/marginnoteapp/ohmymn)
 
 [ [Chinese Version](https://github.com/marginnoteapp/ohmymn-docs-cn) ]  [ [Website](ohmymn.marginnote.com) ]
 
