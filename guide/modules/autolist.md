@@ -26,27 +26,27 @@ Three presets are provided. Each preset includes customizations that must match 
 ## Custom
 
 ::: warning Input Format
-[replace() Function Format —— Replace](../custom.md#replace-function)
+[Replace() Method Format —— Replace](../custom.md#replace-method)
 :::
 
 Add `\n` before or after the matched string, which is the EOL character.
 
 To add a number to each line, the third parameter of the replace function, `fnKey`, is used here. The numbering is distinguished by setting a different number for it.
 
-| fnKey | Numbered List Type  |
-| ----- | ---------- |
-| `1`   | 1. 2. 3.   |
-| `2`   | A. B. C.   |
-| `3`   | a. b. c.   |
-| `4`   | 壹、贰、叁 |
-| `5`   | 一、二、三 |
-| `6`   | ① ② ③      |
-| `7`   | ❶ ❷ ❸      |
+| fnKey | Numbered List Type |
+|-------|--------------------|
+| `1`   | 1. 2. 3.           |
+| `2`   | A. B. C.           |
+| `3`   | a. b. c.           |
+| `4`   | 壹、贰、叁           |
+| `5`   | 一、二、三           |
+| `6`   | ① ② ③              |
+| `7`   | ❶ ❷ ❸              |
 
 **Example**
 
 - `(/[;；]/, "$&\n", 1)`
-  - Denotes line break after  `;` or `；`, and number each line with  1. 2. 3. 
+  - Denotes line break after  `;` or `；`, and number each line with  1. 2. 3.
 
 ## [MarginNote for Card](magicaction4card.md#add-line-break)
 

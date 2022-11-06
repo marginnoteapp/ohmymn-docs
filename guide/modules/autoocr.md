@@ -8,22 +8,26 @@ Like AutoTranslate, AutoOCR also uses a third-party service and requires you to 
 
 ### Baidu OCR
 
-[Click for the application tutorial. Thanks, Bob!](https://bobtranslate.com/service/ocr/baidu.html)
+::: warning Notice
+Search for [How to apply the Baidu OCR API](https://www.google.com/search?q=How+to+apply+the+Baidu+OCR+API) by yourself, the exact price and amount is subject to the official website, and any fees incurred are not related to OhMyMN.
+:::
 
-Pay attention to checking the free trials for different OCR services.
+AutoOCR uses a high-precision version with a low free credit. The service will be stopped automatically when the quota is used up.
 
 ### MathPix
-[Click for the application tutorial. Thanks, Tianruo!](http://ocr.tianruo.net/interface/Math_MathPix.html)
 
-MathPix's formula recognition is very accurate. Pay attention to the information on the official website. No free trials are available and a credit card is required to apply. A one-time fee of $20 allows you to use it 1000 times a month.
+::: warning Notice
+Search for [How to apply the Mathpix API](https://www.google.com/search?q=How+to+apply+the+Mathpix+API) by yourself, the exact price and amount is subject to the official website, and any fees incurred are not related to OhMyMN.
+:::
 
+It should be noted that MathPix prices change frequently and are not cheap.
 ## Foreign Language Online Correction
 
 ::: tip
 Both `Auto Execution on Excerpt` and `Language Recognition` are valid for the current document so that they can be set separately for different documents.
 :::
 
-MN's OCR Pro does not support many foreign languages, making it impossible to excerpt properly, such as Russian. Auto OCR uses Baidu's OCR service to correct excerpts online.
+MarginNote's OCR Pro does not support many foreign languages, making it impossible to excerpt properly, ~~such as Russian~~ (Supported now). AutoOCR uses Baidu's OCR service to correct excerpts online.
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic/20220813094209.gif?x-oss-process=base_webp)
 
@@ -49,13 +53,13 @@ This feature has three options
 
 Please be prepared that although it looks cool, it is complicated to implement:
 1. Apply for Baidu OCR or MathPix API key.
-2. Fill it in AutoOCR and select the corresponding formula recognition service provider. 
-3. Install any Markdown plugin and select the corresponding Markdown plugin. 
+2. Fill it in AutoOCR and select the corresponding formula recognition service provider.
+3. Install any Markdown plugin and select the corresponding Markdown plugin.
 4. MagicAction for Text - in the pop-up menu for more options, turn on `Set as Title`.
 5. **first select an excerpt or card** (otherwise you can only copy the result to the clipboard), then drag to select, and click `Formula Recognition`. The recognized Latex of the formula is automatically written to the previously selected card. Use the Gesture module to invoke the execution for a better experience.
 
 ### Text Recognition
-Re-OCR the excerpt using AutoOCR's configuration.
+Perform text recognition on the selected text or area and copy the result to the clipboard.
 ### Handwriting recognition
 Use Baidu OCR service for handwriting recognition. Please note the free trial.
 ### QR code recognition

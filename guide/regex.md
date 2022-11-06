@@ -1,28 +1,33 @@
 # Regular Expression
 
-在 OhMyMN 中，正则表达式无处不在。所谓正则表达式，简单点说，就是用来匹配某种特定格式字符串的一种表达式。
+Regular expressions are ubiquitous in OhMyMN. A regular expression is simply an expression that is used to match a particular formatted string.
 
-一般的搜索就是，你输入单词 baby，那就会搜出所有的 baby，其中也会包括 angelababy。其实我只想搜索单独的 baby，怎么办呢。单词与单词之间肯定是非单词的字符，所以我们可以用正则表达式 `\bbaby\b`，`\b` 表示所在位置的一侧为单词字符，另一侧为非单词字符。
+The general search just like, if you type the word `baby`, it will search for all `baby`, including `angelababy`, but I only want to search for individual `baby`, so what should I do? Between the word and the word must be non-word characters, so we can use the regular expression `\bbaby\b`, `\b` means that one side of the location for the word characters, the other side for non-word characters.
 
-## 补充知识
+## Additional but Important
 
-1. 不同的编程语言以及不同的浏览器，对正则支持情况都有所不同，MN 使用的是 Safari 的 JavaScript 引擎。很多特性都不支持，比如向后断言 `(?<=y)x`，向后否定断言 `(?<!y)x`。
-2. JavaScript 语言中，正则有固定的写法，比如 `/\bbaby\b/g`，用两个 `/` 来包裹。第二个斜杠后面可以添加标志，用来改变匹配模式，下面这 5 个比较常用：
+1. Regular expression support varies by programming language and by browser. MarginNote uses Safari JavaScriptCore engine, which does not support many features, such as the lookbehind assertion `(?<=y)x`, the negative lookbehind assertion `(?<!y)x`.
+2. In JavaScript, there is a fixed way to write a regular expression , such as `/\bbaby\b/g`, wrapped with two `/`. After the second slash, you can add flags to change the matching pattern, the following 5 are commonly used.
 
-   - `/xxx/g` 表示全局匹配，在 [replace() 函数](replace) 中会替换掉所有匹配到的字符串，否则只会替换第一个。
-   - `/xxx/i` 表示忽略大小写。
-   - `/xxx/s` 表示 `.` 可以匹配换行符，这里要注意，默认情况下 `.` 无法匹配换行符的。
-   - `/xxx/m` 表示多行匹配， `^$` 将不再只匹配整个字符串的开头和结尾，而是每一行的开头和结尾。
-   - `/xxx/u` 表示启用 Unicode 匹配，用来匹配中文或者 Emoji 时非常有用，自行查看 [具体属性](https://www.cnblogs.com/gaara0305/p/10122776.html)。
-3. 可以使用 [Regex-Vis](https://regex-vis.com/?r=%5Cbbaby%5Cb) 或 [iHateRegex](https://ihateregex.io/playground) 进行测试和可视化。
-4. 可以使用 [这个网站](https://regexlearn.com/zh-cn/learn) 通过答题来入门正则表达式，我相信会对你有所帮助。
+   - `/xxx/g` Global search. In the [Replace() Method](replace), all matching strings will be replaced, otherwise only the first one will be replaced.
+   - `/xxx/i` Case-insensitive search.
+   - `/xxx/s` Allows `.` to match newline characters.
+   - `/xxx/m` Allows `^` and `$` to match newline characters.
+   - `/xxx/u` "Unicode"; treat a pattern as a sequence of Unicode code points.
+3. You can use [Regex-Vis](https://regex-vis.com/?r=%5Cbbaby%5Cb) or [iHateRegex](https://ihateregex.io/playground) to test and visualize。
+4. You can use [Regex Learn](https://regexlearn.com/learn/regex101) to get started with regular expressions by answering questions, I believe it will help you.
 
+
+---
+::: tip
+The contentn below is just my notes on learning regular expression. It may not be helpful to you, but if you need learn regular expression in detail, just search for regular expression on Google.
+:::
 ## 元字符
 
 元字符是在正则表达式中具有特殊含义的符号或字符，正则表达式本质上就是通过元字符实现字符串精准匹配的。接下来，我讲的所有符号都是元字符，下面这些是简单常用的元字符。
 
 | 符号 | 说明                       |
-| ---- | -------------------------- |
+|------|--------------------------|
 | `.`  | 匹配除换行符以外的任意字符 |
 | `\w` | 匹配字母或数字或下划线     |
 | `\s` | 匹配任意的空白符           |
@@ -36,21 +41,21 @@
 ## 反义
 
 反义一般用上面元字符的大写表示，比如`\d`匹配任意数字，而`\D`匹配除数字外的所有字符，其他的也一样。使用`^`来匹配除方框里给出的字符之外的所有字符。
-| 符号/语法  | 说明                                       |
-| ---------- | ------------------------------------------ |
+| 符号/语法  | 说明                                    |
+|------------|---------------------------------------|
 | `\W`       | 匹配任意不是字母，数字，下划线，汉字的字符 |
-| `\S`       | 匹配任意不是空白符的字符                   |
-| `\D`       | 匹配任意非数字的字符                       |
-| `\B`       | 匹配不是单词开头或结束的位置               |
-| `[^x]`     | 匹配除了 x 以外的任意字符                  |
-| `[^aeiou]` | 匹配除了 aeiou 这几个字母以外的任意字符    |
+| `\S`       | 匹配任意不是空白符的字符                |
+| `\D`       | 匹配任意非数字的字符                    |
+| `\B`       | 匹配不是单词开头或结束的位置            |
+| `[^x]`     | 匹配除了 x 以外的任意字符               |
+| `[^aeiou]` | 匹配除了 aeiou 这几个字母以外的任意字符 |
 
 ## 限定符
 
 限定符是跟在其他元字符后面的，用于限定元字符匹配字符的重复次数。
 
 | 符号/语法 | 说明             |
-| --------- | ---------------- |
+|-----------|----------------|
 | `*`       | 重复零次或更多次 |
 | `+`       | 重复一次或更多次 |
 | `?`       | 重复零次或一次   |
@@ -117,12 +122,12 @@
 ### 1. 捕获组
 默认 `()` 就是捕获组，会将括号里匹配到的内容保存到内存中，你可以使用 `\1` 来引用它，当然，只能在括号后引用，这就是 `后向引用`。
 
-捕获组在 [replace() 函数](replace) 中非常有用。可以使用 `$1` 来引用捕获的内容。
+捕获组在 [Replace() Method](replace) 中非常有用。可以使用 `$1` 来引用捕获的内容。
 
 ### 2. 非捕获组
 如果只是想分组，其实不需要用捕获组，可以使用 `(?:)` 来分组。
 
-在 [split() 函数](split) 中，如果使用捕获组，捕获的内容包括在结果中，会增加不确定性，一般就是用的非捕获组。
+在 [Split() Method](split) 中，如果使用捕获组，捕获的内容包括在结果中，会增加不确定性，一般就是用的非捕获组。
 
 ## 贪婪与懒惰
 这其实是很多人不太明白，但却非常重要的知识点。
@@ -132,7 +137,7 @@
 而如果想匹配到 `101` ，我们就需要使用 `1\d+?1` ，在重复限定符后加一个 `?` ，就变成了懒惰匹配，会尽可能少的匹配。尽可能少重复，遇到第一个满足条件的就停止匹配。`?` 本身就是重复限定符，表示重复 0 次或 1 次，所以也有 `.??` 这种形式，至于这有什么作用，我也不知道。
 
 ## 零宽断言
-可谓是正则里面最厉害的，可惜的是 MN 的 JS 引擎对它的支持度不高。它不匹配任何字符串，只匹配一个位置，比如 `\b` `^` `$` 这些都是断言。
+可谓是正则里面最厉害的，可惜的是 MarginNote 的 JS 引擎对它的支持度不高。它不匹配任何字符串，只匹配一个位置，比如 `\b` `^` `$` 这些都是断言。
 
 零宽好理解，匹配的只是一个位置，本身是没有宽度的。而断言，在调试代码中很常用，表示我断定这个条件是满足的，如果不满足就是出 bug 了。至于在这里嘛，可能就是断定这个位置的意思。
 

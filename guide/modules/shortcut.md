@@ -1,11 +1,42 @@
+<script setup>
+import Shortcut from '/.vitepress/components/Shortcut.vue';
+</script>
 # Shortcut
 
-::: tip Update
-v4.1.0 Added
-:::
-
 ::: warning Note
-Recommended for Mac. This feature is provided entirely by OhMyMN and is not affiliated with MN.
+This feature is provided entirely by OhMyMN and is not affiliated with MarginNote.
+
+This "Shortcut" is just a url.
 :::
 
-Trigger actions in MagicAction via URL Scheme. You can set shortcuts to open URLs on the Mac.
+Trigger actions in MagicAction via URL Scheme, and set shortcut keys to open URLs on Mac.
+
+1. Open `marginnote3app://addon/ohmymn?type=card&shortcut=1` could trigger first card action.
+2. Open `marginnote3app://addon/ohmymn?type=text&shortcut=2` could trigger second text action.
+
+## Custom Shortcuts
+
+URLs can be set for each action as well as for any input value, and set them as shortcut keys. It is even possible to execute multiple actions at the same time, changing the order of execution by the order of selection.
+
+::: warning Shortcut Generator
+
+<Shortcut/>
+
+:::
+
+
+## Use shortcut keys to open url
+### iPad
+1. Install a apple shortcut https://www.icloud.com/shortcuts/d9027fc514f04fc4add78ae506baba8d
+2. Open Settings, then tap Accessibility.
+3. Tap Keyboards.
+4. Tap Full Keyboard Access and turn it on.
+5. Tap Commands.
+6. Tap a command, then press a custom key combination to assign to it.
+### Mac
+
+There are many tools for the Mac, I usually use Karabiner-Elements, which also allows you to set shortcuts to MarginNote separately, for free. Raycast is also very suitable and even simpler.
+
+## Use gesture to open url
+
+The [Gesture](gesture.md) module can be used on iPad to open URLs to use the power of shortcuts.

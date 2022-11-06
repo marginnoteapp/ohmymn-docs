@@ -2,39 +2,64 @@
 
 # Template Syntax
 
-OhMyMN 在 v4 版本中加入了 Mustache 模版引擎。如果你熟悉 Anki 模版，就会发现其实 Anki 用的也是这个。标志就是两个大胡子 `{{}}`。相较于之前 [AutoComplete](modules/autocomplete) 或者 [CopySearch](modules/copysearch) 我自己实现的模版~~引擎~~，Mustache 更加强大，带来了数组，对象，函数的支持。
+OhMyMN has added the Mustache template engine in v4. If you're familiar with Anki templates, you'll see that Anki actually uses the same one. The logo is the two bearded `{{}}`. Compared to the previous [AutoComplete](./modules/autocomplete.md) or [CopySearch](modules/copysearch.md) template engines I implemented myself, Mustache is more powerful and brings support for arrays, objects, and functions.
 
-## 在哪里可以使用
+## Where It Can Be Used
 
 1. [AutoComplete](modules/autocomplete)
 2. [CopySearch](modules/copysearch)
 3. ~~Export to Anki~~
 4. ~~Export to Flomo~~
 
-其实不仅如此，OhMyMN v4 将模版与 [replace()](replace) 函数相融合，你可以在 `newSubStr` 中使用模版。不过并不是任何地方使用都有意义，所以我限制了使用区域。
+Actually, not only that, OhMyMN v4 integrates templates with the [Replace()](replace) Method, and you can use templates in `newSubStr`. It doesn't make sense to use it anywhere, though, so I've restricted the area of use.
 
-1. [Another AutoDef](modules/anotherautodef)：提取或设置标题。
-2. [AutoTag](modules/autotag.md)：提取或设置标签。
-3. [AutoReplace](modules/autoreplace.md)：修改摘录内容。
-4. [AutoComment](modules/autocomment.md)：提取或设置评论。
+1. [Another AutoDef](modules/anotherautodef): Custom Title Extraction.
+2. [AutoTag](modules/autotag.md): Custom
+3. [AutoReplace](modules/autoreplace.md): Custom
+4. [AutoComment](modules/autocomment.md): Custom
 5. [MagicAction for Card](modules/magicaction4card)
-   - 重命名标题
-   - 提取标题
-   - 添加标签
-   - 添加评论
-   - 替换摘录文字
+   - Rename Titles
+   - Extract Titles
+   - Add Comments
+   - Add Tags
+   - Replace Excerpt Content
 
-除了 AutoComplete 的数据来自于词典，其他地方均使用当前卡片或摘录笔记的数据，详细内容请查看 [Template Variable](vars.md)。
+Data from the current card or extracted notes are used everywhere except for AutoComplete where the data comes from the dictionary, see [Template Variable](vars.md) for details.
 
-## 变量
 
-所谓变量嘛，也就是 `key: value`，输入 key，解析出来就成了 value。在 JavaScript 里，我们通常将其称为对象的一个属性。
+## Addtional but Important
+1. Since Mustache is originally used for HTML templates, by default the parsed text will be HTML escaped. But we don't need it here, so I changed the source code to not escape by default, if you need to escape, you can use `{{{titles}}}` or `{{& titles}}`.
+2. Use an array variable directly, the array elements will be merged into a string by `;`. This is not the same as Mustache.
+
+---
+
+::: tip
+The contentn below is just my notes on learning Mustache. It may not be helpful to you, but if you need learn Mustache in detail, just search for Mustache on Google.
+:::
+## Variable
+
+所谓变量嘛, 就是 key-value。输入 key，解析出来就成了 value。
 
 要使用一个变量，直接 `{{titles}}` 即可，你就可以获取到这张卡片的标题。如果你变量名写错了，或者这个变量没有值，就整体为空。
 
-由于 Mutache 最初是用在 HTML 模版上，所以默认情况下解析出来的文本都会进行 HTML 转义。但我们这里用不着，所以我修改了下源码，改为了默认不转义，如果需要转义，可以使用 `{{{titles}}}` 或 `{{& titles}}`。
 
-## 条件
+## Object
+
+对象可以有很多变量, 比如
+```
+obj = {
+  key1: "value1",
+  key2: "value2",
+}
+```
+你可以使用
+
+```js
+{{#obj}} {{key1}} {{key2}} {{/obj}}
+> value1 value2
+```
+
+## If/Else
 
 可以把变量作为一个判断条件，像下面这样，包裹住一些文字或者变量，如果这个变量为空，那么整体就为空。有点类似 HTML 标签 `<a></a>`，以反斜杠结束。
 
@@ -53,14 +78,14 @@ OhMyMN 在 v4 版本中加入了 Mustache 模版引擎。如果你熟悉 Anki �
 这样其实也就实现了 `if-else` 的效果。
 :::
 
-## 数组/列表
+## List/Array
 
 ::: tip
 在代码世界里，一个数组或者列表都是从 0 开始数的。
 :::
 
 ::: v-pre
-这是我换成 Mutache 的最大原因。以前只能用 `title_1`，`tag_1` 表示第一个标题，第一个标签，现在可以使用 `titles.0`，`tags.0` 来表示。当然也可以 `titles.1` `titles.2`。
+这是我换成 Mustache 的最大原因。数组也是变量，以前只能用 `title_1`，`tag_1` 表示第一个标题，第一个标签，现在可以使用 `titles.0`，`tags.0` 来表示。当然也可以 `titles.1` `titles.2`。
 
 默认情况下，一个数组 `{ titles: ["aaa", "bbb", "ccc", "ddd"] }`，如果直接这样使用，输出的结果会用 `; ` 隔开。
 
@@ -101,11 +126,11 @@ OhMyMN 在 v4 版本中加入了 Mustache 模版引擎。如果你熟悉 Anki �
     ccc; ddd
 ```
 
-## 函数
+## Function
 
 函数也非常有用，在 [Template Variable](vars#函数) 中，提供了很多函数。就已 `nohl` 举例吧。
 
-默认情况下，如果你在 MN 中划了重点，插件获取的重点就会变成 `**重点**`，这其实是 Markdown 里的语法。如果是直接在 Markdown 中粘贴就还好，但是粘贴到其他不支持 Markdown 的软件中，就比较不舒服了。
+默认情况下，如果你在 MarginNote 中划了重点，插件获取的重点就会变成 `**重点**`，这其实是 Markdown 里的语法。如果是直接在 Markdown 中粘贴就还好，但是粘贴到其他不支持 Markdown 的软件中，就比较不舒服了。
 
 之前的解决办法是用两个变量，一个表示有 `**`，一个表示没有 `**`。现在你可以这样：
 

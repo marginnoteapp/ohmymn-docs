@@ -5,19 +5,20 @@ Specified tags are automatically added if a regex is matched, and specific conte
 ## Custom
 
 ::: warning Input Format
-[replace() Function Format —— Extract](../custom.md#replace-function)
+[Replace() Method Format —— Extract](../custom.md#replace-method)
 :::
 
 **Example**
 
-- `(/./, "This is an example")` and you can add a label for "This is an example" each time.
+- `(/^.+$/gs, "This is an example")` and could add four tags each time, such as "#This #is #an #example".
+- `(/@picture, "This is a picture")` and could add a tag for "This is a picture" when you excerpt a picture。
 
 ## [MagicAction for Card](magicaction4card.md#add-tag)
 
 ### Add Tag
 
 ::: warning Input Format
-[replace() Function Format —— Extract](../custom.md#replace-function)
+[Replace() Method Format —— Extract](../custom.md#replace-method)
 :::
 
-Since in most cases it's just to add tags without extracting them, you can just type in the tag content and I'll complete it as `(/./, "标签")`.
+Since in most cases it's just to add tags without extracting them, you can just type in the tag content.

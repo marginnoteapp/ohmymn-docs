@@ -13,7 +13,7 @@ The composition of a card is very complex, and it may be that the card OhMyMN se
 The solution given by CopySearch is `Dynamic Selection`.
 
 ::: tip
-`Default Search Card Content` is only for `Search Card Content`. `Copy Card Content` will pop up when it is executed so that it can be easily done in one step with different gestures. Since `Search Card Content` has to select both the search content and the search engine, I think it would be important to have different gestures for different search engines.
+`Default Content To Search` is only for `Search Card Content`. `Copy Card Content` will pop up when it is executed so that it can be easily done in one step with different gestures. Since `Search Card Content` has to select both the search content and the search engine, I think it would be important to have different gestures for different search engines.
 :::
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220731122447.png?x-oss-process=base_webp)
@@ -22,32 +22,28 @@ The solution given by CopySearch is `Dynamic Selection`.
 
 In addition, there are three options:
 
-- Title Prioritized
-- Excerpt Prioritized
+- Title First
+- Excerpt First
 - Custom
 
-Why is it prioritized? When the priority queue is empty, it will follow Title->Excerpt->Custom, recursively downwards until something that is not empty appears.
+Why is it First? When the priority queue is empty, it will follow Title->Excerpt->Custom, recursively downwards until something that is not empty appears.
 
 ### Custom
 
 ::: warning Custom Format
-[Template](../custom.md#模版)
+[Template](../custom.md#template)
 :::
 
 ::: v-pre
 
 - For example, the most commonly used MarkDown format MNLink: `[{{titles.0}}]({{url.pure}})`
-- Or the first comment: `{{comments.nopic.0}}`
-
-::: tip Update
-v4.1.0 Improved: Custom copy and custom search can be set separately.
-:::
+- Or the first comment: `{{comments.text.0}}`
 
 ### Multiple Cards
 
 If multiple cards are selected, there is no way to dynamically select them, and it defaults to the first card. For multiple cards, whether searching or copying, the specified contents of all cards are combined, not individually.
 
-Here it involves numbering or line breaks when merging. This is similar to [MagicAction for Card - Merge text in cards](magicaction4card.md#合并卡片内文字) It can be completely copied over, so I won't say much here.
+Here it involves numbering or line breaks when merging. This is similar to [MagicAction for Card - Merge Text](magicaction4card.md#merge-text) It can be completely copied over, so I won't say much here.
 
 ## Search URL
 

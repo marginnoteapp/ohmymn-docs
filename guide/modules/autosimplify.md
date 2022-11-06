@@ -11,9 +11,9 @@ Automatic conversion of excerpts to Simplified Chinese.
 ## Custom
 
 ::: warning Input Format
-[replace() Function Format —— Replace](../custom.md#replace-function)
+[Replace() Method Format —— Replace](../custom.md#replace-method)
 :::
 
-## Variant Chinese character
+## Variant Conversion
 
 Taiwan and Hong Kong have different definitions of variant characters, so different variant characters may appear in Traditional Chinese in these two regions.

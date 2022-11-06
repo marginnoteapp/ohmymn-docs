@@ -1,23 +1,25 @@
 # Auto Numbering
 
-在 OhMyMN 里面随处可见自动编号的使用，比如给卡片编号，甚至是分层编号。合并卡片内的文字时给每一个评论添加编号。CopySearch 中搜索或复制多张卡片的内容时，也可以为每张卡片的内容进行编号。
+Automatic numbering is used everywhere in OhMyMN, such as numbering card titles and even hierarchical numbering. When merging text within a card, you can add a number to each comment, and when searching or copying the contents of multiple cards in CopySearch, you can also number the contents of each card.
 
 ::: v-pre
-在使用中会出现三种不同的写法
+Three different ways of writing will appear in use:
 
-1. `%["1"]`，在 [重命名标题](modules/magicaction4card.md#重命名标题) 中为选中卡片依次进行编号。另外，在 [合并卡片内文字](modules/magicaction4card.md#合并卡片内文字) 和 [CopySeach](modules/copysearch.md) 设置多张卡片的前后修饰都会用到。
-2. `$["1"]`，本质上和 `%["1"]` 相同，用于 [模版函数](vars.md#函数) `{{#join} $["1"]{{titles}} {{/join}}` 中。至于为什么要设置不同的前缀，因为在重命名标题中可能会同时使用到这两个。
-3. `#["1"]`，在 [重命名标题](modules/magicaction4card.md#重命名标题) 中为选中卡片的子卡片进行分层编号。
-   :::
+1. `%["1"]`: Used in [Rename titles](modules/magicaction4card.md#rename-titles) to numbering each card titles. also in [Merge Text](modules/magicaction4card.md#merge-text) and [CopySeach](modules/copysearch.md).
+2. `$["1"]`: Essentially the same as `%["1"]`,  will be used in [Template Function —— join](vars.md#function). As for why different prefixes are set, because both may be used in [Rename titles](modules/magicaction4card.md#rename-titles).
+3. `#["1"]`: Number the subcards of the selected card hierarchically in [Rename Titles](modules/magicaction4card.md#rename-titles).
 
-## `%["1"]` 和 `$["1"]`
+:::
 
-这两个的使用方法完全相同，就以 `%["1"]` 举例。
+## `%["1"]` & `$["1"]`
 
-### 起始值和字符类型
+These two are used in exactly the same way, so let's take `%["1"]` as an example.
 
-首先，这个 `"1"` 里面的 1 是可以变的，可以是 2，也可是 100，甚至还可以是 `001`，给数字补 0，从而所有编号都能达到相同的宽度，这就是起始值。
-不光如此，还可以是不同的编号字符：
+### Starting Value and Symbol Type
+
+First of all, the 1 in this `"1"` can be variable, it can be 2, it can be 100, it can even be `001`, giving the number the complementary 0 so that all numbers can reach the same width, which is the starting value.
+
+Not only that, but also different numbering symbols:
 
 - `①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳㉑㉒㉓㉔㉕㉖㉗㉘㉙㉚㉛㉜㉝㉞㉟㊱㊲㊳㊴㊵㊶㊷㊸㊹㊺㊻㊼㊽㊾㊿`
 - `❶❷❸❹❺❻❼❽❾❿⓫⓬⓭⓮⓯⓰⓱⓲⓳⓴`
@@ -28,29 +30,30 @@
 - `ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ`
 - `ⅰⅱⅲⅳⅴⅵⅶⅷⅸⅹ`
 
-所以说 `"1"` 既决定了编号的字符类型，也决定了起始值。使用的时候直接复制替换即可。不过要注意，如果编号不够，则会从头开始。
+So the `"1"` determines both the symbol type and the starting value of the number. Just copy and replace it when you use it. Note, however, that if the numbering is insufficient, it will start from the beginning.
 
-### 步长
+### Step Length
 
-`%["1"]` 的完整写法是 `%["1",1]`，后面这个 `1` 没有引号，代表着步长。步长就是间隔，步长 1 为默认值，所以可以省略。
-如果你想 `1 11 21 31`，则可以写成 `%["1",10]`。
+`%["1"]` written in full as `%["1",1]`，the last `1` is step lenght, which not wrapped by double quotes. The step is the interval, and step 1 is the default value, so it can be omitted.
 
-### 自定义编号字符
+If you want to numbering as `1 11 21 31`, you can use `%["1",10]`.
 
-如果你想使用一套指定的编号或者前缀，则可以使用 `%["aaa", "bbb", "ccc", "ddd", "eee", "fff"]`。
+### Custom Numbering Symbols
+
+If you want to use a specified set of numbering symbols, then you can use the `%["aaa", "bbb", "ccc", "ddd", "eee", "fff"]`。
 
 ## `#["1"]`
 
-目前就只有 [重命名标题](modules/magicaction4card.md#重命名标题) 的分层编号在使用。
+Only the [rename titles -- hierarchical numbering](modules/magicaction4card.md#rename-titles) is currently in use.
 
-`#["1"]` 的完整写法为 `#["1","1","1","1",[".",4, false]]`
+`#["1"]` written in full as `#["1","1","1","1",[".",4, false]]`
 
-表示第一层从 `1` 开始，第二层从 `1` 开始，第三和第四层也是从 `1` 开始。如果之后还有层级，默认使用提供的最后一个起始值，也就是 `1`。你脑图有多少层，你这里就可以设置多少层，也就是可以为每一层单独设置编号的字符。它支持上述所有的编号字符，但不自持设置步长，不支持自定义编号字符。
+Indicates that the first layer starts from `1`, the second layer starts from `1`, and the third and fourth tiers also start from `1`. If there are layers after that, the default is to use the last starting value provided, which is `1`. You can set as many layers as your mindmap has here, which means you can set the numbering symbols for each layer individually. It supports all the numbering symbols mentioned above, but does not hold itself to set the step size and does not support custom numbering symbols.
 
-### 选项数组
+### Options Array
 
-最后的 `['.',4,false]` 数组中的三个元素分别表示 `连接符号`, `最大编号层级`，`是否只显示当前层的编号`。均可省略，没有顺序要求。默认值为 `[".",999,false]`。
+The last `[".", 4, false]` is options array. The three elements represent `Connection Symbol`, `Max Numbering Layer`，`Only Show Current Layer Number`. All can be omitted, no order is required. The default value is `[".",999,false]`.
 
-- `连接符号` 为字符串 `"."`, 也就是 `1.1.1`。
-- `最大编号层级` 为数字 `4`, 如果整个脑图有 10 层，你可以通过这个设置，来限定 4 层之后就不再编号。通常只需要编号三层即可。
-- `是否只显示当前层的编号` 为布尔值 `false`，布尔值就是 `true/false`。将其设置为 `true` 后，每一层只会显示一个编号，而不会加上其父卡片的编号。 `1.1.2` -> `2`
+- `Connection Symbol` is a string, wrapped by double quotes.
+- `Max Numbering Layer` is a number. If the entire mindmap has 10 layers, you can use this setting to limit the numbering to 4 layers. Usually only three layers need to be numbered.
+- `Only Show Current Layer Number` is a boolean `true/false`. By setting it to `true`, only one number will be displayed for each level, without adding the number of its parent card. `1.1.2` -> `2`

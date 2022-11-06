@@ -25,12 +25,12 @@ const features = {
       details: "No need to manually turn on the addon, everything will be executed automatically according to your requirements."
     },
     {
-      title: "Collaboration",
-      details: "Different modules will not only not affect each other, but also can cooperate with each other."
+      title: "Work Together",
+      details: "Different modules can work together to get more magical effects"
     },
     {
-      title: "Gesture",
-      details: "Quickly process the mind map card through gestures, full score efficiency."
+      title: "Gesture & Shortcut",
+      details: "Quickly process the mindmap card through gestures and shortcut, full score efficiency."
     }
   ],
 }

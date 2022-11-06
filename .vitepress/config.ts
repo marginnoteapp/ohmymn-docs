@@ -1,5 +1,5 @@
 import { defineConfig } from "vitepress"
-import { version } from "../package.json"
+import { version,unsignedVersion } from "../package.json"
 import media from "./markdown-it/media"
 import {
   font,
@@ -104,11 +104,11 @@ export default defineConfig({
         text: `v${version}`,
         items: [
           {
-            text: "Signed Version",
+            text: `Signed Version (v${version})`,
             link: "https://bbs.marginnote.cn/t/topic/20501"
           },
           {
-            text: "Unsigned Version",
+            text: `Unsigned Version (v${unsignedVersion})`,
             link: releases
           }
         ]

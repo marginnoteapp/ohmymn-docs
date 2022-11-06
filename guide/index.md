@@ -1,7 +1,7 @@
 # Introduction
 
 ::: tip Module
-It can be analogous to plugins, which are internal to OhMyMN.
+It is similar to plugins/addons, which are internal to OhMyMN.
 :::
 
 OhMyMN is essentially a control panel. All the functionalities inside are in separate modules, each of which is provided with three capabilities:
@@ -12,13 +12,13 @@ OhMyMN is essentially a control panel. All the functionalities inside are in sep
 
 Some modules may use all three capabilities, some may use only one of them, and some may use none of them with only a few options.
 
-Modules that use the first capability usually start with Auto, such as AutoTitle and AutoDef, indicating that they can be executed automatically on excerpt (this is not by default though. You need to turn on ``Automatic execution on excerpt``). Modules that use the first capability usually also use the second capability in order to handle cards that already exist.
+Modules that use the first capability usually start with Auto, such as AutoTitle and AutoDef, indicating that they can be executed automatically on excerpt (this is not by default though. You need to turn on `Auto Run When Excerpting`. Modules that use the first capability usually also use the second capability in order to handle cards that already exist.
 
 The second and third capabilities are also often used together, for example, for copying, searching, and exporting. They have a common name - Action. The actions of all modules are in [MagicAction for Card](modules/magicaction4card.md) and [MagicAction for Text](modules/magicaction4text.md). The button, when clicked, performs the corresponding action.
 
 Apart from that, all modules are divided into two main categories.
 
-1. Fixed modules: Modules that cannot be disabled.
+1. Required modules: Modules that cannot be disabled.
    - [OhMyMN](./modules/ohmymn)
    - [MagicAction for Card](./modules/magicaction4card): Some card-related actions
    - [MagicAction for Text](./modules/magicaction4text): Some text-related actions

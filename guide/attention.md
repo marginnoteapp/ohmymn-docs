@@ -2,11 +2,11 @@
 
 ::: warning 1
 
-The logic of using OhMyMN is different from any previous plugins, especially the modules that begin with "Auto", which have truly achieved full automation. You need to set the conditions for execution and turn on `Auto on Extract` so that it can execute automatically when you need it.  Modules often offer presets. You can choose to use the presets directly, or customize them. OhMyMN does not recommend indiscriminate executions, so there is no global switch to turn OhMyMN on or off with a single click.
+The logic of using OhMyMN is different from any previous plugins, especially the modules that begin with "Auto", which have truly achieved full automation. You need to set the conditions for execution and turn on `Auto Run When Excerpting` so that it can execute automatically when you need it.  Modules often offer presets. You can choose to use the presets directly, or customize them. OhMyMN does not recommend indiscriminate executions, so there is no global switch to turn OhMyMN on or off with a single click.
 
 :::
 
-::: danger 2
+::: tip 2
 
 The priority of customization is always the highest in all module presets.
 
@@ -14,11 +14,11 @@ The priority of customization is always the highest in all module presets.
 
 ::: warning 3
 
-Do not use notebooks that do not contain documents. OhMyMN can only read configuration information when a document is being opened.
+If you are creating a notebook, you will need to re-enter after creation to let OhMyMN know about the document you just imported.
 
 :::
 
-::: danger 4
+::: tip 4
 
 OhMyMN can only handle excerpts. Anything you drag in from your browser or type in yourself is viewed as comments.
 
@@ -30,9 +30,9 @@ Do not use OhMyMN and other plugins that execute automatically during excerpting
 
 :::
 
-::: danger 6
+::: tip 6
 
-You need to press `Enter` to confirm the custom input, 
+You need to press `Enter` to confirm the custom input,
 
 The prompt of saving successfully will appear and the input method editor will be closed. Otherwise, there is an input error.
 
@@ -44,9 +44,9 @@ Deactivating OhMyMN in the plugin settings will `clear the config`. If an error 
 
 :::
 
-::: danger 8
+::: tip 8
 
-If you are highlighting content, MN will reacquire the new excerpt content, which will nullify the OhMyMN processing. After highlighting content, you can re-process the excerpt by slightly modifying the excerpt selection.
+If you are highlighting content, MarginNote will reacquire the new excerpt content, which will nullify the OhMyMN processing. After highlighting content, you can re-process the excerpt by slightly modifying the excerpt selection.
 
 :::
 
@@ -56,7 +56,7 @@ After highlighting content, two `*`s will appear on both sides of the highlighte
 
 :::
 
-::: danger 10
+::: tip 10
 
 If you can't see the smiley logo after installing the plugin, you can try to re-install it. If it still does not work, then the system version is too low and you can upgrade the system.
 
@@ -64,13 +64,8 @@ If you can't see the smiley logo after installing the plugin, you can try to re-
 
 ::: warning 11
 
-If you want the "Auto" modules to work synchronously, you need to know the order of execution of the modules (top to bottom, left to right). 
+If you want the "Auto" modules to work together, you need to know the order of execution of the modules.
 
-1.  AutoOCR
-2.  AutoSimplify -> AutoFormat → AutoList → AutoReplace
-3.  Three threads in parallel
-    - AutoComplete → AnotherAutoDef → AnotherAutoTitle
-    - AutoTag
-    - AutoComment、AutoTranslate
+![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic/20221105120049.png?x-oss-process=base_webp)
 
 :::

@@ -5,7 +5,7 @@ Automatically replaces certain words or phrases in excerpts. This is the common 
 ## Custom
 
 ::: warning Input Format
-[replace() Function Format —— Replace](../custom.md#replace-function)
+[Replace() Method Format —— Replace](../custom.md#replace-method)
 :::
 
 ## OCR Pro Common Mistakes (to be added)
@@ -15,5 +15,5 @@ Automatically replaces certain words or phrases in excerpts. This is the common 
 ### Replace Excerpt Text
 
 ::: warning Input Format
-[replace() Function Format —— Replace](../custom.md#replace-function)
+[Replace() Method Format —— Replace](../custom.md#replace-method)
 :::

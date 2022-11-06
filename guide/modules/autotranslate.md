@@ -1,6 +1,6 @@
 # AutoTranslate
 
-One of the features of OhMyMN is the interaction between the various modules. AutoTranslate is already present in AutoComplete and is used for contextual translation. Although I have written about the need to set up AutoTranslate, it seems that not many people care about it. The primary role of AutoTranslate is to auto translate  during excerpting (the result of the translation is saved as a separate comment).
+The primary role of AutoTranslate is to auto translate  during excerpting (the result of the translation is saved as a separate comment).
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic/ed1df2deb0a2aff5ad680bd12cb7fc847bbd6f72.gif?x-oss-process=base_webp)
 
@@ -10,13 +10,17 @@ First of all, you need to know that this service invokes a third-party translati
 
 ### Baidu Translate
 
-[Click for the application tutorial. Thanks, Bob!](https://bobtranslate.com/service/translate/baidu.html)
+::: warning Notice
+Search for [How to apply the Baidu Translate API](https://www.google.com/search?q=How+to+apply+the+Baidu+Translate+API) by yourself, the exact price and amount is subject to the official website, and any fees incurred are not related to OhMyMN.
+:::
 
 Baidu translation seems to translate more accurately. It supports more languages and custom terminology database. You can customize the correspondences of professional terminologies, so as to translate accurately.
 
-### LingoCloud
+### LingoCloud Translate
 
-[Click for the application tutorial. Thanks, Bob!!](https://bobtranslate.com/service/translate/caiyun.html)
+::: warning Notice
+Search for [How to apply the LingoCloud Translate API](https://www.google.com/search?q=How+to+apply+the+LingoCloud+Translate+API) by yourself, the exact price and amount is subject to the official website, and any fees incurred are not related to OhMyMN.
+:::
 
 LingoCloud only supports the translation among Chinese, English and Japanese. You can switch to LingoCloud after the free trials of Baidu translate is used up.
 
@@ -26,7 +30,13 @@ I have only provided a word limit. Below a certain number of words it will not b
 
 At the bottom I have added a layer of restriction, that is, if the excerpted language itself is not part of the input language you have chosen, it will not be executed. Of course, I can only determine this based on the presence of letters and whether they are half-width characters, which may not be too accurate, for example, to distinguish between English and French.
 
-## [MagicAction for Text](magicaction4text.md#翻译选中文字)
+## [MagicAction for Card](./magicaction4card.md#translate-excerpt-text)
+
+### Translate Excerpt Text
+
+Supports translating all excerpts in the card, and the translation results are added to the card as comments. Please do not translate too much content at the same time to avoid triggering API restrictions.
+
+## [MagicAction for Text](magicaction4text.md#translate-selected-text)
 
 ### Translate selected text
 
@@ -34,6 +44,6 @@ This makes the so-called "word-underscoring translation" possible.
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic/5e42ca59095a4ba58c881aa7f86fc2f212d7e8d3.gif?x-oss-process=base_webp)
 
-Use the Gesture module to add trigger gestures for word translation without worrying about accidental touches.
+Use the [Gesture](gesture.md) module to add trigger gestures for word translation without worrying about accidental touches.
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic/8d0fb21b9ae2fea0b3dd6864345034dedbb59bf8.gif?x-oss-process=base_webp)

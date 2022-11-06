@@ -5,7 +5,7 @@ Automatically add specified comments if a regex is matched, or extract specific 
 ## Custom
 
 ::: warning Input Format
-[replace() Function Format —— Extract](../custom.md#replace-function)
+[Replace() Method Format —— Extract](../custom.md#replace-method)
 :::
 
 **Example**
@@ -17,7 +17,7 @@ Automatically add specified comments if a regex is matched, or extract specific 
 ### Add Comment
 
 ::: warning Input Format
-[replace() Function Format —— Extract](../custom.md#replace-function)
+[Replace() Method Format —— Extract](../custom.md#replace-method)
 :::
 
 Since in most cases it's just to add a comment without extracting it, so you can just type in the comment content and I will complete it as `(/./, "<comment>")`.

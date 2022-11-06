@@ -5,6 +5,7 @@ const modules = {
     ["MagicAction for Text", "magicaction4text"]
   ],
   optional: [
+    ["Shortcut", "shortcut"],
     ["Gesture", "gesture"],
     ["Another AutoTitle", "anotherautotitle"],
     ["Another AutoDef", "anotherautodef"],
@@ -15,10 +16,10 @@ const modules = {
     ["AutoTag", "autotag"],
     ["AutoStyle", "autostyle"],
     ["CopySearch", "copysearch"],
-    ["AutoOCR", "autoocr"],
     ["AutoTranslate", "autotranslate"],
+    ["AutoOCR", "autoocr"],
     ["AutoComment", "autocomment"],
-    ["AutoSimplify", "autosimplify"],
+    ["AutoSimplify", "autosimplify"]
   ]
 } as {
   const: [string, string][]

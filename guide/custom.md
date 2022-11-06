@@ -1,12 +1,12 @@
 # Custom Input Format
 
-There are a lot of options for customization in OhMyMN. They are mainly in three forms:
+There are a lot of input field to customize in OhMyMN. They are mainly in three forms:
 
-1. [Regular Expression](regex)
-2. [replace() Function](replace)
-3. [Template ](mustache)
+1. Regular Expression
+2. Replace() Method
+3. Template
 
-Besides, since multiple regular expressions or replace() functions can be set at the same time and there are also issues with the order of execution, it can be troublesome to enter in OhMyMN's input box, so I have creatively used MN's mindmap card as a custom input box.
+Besides, since multiple regular expressions or Replace() Method can be set at the same time and there are also issues with the order of execution, it can be troublesome to enter in OhMyMN's input box, so I have creatively used MarginNote's mindmap card as a custom input box.
 
 Of course, for all customization, I don't recommend that you type it directly in the OhMyMN input box, but write it elsewhere and paste it in, because OhMyMN doesn't save input in real-time, and you need to hit "enter" at the end to make sure it is saved.
 
@@ -27,7 +27,7 @@ There are 6 types of input formats:
 
 If special circumstances arise, I will note them in the respective places.
 
-## replace() Function
+## Replace() Method
 
 [replace()](replace) function actually corresponds to an input format. `(regex, newSubStr)` is one regular expression and one string.
 
@@ -35,8 +35,8 @@ For example, `(/regex/, "newSubStr")`.
 
 The first step is to make a pattern match to see if conditions are met. If so,
 
-1. [Replace](replace.md#替换) replaces the matched part with `newSubStr` and returns the replaced content.
-2. [Extract](replace.md#提取) returns `newSubStr`。
+1. [Replace](replace.md#replace) replaces the matched part with `newSubStr` and returns the replaced content.
+2. [Extract](replace.md#extract) returns `newSubStr`。
 
 Actually, there is a third parameter in `(regex, newSubStr, fnKey)`. `fnKey` is an integer, such as in `(/xxx/, "yyy", 0)`. It is just that `FnKey` is defaulted to 0, which can be omitted. I will note this when it is used for special occasions.
 
@@ -48,9 +48,7 @@ You can write multiple functions separated by `;`. For example:
 
 An MNLink looks like this `marginnote3app://note/F20F324D-61B3-4CA9-A64C-0C92645A1E33`, also known as the note URL. It can be obtained here:
 
-![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220506005857.png?x-oss-process=base_webp)
-
-(Translation for the rectangle part: copy note URL)
+![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic/20221105224219.png?x-oss-process=base_webp)
 
 As mentioned above, either `/xxx/` or `(/xxx/, "yyyy")` can be multiple using `;` separations. I creatively used the mindmap cards as editors, so that each regular expression can be easily disabled or enabled. You modify their order of precedence with ease.
 
@@ -58,13 +56,15 @@ Simply create a card as an input field, copy its MNLink, and fill it into the co
 
 ::: warning
 
-If you change the content on the card, OhMyMN cannot read it automatically. You must manually hit "enter" where you fill in the customization to update the configuration, and OhMyMN will check if it was entered correctly.:::
+If you change the content on the card, OhMyMN cannot read it automatically. You must manually hit "enter" where you fill in the customization to update the configuration, and OhMyMN will check if it was entered correctly.
 
-::: tip indicates that the disabled color is
+:::
+
+::: tip The disabled color is
 in the 4th row and 2nd column
 :::
 
-![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220507095500.png?x-oss-process=base_webp)
+![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic/20221105225243.png?x-oss-process=base_webp)
 
 In the current version, MagicAction also supports MNLink and does not even require that it conform to either of the 2 formats.
 

@@ -5,7 +5,7 @@ AutoStyle allows you to set and fix the default colors and styles for text excer
 ### Preset
 
 ::: warning
-OhMyMN can only be triggered when excerpting or modifying excerpts. Dragging cards and merging cards will not trigger OhMyMN, but you can use gestures with `Modify Excerpt Color - Use AutoStyle Config` to refresh the color.
+OhMyMN can only be triggered when excerpting or modifying excerpts. Dragging cards and merging cards will not trigger OhMyMN, but you can use gestures with `Modify Excerpt Color - Use AutoStyle Settings` to refresh the color.
 :::
 
 There are four presets. One on style and three on color.
@@ -14,7 +14,7 @@ There are four presets. One on style and three on color.
 
     - Input: `[Chinese character-like word count, English word-like word count, selection area]`
     - The word count here is the same concept as in [Another AutoTitle](anotherautotitle.md#预设).
-    - The selection area can be obtained by turning on `Show Selection Area`.
+    - The selection area can be obtained by turning on `Show Excerpt Area`.
 
     ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220804014354.gif?x-oss-process=base_webp)
 
@@ -26,7 +26,7 @@ The color presets have priority. `Color Follows Card` ⇒ `Color Follows Sibling
 When all three presets are enabled, if the excerpt is merged into a card, its color will follow the card. If it serves as a child node, and if it has any sibling card, it will follow the sibling card; if not, it will follow the parent card.
 :::
 
-2. Color follows card: Set the option below (MN Home Screen Settings) to `Merge In` to automatically change into color to the color of the card that the excerpt is drag-and-dropped and merged into when excerpting.
+2. Color follows card: Set the option below (MarginNote Home Screen Settings) to `Merge In` to automatically change into color to the color of the card that the excerpt is drag-and-dropped and merged into when excerpting.
 
     ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220804004454.png?x-oss-process=base_webp)
 
@@ -45,7 +45,7 @@ When all three presets are enabled, if the excerpt is merged into a card, its co
 ### Modify Excerpt Color
 
 - Enter the color index, 1-16, which is the color palette from left to right, top to bottom.
-- `Use AutoStyle Config`: Use the presets to refresh the color.
+- `Use AutoStyle Settings`: Use the presets to refresh the color.
 
 ### Modify Excerpt Style
-- `Use AutoStyle Config`: Use the presets to refresh the color.
+- `Use AutoStyle Settings`: Use the presets to refresh the color.

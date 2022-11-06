@@ -13,21 +13,17 @@ const sidebar: DefaultTheme.Sidebar = {
           link: "/guide/"
         },
         {
-          text: "Basic Concepts",
-          link: "/guide/concept"
-        },
-        {
           text: "Points to Note",
           link: "/guide/attention"
+        },
+        {
+          text: "Basic Concepts",
+          link: "/guide/concept"
         },
         {
           text: "Profile Management",
           link: "/guide/profile"
         },
-        {
-          text: "MN Tips",
-          link: "/guide/tips"
-        }
       ]
     },
     {
@@ -40,11 +36,11 @@ const sidebar: DefaultTheme.Sidebar = {
           link: "/guide/regex"
         },
         {
-          text: "replace() Function",
+          text: "Replace() Method",
           link: "/guide/replace"
         },
         {
-          text: "split() Function",
+          text: "Split() Method",
           link: "/guide/split"
         },
         {
@@ -66,7 +62,7 @@ const sidebar: DefaultTheme.Sidebar = {
       ]
     },
     {
-      text: "Fixed Module",
+      text: "Required Module",
       collapsible: true,
       collapsed: false,
       items: modules.const.map(k => ({

@@ -1,95 +1,105 @@
 # Template Variable
 
-如果你已经学习了 [Template Syntax](mustache)，那你就可以随意使用下面这些变量了。
+If you have already learned [Template Syntax](mustache), then you can use the following variables at your leisure.
 
-## 变量
+::: tip
+`Metadata` addon could import data from Zotero. You can use the data in template. Not yet officially released, you can test it from [Github](https://github.com/marginnoteapp/metadata/releases).
+:::
+## Variables
 
-### 脑图卡片
+### MindMap Cards
 
-| 变量名<div style="width:140px"/> | 类型       | 说明                                                                                        |
-| -------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
-| `id`                             | 字符串     | Note ID                                                                                     |
-| `url.pure`                       | 字符串     | Note URL                                                                                    |
-| `url.md`                         | 字符串     | Note URL，添加 `[]()`                                                                       |
-| `url.html`                       | 字符串     | Note URL，添加 `<a>`                                                                        |
-| `page.start`                     | 字符串     | 笔记在文档中的开始页码                                                                      |
-| `page.end`                       | 字符串     | 笔记在文档中的结束页码                                                                      |
-| `time.creat`                     | 字符串     | 笔记创建的时间                                                                              |
-| `time.modify`                    | 字符串     | 笔记最后修改的时间                                                                          |
-| `time.now`                       | 字符串     | 当前时间                                                                                    |
-| `allText`                        | 字符串     | 摘录，评论，标签（有 #），换行隔开                                                          |
-| `tags`                           | 字符串数组 | 所有标签，没有 #                                                                            |
-| `titles`                         | 字符串数组 | 所有标题                                                                                    |
-| `excerpts.ocr`                   | 字符串数组 | 所有摘录，图片摘录被 OCR 为文字                                                             |
-| `excerpts.base64`                | 字符串数组 | 所有摘录，图片摘录使用 base64 编码                                                          |
-| `excerpts.img`                   | 字符串数组 | 所有摘录，图片摘录使用 base64 编码，添加 `data:image/jpg;base64,` ，可以直接作为图片使用    |
-| `excerpts.html`                  | 字符串数组 | 所有摘录，图片摘录使用 base64 编码，添加 `data:image/jpg;base64,`，添加 HTML 标签 `<img>`   |
-| `excerpts.md`                    | 字符串数组 | 所有摘录，图片摘录使用 base64 编码，添加 `data:image/jpg;base64,`，添加 `![]()`             |
-| `comments.nopic`                 | 字符串数组 | 所有评论，不包括图片，评论的图片是没有 OCR 过的。                                           |
-| `comments.base64`                | 字符串数组 | 所有评论，包括图片，使用 base64 编码                                                        |
-| `comments.img`                   | 字符串数组 | 所有评论，包括图片，使用 base64 编码 ，添加 `data:image/jpg;base64,` ，可以直接作为图片使用 |
-| `comments.html`                  | 字符串数组 | 所有评论，包括图片，使用 base64 编码，添加 `data:image/jpg;base64,`，添加 HTML 标签 `<img>` |
-| `comments.md`                    | 字符串数组 | 所有评论，包括图片，使用 base64 编码，添加 `data:image/jpg;base64,`，添加 `![]()`           |
+| Variables Name <div style="width:140px"/> | Type         | Description                                                                                   |
+|-------------------------------------------|--------------|-----------------------------------------------------------------------------------------------|
+| `id`                                      | String       | Note ID                                                                                       |
+| `url.pure`                                | String       | Note URL                                                                                      |
+| `url.md`                                  | String       | Note URL，add `[]()`                                                                           |
+| `url.html`                                | String       | Note URL，add `<a>`                                                                            |
+| `page.start`                              | String       | Start page of notes in the document                                                           |
+| `page.end`                                | String       | End page of notes in the document                                                             |
+| `page.real.start`                         | String       | `Metadata Required` Calculate the start page number after the offset.                         |
+| `page.real.end`                           | String       | `Metadata Required` Calculate the end page number after the offset.                           |
+| `time.creat`                              | String       | Note created time                                                                             |
+| `time.modify`                             | String       | Note Modified Time                                                                            |
+| `time.now`                                | String       | Now                                                                                           |
+| `allTextPic.text`                         | String       | All text in the card, including the text in the Markdown addon.                               |
+| `allTextPic.ocr`                          | String       | All text in the card, picture excerpts will be automatically OCR, excluding picture comments. |
+| `allTextPic.md`                           | String       | All text and images in the card. Images are encoded in base64 and add `![]()`                 |
+| `allTextPic.html`                         | String       | All text and images in the card. Images are encoded in base64 and add `<img src>`             |
+| `tags`                                    | String Array | All tags, no #                                                                                |
+| `titles`                                  | String Array | All titles                                                                                    |
+| `excerpts.text`                           | String Array | All text excerpt                                                                              |
+| `excerpts.ocr`                            | String Array | All excerpts. Image excerpts are OCR'd as text                                                |
+| `excerpts.html`                           | String Array | All excerpts. Image excerpts are OCR'd as text, and add `<img>`                               |
+| `excerpts.md`                             | String Array | All excerpts. Image excerpts are OCR'd as text, and add `![]()`                               |
+| `comments.text`                           | String Array | All text comments. Includes text from Markdown addon                                          |
+| `comments.html`                           | String Array | All comments. Images are encoded in base64 and add  `<img>`                                   |
+| `comments.md`                             | String Array | All comments. Images are encoded in base64 and add `![]()`                                    |
 
-### 文档
+### Document
 
-当前卡片所属的文档
+The document to which the current card belongs
 
-| 变量名 <div style="width:80px"/> | 类型   | 说明     |
-| -------------------------------- | ------ | -------- |
-| `doc.title`                      | 字符串 | 文档标题 |
-| `doc.md5`                        | 字符串 | 文档 md5 |
-| `doc.path`                       | 字符串 | 文件路径 |
+| Variables Name <div style="width:80px"/> | Type   | Description                                                                                                                |
+|------------------------------------------|--------|----------------------------------------------------------------------------------------------------------------------------|
+| `doc.title`                              | String | Document title                                                                                                             |
+| `doc.md5`                                | String | Document md5                                                                                                               |
+| `doc.path`                               | String | Document path                                                                                                              |
+| `doc.url.pure`                           | String | `Only in Notebook` Document URL, which jumps indirectly through the link of the last note in the document in the notebook. |
+| `doc.url.md`                             | String | `Only in Notebook` Document URL, add `[]()`                                                                                |
+| `doc.url.html`                           | String | `Only in Notebook` Document URL, add `<a>`                                                                                 |
+| `doc.reference`                          | String | `Metadata Required` Reference or Citation                                                                                  |
+| `doc.citeKey`                            | String | `Metadata Required` Citation key                                                                                           |
+| `doc.pageOffset`                         | String | `Metadata Required` Page offset                                                                                            |
+| `doc.metadata`                           | Object | `Metadata Required` All metadata imported from Zotero                                                                      |
 
-### 笔记本
+### Notebook
 
-当前卡片所属的笔记本
+The notebook to which the current card belongs
 
-| 变量名 <div style="width:150px"/> | 类型   | 说明                    |
-| --------------------------------- | ------ | ----------------------- |
-| `notebook.title`                  | 字符串 | 笔记本标题              |
-| `notebook.id`                     | 字符串 | 笔记本 ID               |
-| `notebook.url.pure`               | 字符串 | 笔记本 URL              |
-| `notebook.url.md`                 | 字符串 | 笔记本 URL，添加 `[]()` |
-| `notebook.url.html`               | 字符串 | 笔记本 URL，添加 `<a>`  |
+| Variables Name <div style="width:150px"/> | Type   | Description               |
+|-------------------------------------------|--------|---------------------------|
+| `notebook.title`                          | String | Notebook title            |
+| `notebook.id`                             | String | Notebook  ID              |
+| `notebook.url.pure`                       | String | Notebook  URL             |
+| `notebook.url.md`                         | String | Notebook  URL, add `[]()` |
+| `notebook.url.html`                       | String | Notebook  URL, add `<a>`  |
 
-### 父子卡片
+### Parent Card / Children Card
 
-你其实也可以获取到当前卡片的父卡片和子卡片上述所有的信息。
-| 变量名 <div style="width:80px"/> | 类型 | 说明 |
-| ---------- | -------- | ------------------------------------------------ |
-| `parent` | 对象 | `parent.titles` 表示父卡片的 `titles` |
-| `children` | 对象数组 | `children.0.titles` 表示第一个子卡片的 `titles` |
+You can actually get all the above information about the current card's parent and child cards as well.
+
+| Variables Name | Type         | Description                                       |
+|----------------|--------------|---------------------------------------------------|
+| `parent`       | Object       | `parent.titles` is the parent's `titles`          |
+| `children`     | Object Array | `children.0.titles` is the first child's `titles` |
 
 ::: v-pre
 
-## 函数
+## Functions
 
-| 函数名 <div style="width:80px"/> | 说明                                              |
-| -------------------------------- | ------------------------------------------------- |
-| `nohl`                           | 删除 `**`，也就是重点                             |
-| `blod`                           | 将 `**重点**` 修改为 `<b>重点</b>`                |
-| `cloze`                          | 将 `**重点**` 修改为 `{{c1::重点}}`               |
-| `clozeSync`                      | 将 `**重点**` 修改为 `{{c1::重点}}`，同时显示答案 |
-| `upper`                          | 全部转为大写                                      |
-| `lower`                          | 全部转为小写                                      |
-| `join`                           | 使用指定的分割符来合并字符串素数组为字符串        |
+| Function Name <div style="width:80px"/> | Description                                                                       |
+|-----------------------------------------|-----------------------------------------------------------------------------------|
+| `nohl`                                  | Remove `**`, it's highlight symbol                                                |
+| `blod`                                  | Modify `**highlight**` to `<b>highlight</b>`                                      |
+| `cloze`                                 | Modify `**highlight**` to `{{c1::highlight}}`                                     |
+| `clozeSync`                             | Modify `**highlight**` to `{{c1::highlight}}`, synchronous show answers           |
+| `upper`                                 | Capital letters                                                                   |
+| `lower`                                 | Lower case                                                                        |
+| `join`                                  | Merge an array of strings into a new string using the specified prefix and suffix |
 
-join 函数会稍微复杂一点，比如 `{{#join}} %["1"]. {{titles}}\n {{/join}}`。我们知道 titles 是一个字符串数组，假设其值为 `["a" ,"b", "c"]`。通过这个函数，将变成
+The `join` function is a little more complicated, like `{{#join}} %["1"]. {{titles}}\n {{/join}}`. We know that `titles` is an array of strings, suppose its values are `["a" , "b", "c"]`. With this function, it will become
 
 ```
 1. a
 2. b
 3. c
-
-\n 是换行符，所以也就是
-1. a\n2. b\n3. c
 ```
 
-`%["1"]` 是一个可以自动编号的魔法变量，详细使用请查看[语法](serial.md#1-和-1)。
+`%["1"]` is a magic variable that can be automatically numbered, see [syntax](./serial.md) for details.
 
 ::: tip
-最后一个元素不会添加后缀
+The last element will not be suffixed
 :::
 
-通过 join 函数，我们可以给数组里的每一个字符串添加上前后的修饰，最终使其合并成一个字符串。
+The join function allows us to add a before-and-after modifier to each string in the array, eventually merging them into a single string.
