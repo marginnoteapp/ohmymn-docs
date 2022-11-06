@@ -59,5 +59,3 @@ Format: Replace the part of the URL search keyword with `{{keyword}}`
 
 - Eurodictionary: `eudic://dict/{{keyword}}`
 - Specify Edge browser to use Baidu search engine: `microsoft-edge-https://baidu.com/s?wd={{keyword}}`
-
-:::
