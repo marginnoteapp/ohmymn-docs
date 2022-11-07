@@ -74,14 +74,11 @@ export default defineConfig({
       text: "Edit this page on GitHub"
     },
 
-    // algolia: {
-    //   appId: "58GKGEP8Q0",
-    //   apiKey: "27d364ba4e1ef8bd5f374377f0941845",
-    //   indexName: "doc-cn"
-      // searchParameters: {
-      //   facetFilters: ['tags:en'],
-      // },
-    // },
+    algolia: {
+      appId: "58GKGEP8Q0",
+      apiKey: "27d364ba4e1ef8bd5f374377f0941845",
+      indexName: "doc"
+    },
 
     localeLinks: {
       text: "English",
@@ -105,7 +102,7 @@ export default defineConfig({
         items: [
           {
             text: `Signed Version (v${version})`,
-            link: "https://bbs.marginnote.cn/t/topic/20501"
+            link: "https://forum.marginnote.com/t/5883"
           },
           {
             text: `Unsigned Version (v${unsignedVersion})`,
