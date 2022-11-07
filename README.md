@@ -1,6 +1,6 @@
 # Document of [OhMyMN](https://github.com/marginnoteapp/ohmymn)
 
-[ [Chinese Version](https://github.com/marginnoteapp/ohmymn-docs-cn) ]  [ [Website](ohmymn.marginnote.com) ]
+[ [简体中文](https://github.com/marginnoteapp/ohmymn-docs-cn) ]  [ [Website](ohmymn.vercel.app) ]
 
 ## License
 
