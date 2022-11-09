@@ -117,7 +117,7 @@ If you want to merge two paragraphs directly without gaps, just type `$&`.
 - Excerpts can be further manipulated using other functions in MagicAction, while the emphasized content will be retained.
 - Merge as comments.
 
-### Switch Title or Excerpt
+### Switch Excerpt / Title
 
 - Switch to Non-Existent
 - Swap Title and Excerpt: When only one title or excerpt is present, it is the same as `Switch to Non-Existent`. In the case of both title and excerpt, there will be the following processing:

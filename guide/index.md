@@ -4,7 +4,7 @@
 It is similar to plugins/addons, which are internal to OhMyMN.
 :::
 
-OhMyMN is essentially a control panel. All the functionalities inside are in separate modules, each of which is provided with three capabilities:
+OhMyMN is essentially a toolbox. All the functionalities inside are in separate modules, each of which is provided with three capabilities:
 
 1. When excerpting, modify the excerpted content or get the excerpted content and perform other operations.
 2. After selecting a card in the mindmap, make changes to the card or get information and perform other operations.
@@ -23,7 +23,7 @@ Apart from that, all modules are divided into two main categories.
    - [MagicAction for Card](./modules/magicaction4card): Some card-related actions
    - [MagicAction for Text](./modules/magicaction4text): Some text-related actions
 
-2. Optional modules: You can select the modules to be enabled in the `OhMyMN-Module shortcut switch`.
+2. Optional modules: You can select the modules to be enabled in the `OhMyMN —— Module Quick Switch`.
 
    - [Shortcut](./modules/shortcut): Use URL Scheme to trigger actions. You can set your own shortcut keys to open the URL Scheme.
    - [Gesture](./modules/gesture): Use gestures to trigger actions.

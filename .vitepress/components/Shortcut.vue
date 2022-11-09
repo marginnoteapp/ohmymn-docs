@@ -92,7 +92,7 @@ const cardActions = [{
 {
   key: "switchTitle",
   type: 2,
-  label: "Switch Excerption or Title",
+  label: "Switch Excerpt / Title",
   option: ["Switch to Non-Existent", "Swap Title and Excerpt"],
   help: "Use [Swap Title and Excerpt] when both are present」",
   module: "magicaction4card",
@@ -368,6 +368,7 @@ const handleSelect = (valList: string[], _: any, pathList: { label: string }[][]
         type: type as "text" | "card",
         input: input === "true",
         label: pathList[i].map(k => k.label).join(' / '),
+        content: "",
         action,
         option
       })
@@ -381,26 +382,21 @@ const handleSelect = (valList: string[], _: any, pathList: { label: string }[][]
 
 const generate = () => {
   result.show = true
-  const params = new URLSearchParams()
-
-  params.append("info", JSON.stringify(
-    selections.map(k => {
-      if (k.input && k.content)
-        return {
-          action: k.action,
-          type: k.type,
-          option: k.option,
-          content: k.content.replace(/\n/g, "\\n"),
-        }
-      else return {
+  const actions = selections.map(k => {
+    if (k.input && k.content)
+      return {
         action: k.action,
         type: k.type,
         option: k.option,
+        content: k.content.replace(/\n/g, "\\n"),
       }
-    })
-  ))
-
-  result.content = `marginnote3app://addon/ohmymn?custom=true&${params.toString()}`
+    else return {
+      action: k.action,
+      type: k.type,
+      option: k.option,
+    }
+  })
+  result.content = `marginnote3app://addon/ohmymn?actions=${encodeURIComponent(JSON.stringify(actions))}`
 }
 
 const copy = () => {
