@@ -1,6 +1,6 @@
 {
   "name": "ohmymn-doc",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "unsignedVersion": "4.1.1",
   "scripts": {
     "dev": "vitepress --port 3333",

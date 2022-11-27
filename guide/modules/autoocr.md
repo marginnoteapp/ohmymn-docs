@@ -55,7 +55,7 @@ Please be prepared that although it looks cool, it is complicated to implement:
 1. Apply for Baidu OCR or MathPix API key.
 2. Fill it in AutoOCR and select the corresponding formula recognition service provider.
 3. Install any Markdown plugin and select the corresponding Markdown plugin.
-4. MagicAction for Text - in the pop-up menu for more options, turn on `Set as Title`.
+4. MagicAction for Text - in the pop-up menu for more options, turn on `Set as Commnet`.
 5. **first select an excerpt or card** (otherwise you can only copy the result to the clipboard), then drag to select, and click `Formula Recognition`. The recognized Latex of the formula is automatically written to the previously selected card. Use the Gesture module to invoke the execution for a better experience.
 
 ### Text Recognition

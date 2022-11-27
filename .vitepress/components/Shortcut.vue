@@ -1,7 +1,6 @@
 <script lang="ts" setup>
-import { darkTheme } from 'naive-ui'
-import { useData } from "vitepress"
-import { NConfigProvider, GlobalThemeOverrides } from 'naive-ui'
+import { darkTheme, GlobalThemeOverrides, NConfigProvider } from 'naive-ui';
+import { useData } from "vitepress";
 
 const { isDark } = useData()
 const darkPrimary = "rgba(255, 197, 23, 0.25)"
@@ -328,14 +327,13 @@ const options = [
         k.option = ["Confirm"]
       return {
         value: k.key,
-        label: k.module === "magicaction4card" || k.module === "magicaction4text" ? k.label : `${k.label}(${k.moduleName})`,
+        label: k.label,
         children: k.option.map((o, i) => {
           return {
-            value: `${h.value}-${k.type === 3 && !/Use.*Settings/.test(o)}-${k.key}-${i}`,
+            value: `${k.moduleName}-${h.value}-${k.type === 3 && !/Use.*Settings/.test(o)}-${k.key}-${i}`,
             label: o,
           }
-        }
-        )
+        })
       }
     })
   }
@@ -349,7 +347,7 @@ const selections = reactive<{
   input?: boolean
   content?: string
 }[]>([])
-
+const moduleNames = reactive<Set<string>>(new Set())
 const content = ref<string>("")
 
 const result = reactive({
@@ -360,10 +358,11 @@ const result = reactive({
 const error = ref(false)
 const handleSelect = (valList: string[], _: any, pathList: { label: string }[][]) => {
   selections.length = 0
+  moduleNames.clear()
   if (valList.length) {
     valList.forEach((k, i) => {
-      const [type, input, action, option] = k.split('-')
-      console.log(input)
+      const [moduleName, type, input, action, option] = k.split('-')
+      !moduleName.startsWith("MagicAction") && moduleNames.add(moduleName)
       selections.push({
         type: type as "text" | "card",
         input: input === "true",
@@ -394,6 +393,7 @@ const generate = () => {
       action: k.action,
       type: k.type,
       option: k.option,
+      content: ""
     }
   })
   result.content = `marginnote3app://addon/ohmymn?actions=${encodeURIComponent(JSON.stringify(actions))}`
@@ -434,7 +434,9 @@ const copy = () => {
               Copy
             </n-button>
           </template>
-          <span> Copied Success </span>
+          <span v-if="moduleNames.size">Copied successfully! This shortcut requires {{ [...moduleNames].join("、") }}
+            module(s), please make sure you have enabled</span>
+          <span v-else> Copied Successfully </span>
         </n-tooltip>
       </div>
     </div>
