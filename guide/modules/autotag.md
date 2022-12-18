@@ -11,7 +11,7 @@ Specified tags are automatically added if a regex is matched, and specific conte
 **Example**
 
 - `(/^.+$/gs, "This is an example")` and could add four tags each time, such as "#This #is #an #example".
-- `(/@picture, "This is a picture")` and could add a tag for "This is a picture" when you excerpt a picture。
+- `(/@picture/gs, "This is a picture")` and could add a tag for "This is a picture" when you excerpt a picture。
 
 ## [MagicAction for Card](magicaction4card.md#add-tag)
 
