@@ -1,36 +1,36 @@
 <script setup lang="ts">
 import VPFeatures from './VPFeatures.vue';
 const features = {
-  "Developer": [
+  "插件开发者": [
     {
-      title: "Modern Development Framework",
-      details: "Developed with TypeScript, bundled with ESbuild. A lot of APIs are encapsulated to help you develop more powerful mnaddon."
+      title: "现代化的开发框架",
+      details: "使用 TypeScript 开发，ESbuild 打包。封装大量 API，助力你开发更加强大的插件。"
     },
     {
-      title: "Control Panel & Profile Management",
-      details: "Easily create mnaddon with control panels, with powerful profile management."
+      title: "控制面板及配置管理",
+      details: "轻松创建具有控制面板的插件，拥有强大的配置管理功能。"
     },
     {
-      title: "Modular Development",
-      details: "Develop mnaddon with modular development, just like building blocks."
+      title: "模块化开发",
+      details: "像搭积木一样不断累加模块，最终开发出强大的插件。"
     },
   ],
-  "Normal User": [
+  "普通用户": [
     {
-      title: "Custom",
-      details: "With the control panel, MarginNote addon can finally be customized."
+      title: "自定义",
+      details: "有了控制面板之后，MarginNote 插件终于可以自定义了。"
     },
     {
-      title: "Automation",
-      details: "No need to manually turn on the addon, everything will be executed automatically according to your requirements."
+      title: "自动化",
+      details: "无需手动开关插件，一切都将按照你的要求自动执行。"
     },
     {
-      title: "Work Together",
-      details: "Different modules can work together to get more magical effects"
+      title: "相互协作",
+      details: "不同模块之间可以相互协作来实现更神奇的作用。"
     },
     {
-      title: "Gesture & Shortcut",
-      details: "Quickly process the mindmap card through gestures and shortcut, full score efficiency."
+      title: "手势和快捷键",
+      details: "通过手势或者快捷键快速对脑图卡片进行处理，效率满分。"
     }
   ],
 }

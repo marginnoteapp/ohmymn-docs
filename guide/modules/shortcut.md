@@ -3,41 +3,43 @@ import Shortcut from '/.vitepress/components/Shortcut.vue';
 </script>
 # Shortcut
 
-::: warning Note
-This feature is provided entirely by OhMyMN and is not affiliated with MarginNote.
-
-This "Shortcut" is just a url.
+::: tip 更新
+[v4.0.6](/update.md) 新增
 :::
 
-Trigger actions in MagicAction via URL Scheme, and set shortcut keys to open URLs on Mac.
+::: warning 注意
+该功能完全由 OhMyMN 提供，与 MarginNote 无关。
+:::
 
-1. Open `marginnote3app://addon/ohmymn?type=card&shortcut=1` could trigger first card action.
-2. Open `marginnote3app://addon/ohmymn?type=text&shortcut=2` could trigger second text action.
+通过 URL Scheme 来触发 MagicAction 中的动作，在 Mac 上可以设置快捷键打开 URL。
 
-## Custom Shortcuts
+1. 打开 `marginnote3app://addon/ohmymn?type=card&shortcut=1` 就可以触发第一个卡片动作。
+2. 打开 `marginnote3app://addon/ohmymn?type=text&shortcut=2` 就可以触发第二个文字动作。
 
-URLs can be set for each action as well as for any input value, and set them as shortcut keys. It is even possible to execute multiple actions at the same time, changing the order of execution by the order of selection.
+## 自定义捷径
 
-::: warning Shortcut Generator
-[Find custom shortcuts shared by others](https://busiyi.notion.site/56fa8c4a189240ac88cfc33c1aa42c0f?v=acc4098de9c1497c8b191dda25af718a)
+::: tip 更新
+[v4.0.14](/update.md) 改进。捷径 Pro 更名为自定义捷径，并改进了语法。
+:::
+
+可以为每个动作以及任意输入值设置 URL，并将其设置成快捷键。甚至可以同时执行多个动作，通过选择的顺序来改变执行的顺序。
+
+::: warning 捷径生成器
+[查找其他人分享的自定义捷径](https://busiyi.notion.site/901a63985532448e80ea493c461448c5?v=94f16166782c4285bf6fcb5937803d30)
 
 <Shortcut/>
 
 :::
 
 
-## Use shortcut keys to open url
+## 使用快捷键打开 URL
 ### iPad
-1. Install a apple shortcut https://www.icloud.com/shortcuts/d9027fc514f04fc4add78ae506baba8d
-2. Open Settings, then tap Accessibility.
-3. Tap Keyboards.
-4. Tap Full Keyboard Access and turn it on.
-5. Tap Commands.
-6. Tap a command, then press a custom key combination to assign to it.
+1. 点击安装快捷指令 https://www.icloud.com/shortcuts/d9027fc514f04fc4add78ae506baba8d
+2. 设置-辅助功能-键盘-全键盘控制-命令-划到最下面就可以给快捷指令设置快捷键了。
 ### Mac
 
-There are many tools for the Mac, I usually use Karabiner-Elements, which also allows you to set shortcuts to MarginNote separately, for free. Raycast is also very suitable and even simpler.
+Mac 上的工具就很多了，我通常是使用 Karabiner-Elements，这个还可以单独给 MarginNote 设置快捷键，免费。Raycast 也非常合适，甚至更加简单。
 
-## Use gesture to open url
+## 使用手势打开 URL
 
-The [Gesture](gesture.md) module can be used on iPad to open URLs to use the power of shortcuts.
+iPad 上可以使用 [Gesture](gesture.md#自定义捷径) 模块来打开 URL，从而使用捷径的强大功能。

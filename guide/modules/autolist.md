@@ -1,55 +1,55 @@
 # AutoList
 
-When excerpting lists, multiple choice questions, etc., it is often necessary to make separate line breaks, which is not possible with OCR.
+在摘录列表，选择题等等，往往需要单独换行，而 OCR 无法实现。
 
-## Preset
+## 预设
 
-Three presets are provided. Each preset includes customizations that must match two serial numbers before they are executed.
+提供了 3 个预设，每种预设包括自定义必须匹配到两个序号才会执行。
 
 `(/\s*([A-Za-z][.、，,])/g, "\n$1")`
 
-- Letter ABCD, including abcd
-  - Valid when the letter is followed by `.、，,` and **only in Chinese**
+- 字母 ABCD，其实也包括 abcd。
+  - 当字母后跟着`.、，,` 时有效，且**仅中文下有效**
 
 `(/\s*([其第]?[一二三四五六七八九十]{1,2}[.、，,])|\s*([其第][一二三四五六七八九十]{1,2}是?[.、，,]?)/g, "\n$1$2")`
 
-- "一二三四". Such a complex regexl is to avoid interfering with the normal excerpting as much as possible.
-  - Valid when "一二三四" is precede by `其｜第`.
-  - Valid when "一二三四" is followed by `.、，,`.
+- 一二三四，这么复杂的正则就是为了尽可能的避免影响到正常的摘录。
+  - 当一二三四前跟着`其｜第` 时有效
+  - 当一二三四后跟着`.、，,` 时有效
 
 `/\s*([\(（【\[]?\s*[0-9]{1,2}\s*[\)）\]】]?[.、，,]\D)|\s*([\(（【\[]\s*[0-9]{1,2}\s*[\)）\]】][.、，,]?)/g`
 
 - 1234
-  - (1) （1） [1] 【1】are valid.
-  - 1 `.、，,` are valid.
+  - (1) （1） [1] 【1】有效
+  - 1 `.、，,` 有效
 
-## Custom
+## 自定义
 
-::: warning Input Format
-[Replace() Method Format —— Replace](../custom.md#replace-method)
+::: warning 输入格式
+[Replace() 函数格式——替换](../custom.md#replace-函数)
 :::
 
-Add `\n` before or after the matched string, which is the EOL character.
+在匹配到的字符串前面或者后面加上 `\n` 即可，这就是换行符。
 
-To add a number to each line, the third parameter of the replace function, `fnKey`, is used here. The numbering is distinguished by setting a different number for it.
+为了给每一行添加编号，这里要用到 replace 函数的第三个参数 `fnKey`，通过为其设置不同的数字来编号。
 
-| fnKey | Numbered List Type |
-|-------|--------------------|
-| `1`   | 1. 2. 3.           |
-| `2`   | A. B. C.           |
-| `3`   | a. b. c.           |
-| `4`   | 壹、贰、叁           |
-| `5`   | 一、二、三           |
-| `6`   | ① ② ③              |
-| `7`   | ❶ ❷ ❸              |
+| fnKey | 编号类型 |
+|-------|----------|
+| `1`   | 1. 2. 3. |
+| `2`   | A. B. C. |
+| `3`   | a. b. c. |
+| `4`   | 壹、贰、叁 |
+| `5`   | 一、二、三 |
+| `6`   | ① ② ③    |
+| `7`   | ❶ ❷ ❸    |
 
-**Example**
+**示例**
 
 - `(/[;；]/, "$&\n", 1)`
-  - Denotes line break after  `;` or `；`, and number each line with  1. 2. 3.
+  - 表示在 `;` 或者 `；` 后换行。并且每一行用 1. 2. 3. 来编号
 
-## [MarginNote for Card](magicaction4card.md#add-line-break)
+## [MarginNote for Card](magicaction4card.md#添加换行或序号)
 
-## Add Line Break
+## 添加换行或序号
 
-Same as customization.
+和自定义一致

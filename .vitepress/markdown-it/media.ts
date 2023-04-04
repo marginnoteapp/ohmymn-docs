@@ -177,7 +177,7 @@ export const DefaultRenderMap: Readonly<RendererMap> = {
           caption
         )
       )
-        span = `<a href="${md.normalizeLink(caption)}">> ${caption}</a>`
+        span = `<a href="${md.normalizeLink(caption)}">${caption}</a>`
       else span = `<span>${caption}</span>`
     }
     return `<div class="betterVideo"><video playsinline="" controls="" preload="metadata" src="${src}" style="display: block; width: 100%;"></video>${span}</div>`

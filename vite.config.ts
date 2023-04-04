@@ -9,14 +9,13 @@ import fg from "fast-glob"
 import {
   githubusercontentRegex,
   pwaFontStylesRegex,
-  pwaFontsRegex,
-  ohmymnDescription,
-  ohmymnName,
-  ohmymnShortName
+  pwaFontsRegex
 } from "./.vitepress/meta"
 import AutoImport from "unplugin-auto-import/vite"
 import Components from "unplugin-vue-components/vite"
 import { NaiveUiResolver } from "unplugin-vue-components/resolvers"
+import { title } from "./.vitepress/meta"
+import { META_DESCRIPTION } from ".vitepress/config/en"
 
 export default defineConfig({
   ssr: {
@@ -74,9 +73,9 @@ export default defineConfig({
       }),
       manifest: {
         id: "/",
-        name: ohmymnName,
-        short_name: ohmymnShortName,
-        description: ohmymnDescription,
+        name: title,
+        short_name: title,
+        description: META_DESCRIPTION,
         theme_color: "#ffffff",
         icons: [
           {

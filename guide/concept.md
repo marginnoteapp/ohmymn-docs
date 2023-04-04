@@ -1,45 +1,43 @@
-# Basic Concepts
+# 基本概念
 
-## Excerpt, Note, Card/Node, Comment
+## 摘录、笔记、卡片、评论
 
-- Excerpt. Excerpt can be used as both a verb and a noun. It refers either to the process of selecting text or image from a document, color-coding it, and turning it into a mindmap card, or to the text/image itself. Here it refers specifically to excerpts from a document. Texts dragged form anywhere else, e.g. browser, are considered as comments.
-- Note. Excerpts are actually notes. Each excerpt is assigned a `noteid`, which is also the URL of the card.
-- Card/Node. Node is used in the context of mindmaps, and it can also refer to the card itself. A card can contain excerpts, comments, tags, links, and many other components. One card can only have one excerpt in principle.
-- Comment. In fact, the tags and links described above are essentially comments. The characteristic of a comment is that it is not associated with a document. An excerpt, on the other hand, will have some properties related to the original document. One card can only have one excerpt in principle. However, when you merge two cards, the merged excerpt will become a comment in disguise. In OhMyMN, the merged excerpt is still considered as an excerpt. One thing about comments is that you can't edit them directly. You can only delete and re-add them. A lot of the processings for excerpts in OhMyMN are not compatible with comments.
+- 摘录（Excerpt），既可以当作动词，也可以当作名词。既是指从文档中选择一段文字或图片，给它加上颜色，变成脑图卡片这一过程，也是指这个文字或图片本身。这里特指从文档中摘录，从其余地方，比如浏览器中拖入 MarginNote 的都是属于评论。
+- 笔记（Note），摘录其实就是笔记，每条摘录都会给它分配一个 noteid，卡片的 URL 就是这个 noteid。
+- 卡片（Card/Node），Node 是在脑图语境下节点的意思，也是指的这张卡片。一张卡片里可以包含摘录，评论，标签，链接等很多内容，一张卡片原则上只有一条摘录。
+- 评论（Comment），其实上面所说的标签和链接本质是也是评论。评论的特点就是不与文档关联。而摘录就会有一些文档相关的属性。一张卡片原则上只会有一条摘录，但是当你合并两张卡片时，被合并卡片中的摘录就会变为一个伪装成评论的摘录，不过在 OhMyMN 中，仍旧认为此为摘录。评论有个很难受的地方就是没法直接修改，只能删除后重新添加，所以 OhMyMN 中很多针对摘录的处理都没法处理评论。
 
-## Card/Node, Parent/Child Card, Ancestor Card, Descendant Card
+## 卡片/节点、父子卡片、祖先卡片，后代卡片
 
-As mentioned before, cards are nodes and nodes are cards. In this documentation, the same concept may be referred to in one or the other form. If you have learned about data structures, you would know that one of a data structure is a tree. MarginNote's mindmap is essentially a tree.
+前面说了卡片就是节点，节点就是卡片，文档中可能哪个顺口就写哪个。学过数据结构就知道有一种结构就是树，MarginNote 的脑图就是树结构的。
 
-![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic/20221104222124.png?x-oss-process=base_webp)
+![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220521005122.png?x-oss-process=base_webp)
 
-The parent node is easy to understand. A parent node is the node directly before the current node. One node can only have one parent node and can have multiple child nodes.
+父子节点应该好理解，父节点就是与当前节点相连的上一个节点，一个节点只会有一个父节点，子节点可以有很多个。
 
-Ancestor nodes are all the nodes before the current node, whether connected to it directly or indirectly, which includes the parent node of parent node, etc.
+祖先节点和后代节点是相对的。祖先节点顾名思义就是与当前节点相连或间接相连的前面所有节点，也就包括了父节点的父节点等。后代节点也是如此，与当前节点相连或间接相连的后面所有节点，包括了子节点的子节点等。
 
-Descendant nodes are all the nodes behind the current node, whether connected to it directly or indirectly, which includes the child nodes of child nodes, etc.
+## 手型工具、文本选择工具、矩形选择工具、多边形选择工具
 
-## Hand Tool, Text Tool, Rectangular Tool & Lasso Tool
-
-Just like PhotoShop's selection tools, MarginNote has a number of selection tools that let you select and excerpt an area or text in a document. Except for the hand tools, other tools will automatically excerpt contents after selection.
+就和 PhotoShop 的选区工具一样，MarginNote 也有很多选区工具，让你对文档中的某块区域或文字进行选择并摘录。除了手型工具外，其他几个选择工具会在选择后自动摘录。
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220507111341.png?x-oss-process=base_webp)
 
-I usually use the hand tool. Dragging a selection area into the mindmap will automatically excerpt and create the card. This also allows you to control the position of the card.
+我通常是使用手型工具，拖拽选区进入脑图中自动会摘录并创建卡片，这样也可以控制卡片位置。
 
-When using the other three selection tools, the `Auto Add to MindMap` function is enabled. The automatic insertion position is set to `Auto Insertion Position` so that you can quickly make batch excerpts and create a mindmap.
+使用其他三种选择工具时会开启 `自动添加到脑图` 的功能，自动插入位置设置为 `选中位置`，这样就可以快速批量进行摘录，形成脑图。
 
-## Title link, Merge titles
+## 标题链接、合并标题
 
-Title links are great for highlighting the title of a card in the document, and linking it back to the card. A card can have multiple titles via `;` or `;`. Each title will link to the card. One of the creative breakthroughs of OhMyMN is the automation of the process of generating titles and merging existing ones.
+标题链接非常好用，可以在文档中高亮卡片的标题，并链接到这张卡片。一张卡片可以通过 `;` 或者 `；` 来设置多个标题，每个标题都会链接到这张卡片。OhMyMN 一个创造性突破就是可以自动生成标题，并且合并已有的标题，让这个过程变得自动化。
 
-## Drag selection to MindMap
+## 拖拽选择区进入脑图
 
-In the Home Screen of MarginNote, there is an entry of `Drag selection to MindMap`. When you drag the selected area A into the mindmap and drop it onto an existing card B, there are 2 options:
+在 MarginNote 的首页设置中，有一个 `拖拽选择区进入脑图` 的选项，当你将选区拖到脑图中，在已有卡片上松手，可以有两个效果
 
-1. Card A will become a child node of card B.
-2. Card A will be merged into card B.
+1. 添加成为子节点
+2. 合并入
 
-There are pros and cons for each of the options. `Add as Child` is convenient for excerpting and managing mindmap structures. Use [AutoStyle](modules/autostyle.md) to automatically set the same color for cards at the same level. `Merge into` is more important in OhMyMN. Together with [AutoTitle](modules/anotherautotitle.md), [AutoDef](modules/anotherautodef.md), and other modules that can generate titles, it is also possible to turn new excerpts into titles and continue merging them, which utilizes the title links.
+两个选项各有优劣，`添加成为子节点` 可以方便摘录，整理脑图结构。配合 [AutoStyle](modules/autostyle.md) 来自动将同层级卡片设置相同颜色。而 `合并入` 在 OhMyMN 中更是重要，配合 [AutoTitle](modules/anotherautotitle.md)，[AutoDef](modules/anotherautodef.md) 等可以生成标题的模块，同样可以将新的摘录转为标题继续合并，从而利用标题链接。
 
-You may wonder if it is possible to do both. Actually, there is. When you drag and drop a selection onto a selection that has already been excerpted from the document, it will merge them directly even if you set it to `Add as Child`.
+那你可能会好奇有没有可能两者兼顾，其实是有的，当你拖拽选区到文档中已经摘录的选区中，就算你设置的是 `添加成为子节点`，也会直接合并。

@@ -1,66 +1,89 @@
 # OhMyMN
 
-The options below are mainly for setting the properties of this panel and controlling other modules.
+这个板块中的选项主要是设置这个面板的一些属性，以及控制其他模块的。
 
-## Select Global Profile
+## 选择全局配置
 
-::: tip Only Current Document
-Only switch global profile, not notebook and document profile.
+::: tip 当前笔记本有效
+只切换全局配置，不包括笔记本配置和文档配置
+:::
+[配置管理](../profile.md) 已经说过了 OhMyMN 的配置结构，这里不过多赘述。
+
+## 模块快捷开关
+
+停用或启用其他模块的，停用后不再显示其选项菜单。属于该模块的 Action 也不会显示在 MagicAction 中。
+
+## 面板显示位置
+
+::: tip 更新
+[v4.0.6](/update.md#新功能-3) 新增：更多位置，支持自动跟随文档宽度调整。
 :::
 
-[Profile Management](../profile.md) has mentioned the profile structure of OhMyMN, so I won't go over it here.
+- 文档内侧：默认，文档内侧显示，支持自动跟随文档宽度调整。
+- 文档脑图中间：文档脑图中间显示，支持自动跟随文档宽度调整。
+- 脑图内侧：脑图内侧显示，支持自动跟随文档宽度调整。
+- 靠左
+- 居中
+- 靠右
 
-## Module Quick Switch
+## 面板显示高度
 
-If a module is disabled or enabled, its options menu is no longer displayed after disabling it. Actions belonging to this module are also not displayed in MagicAction.
+通常 12.9 寸的 iPad 可以选择 `高点`，11 寸一般还是用 `标准`，这样最下面的输入框不会被键盘挡住。
 
-## Panel Position
+## 面板开关控制
 
-- Document Inner Side: By default, the panel is displayed inside the document. Supports automatic following the document width adjustment.
-- Document MindMap Middle: The panel is displayed in the middle between the document and the mindmap. Supports automatic following the document width adjustment.
-- MindMap Inner Side: The panel is displayed inside the mindmap.
-- Left
-- Center
-- Right
-
-## Panel Height
-
-Usually, with 12.9 inch iPad, you can choose `Higher` and with 11 inch ipad, you can still choose `Standard`. This way the input box at the bottom will not be covered by the keyboard.
-
-## Panel Control
-
-- Double-click the icon to open the panel: Double-click the smiley 😀 to open the panel so that you can avoid accidental touches.
-- Close the panel after action execution: The panel will be automatically closed after the action in MagicAction is executed.
-
-## Drag Merge to Generate Title
-
-[Another AutoTitle](anotherautotitle.md), [Another AutoDef](anotherautodef.md), [AutoComplete](autocomplete.md) can be used to generate title.
-
-By [draging selection](../concept.md#drag-selection-to-mindmap) to merge into the card, there are several ways to handle it:
-
-- Never Generate Title
-- Generate Title When Conditions Are Met: Automatically generate titles through the above modules.
-- Always Generate Title: Even if the above modules do not generate a title, they go straight to the title.
-### > Has Title
-If a title is generated, but the card already has a title, there are several ways to handle it:
-
-- Not Turn to Title
-- Merge Title
-- Override Title
-### > The Dragged Excerpt Will
-
-When you turn an excerpt into a title, you have two choices for the excerpt that you drag in:
-
-- Remove Immediately
-- Remove Later: the next time you excerpt or you exit the notebook or MarginNote, or MarginNote enters the background. The reason for this is to have the opportunity to adjust the excerpt selection.
-## Lock Excerpt Text
-
-Once enabled, if you change the excerpt selection in the document by accident while swiping through the document, OhMyMN will restore the text in the excerpt for you. When you create an excerpt, you can keep modifying it as long as the excerpt menu does not disappear. Once the menu disappears, the excerpt will be locked. This feature can also first excerpt a long paragraph and then shorten the selection to one word.
-
-## Auto Backup Profile
-
-::: warning Input
-Card URL, such as `marginnote3app://note/F20F324D-61B3-4CA9-A64C-0C92645A1E33`
+::: tip 更新
+[v4.1.0](/update) 移除 `双击面板关闭面板`，误触太严重。
 :::
 
-Automatically saves the profile information to the MarginNote's mindmap card. Again make sure that the card has child cards, as the profile information is written on the child cards. The more child cards, the better the performance is, as this profile information will keep expanding and we want to avoid exceeding the maximum number of words for a single card.
+- 双击图标打开面板：双击笑脸 😀 开启面板，这样可以避免误触。
+- 动作执行完关闭面板：MagicAction 中的动作执行完就会关闭自动面板。
+
+## 拖拽合并生成标题
+::: tip 更新
+[v4.0.10](/update) 优化了拖拽合并生成标题的逻辑。
+:::
+
+[Another AutoTitle](anotherautotitle.md), [Another AutoDef](anotherautodef.md), [AutoComplete](autocomplete.md) 都可以将摘录转为标题。
+
+通过 [拖拽选择区](../concept.md#拖拽选择区进入脑图) 合并进卡片中，有以下几种处理方式：
+
+- 始终不生成标题。
+- 满足条件时生成标题：通过上述模块来自动生成标题。
+- 始终转标题：即使上面几个模块没有生成标题，也会直接转为标题。
+
+### > 已经有标题
+如果会生成标题，但是卡片已经有标题了，有以下几种处理方式：
+
+- 不转为标题
+- 合并标题：使用 `; ` 合并标题，可用于标题链接。
+- 覆盖标题
+
+### > 拖入的摘录将
+
+通过上述操作将摘录转为标题后，拖入的摘录会面临两个选择：
+
+- 立即删除
+- 等会删除：在下次摘录或者退出笔记本或者退出 MarginNote，或者 MarginNote 进入后台时进行删除。这么处理的原因是为了能够有调整摘录选区的机会。
+
+## ~~保持屏幕常亮~~
+
+::: tip 更新
+[v4.0.4](/update.md#其他-2) 删除：拆分为单独的插件，点击下载：[Keep Screen On](https://bbs.marginnote.cn/t/topic/36469)
+:::
+
+## 锁定摘录文字
+
+开启后，在滑动文档的时候如果你手滑修改了文档中的摘录选区，OhMyMN 会帮你还原摘录中的文字。在创建摘录的时候，只要摘录菜单不消失，就可以一直修改。一旦菜单消失再修改的话就会被锁定。这个功能还可以做到，先摘录很长一段话，然后将选区缩短到一个词。
+
+## 自动备份配置
+
+::: tip 更新
+[v4.0.3](/update.md) 改进：直接设置备份卡片的链接。
+:::
+
+::: warning 输入
+卡片链接，例如 `marginnote3app://note/F20F324D-61B3-4CA9-A64C-0C92645A1E33`
+:::
+
+自动将配置信息保存到 MarginNote 的脑图卡片中。同样请确保该卡片有子卡片，因为配置信息是写到子卡片的。子卡片越多越好，因为这个配置信息会不断膨胀，避免超过一张卡片的最大字数。

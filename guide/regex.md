@@ -1,27 +1,22 @@
-# Regular Expression
+# 正则表达式
 
-Regular expressions are ubiquitous in OhMyMN. A regular expression is simply an expression that is used to match a particular formatted string.
+在 OhMyMN 中，正则表达式无处不在。所谓正则表达式，简单点说，就是用来匹配某种特定格式字符串的一种表达式。
 
-The general search just like, if you type the word `baby`, it will search for all `baby`, including `angelababy`, but I only want to search for individual `baby`, so what should I do? Between the word and the word must be non-word characters, so we can use the regular expression `\bbaby\b`, `\b` means that one side of the location for the word characters, the other side for non-word characters.
+一般的搜索就是，你输入单词 `baby`，那就会搜出所有的 `baby`，其中也会包括 `angelababy`。其实我只想搜索单独的 `baby`，怎么办呢。单词与单词之间肯定是非单词的字符，所以我们可以用正则表达式 `\bbaby\b`，`\b` 表示所在位置的一侧为单词字符，另一侧为非单词字符。
 
-## Additional but Important
+## 补充知识
 
-1. Regular expression support varies by programming language and by browser. MarginNote uses Safari JavaScriptCore engine, which does not support many features, such as the lookbehind assertion `(?<=y)x`, the negative lookbehind assertion `(?<!y)x`.
-2. In JavaScript, there is a fixed way to write a regular expression , such as `/\bbaby\b/g`, wrapped with two `/`. After the second slash, you can add flags to change the matching pattern, the following 5 are commonly used.
+1. 不同的编程语言以及不同的浏览器，对正则支持情况都有所不同，MarginNote 使用的是 Safari 的 JavaScriptCore 引擎。很多特性都不支持，比如向后断言 `(?<=y)x`，向后否定断言 `(?<!y)x`。
+2. JavaScript 语言中，正则有固定的写法，比如 `/\bbaby\b/g`，用两个 `/` 来包裹。第二个斜杠后面可以添加标志，用来改变匹配模式，下面这 5 个比较常用：
 
-   - `/xxx/g` Global search. In the [Replace() Method](replace), all matching strings will be replaced, otherwise only the first one will be replaced.
-   - `/xxx/i` Case-insensitive search.
-   - `/xxx/s` Allows `.` to match newline characters.
-   - `/xxx/m` Allows `^` and `$` to match newline characters.
-   - `/xxx/u` "Unicode"; treat a pattern as a sequence of Unicode code points.
-3. You can use [Regex-Vis](https://regex-vis.com/?r=%5Cbbaby%5Cb) or [iHateRegex](https://ihateregex.io/playground) to test and visualize。
-4. You can use [Regex Learn](https://regexlearn.com/learn/regex101) to get started with regular expressions by answering questions, I believe it will help you.
+   - `/xxx/g` 表示全局匹配，在 [Replace() 函数](replace) 中会替换掉所有匹配到的字符串，否则只会替换第一个。
+   - `/xxx/i` 表示忽略大小写。
+   - `/xxx/s` 表示 `.` 可以匹配换行符，这里要注意，默认情况下 `.` 无法匹配换行符的。
+   - `/xxx/m` 表示多行匹配， `^$` 将不再只匹配整个字符串的开头和结尾，而是每一行的开头和结尾。
+   - `/xxx/u` 表示启用 Unicode 匹配，用来匹配中文或者 Emoji 时非常有用，自行查看 [具体属性](https://www.cnblogs.com/gaara0305/p/10122776.html)。
+3. 可以使用 [Regex-Vis](https://regex-vis.com/?r=%5Cbbaby%5Cb) 或 [iHateRegex](https://ihateregex.io/playground) 进行测试和可视化。
+4. 可以使用 [Regex Learn](https://regexlearn.com/zh-cn/learn/regex101) 通过答题来入门正则表达式，我相信会对你有所帮助。
 
-
----
-::: tip
-The contentn below is just my notes on learning regular expression. It may not be helpful to you, but if you need learn regular expression in detail, just search for regular expression on Google.
-:::
 ## 元字符
 
 元字符是在正则表达式中具有特殊含义的符号或字符，正则表达式本质上就是通过元字符实现字符串精准匹配的。接下来，我讲的所有符号都是元字符，下面这些是简单常用的元字符。
@@ -122,12 +117,12 @@ The contentn below is just my notes on learning regular expression. It may not b
 ### 1. 捕获组
 默认 `()` 就是捕获组，会将括号里匹配到的内容保存到内存中，你可以使用 `\1` 来引用它，当然，只能在括号后引用，这就是 `后向引用`。
 
-捕获组在 [Replace() Method](replace) 中非常有用。可以使用 `$1` 来引用捕获的内容。
+捕获组在 [Replace ()函数](replace) 中非常有用。可以使用 `$1` 来引用捕获的内容。
 
 ### 2. 非捕获组
 如果只是想分组，其实不需要用捕获组，可以使用 `(?:)` 来分组。
 
-在 [Split() Method](split) 中，如果使用捕获组，捕获的内容包括在结果中，会增加不确定性，一般就是用的非捕获组。
+在 [Split() 函数](split) 中，如果使用捕获组，捕获的内容包括在结果中，会增加不确定性，一般就是用的非捕获组。
 
 ## 贪婪与懒惰
 这其实是很多人不太明白，但却非常重要的知识点。

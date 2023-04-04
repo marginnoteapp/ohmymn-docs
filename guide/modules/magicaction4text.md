@@ -1,67 +1,81 @@
 # MagicAction for Text
 
-The actions here are related to the selected text, which mostly just copy the result to the clipboard. After selecting the text, click the button to search or copy the selected text. Not only text, but also a selected area can be used, even for formula OCR.
+这里的动作和选中文字有关，大部分只是将结果复制到剪贴板上。所有动作都来自于各个模块，需要启用后对应模块后才会显示动作。在选中文字后，点击按钮来对选中的文字进行搜索或者复制。不止文字，框选一块区域也可以，甚至可以用来进行公式 OCR。
 
-## Pre OCR
+## 预先 OCR
 
-::: tip Only Current Document
-The module needs to be enabled, but does not need to be turned on `Auto Run When Excerpting`.
+::: warning 仅当前文档
+需要启用 AutoOCR 模块，但不需要打开 `摘录时自动执行`。
 :::
 
-Use [AutoOCR](autoocr.md) for foreign language text recognition, thus facilitating the subsequent copying, searching, and translation operations.
+使用 [AutoOCR](autoocr.md) 来进行小语种的文字识别，从而方便后续的复制，搜索，以及翻译操作。
 
-## Pre Format
+## 预先转为简体中文
 
-::: tip Only Current Document
-The module needs to be enabled, but does not need to be turned on `Auto Run When Excerpting`.
+::: warning 仅当前文档
+需要启用 AutoSimplify 模块，但不需要打开 `摘录时自动执行`。
 :::
 
-Use [AutoFormat](./autoformat.md) to format selected text.
+使用 [AutoSimplify](autosimplify.md) 进行繁简转换。
 
-## Pre Simplify
+## 预先格式化
 
-::: tip Only Current Document
-The module needs to be enabled, but does not need to be turned on `Auto Run When Excerpting`.
+::: warning 仅当前文档
+需要启用 AutoFormat 模块，但不需要打开 `摘录时自动执行`。
 :::
 
-Use [AutoSimplify](autosimplify.md) to convert to Simplified Chinese.
+::: tip 更新
+[v4.0.6](/update.md) 新增
+:::
 
-## Popup More  Options
+使用 [AutoFormat](./autoformat.md) 进行排版优化。
 
-I do not know if you have noticed, when you select a piece of excerpt in the document, followed by the hand tool to select a paragraph of text, the menu will display `Set Title` , `Add as Comment`, and other options. This will allow you to select the text directly as the title or comments added to the previously selected excerpt.
+## 弹出更多选项
+
+不知道你发现了没有，当你在文档中选中了一块摘录后，紧接着再用手型工具去选中一段文字，菜单里就会出现 `设置标题` `加为评论` 等选项。这样就可以直接把你选中的这段文字直接作为标题或者评论加到之前选中的摘录里。
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic/ebffda8ba4d486a3d3.gif?x-oss-process=base_webp)
 
-OhMyMN takes advantage of this feature. When you select a piece of excerpt in a document, immediately use the hand tool to select a piece of text, and then execute the action, certain actions that copy the result of the execution to the clipboard will pop up more options, such as "set title", “merge title”, and “add as comment”, etc.
+OhMyMN 利用了这一特性。当你在文档中选中了一块摘录后，紧接着再用手型工具去选中一段文字，此时再执行动作，某些会将执行结果复制到剪贴板的动作就会弹出更多选项，比如设置标题，合并标题，设为评论等。
 
-## Action
+## 动作
 
-### Copy Selected Text
-This action may seem useless, but when you use it with `Popup More Options`, you will know how useful it is.
-### Search Selected Text
+### 复制选中文字
 
-From [CopySearch](copysearch.md)
+::: tip 更新
+[v4.0.6](/update.md) 新增，[v4.1.0](/update.md) 修改，不再属于 CopySearch。
+:::
 
-### Formula Recognition
+这个动作看似没用，但当你搭配 `弹出更多选项` 时，就知道有多好用了。
 
-From [AutoOCR](autoocr.md#formula-recognition)
+### 搜索选中文字
 
-### Text Recognition
+来自于 [CopySearch](copysearch.md)
 
-From [AutoOCR](autoocr.md#text-recognition)
+### 公式识别
 
-### Handwriting Recognition
+来自于 [AutoOCR](autoocr.md)
 
-From [AutoOCR](autoocr.md#handwriting-recognition)
+### 文字识别
 
-### QR Code Recognition
+来自于 [AutoOCR](autoocr.md)
 
-From [AutoOCR](autoocr.md#qr-code-recognition)
+### 手写识别
 
-### Translate Selected Text
+来自于 [AutoOCR](autoocr.md)
 
-From [AutoTranslate](autotranslate.md#translate-selected-text)
+### 二维码识别
 
-### Convert to Simplified Chinese
+来自于 [AutoOCR](autoocr.md)
 
-From [AutoSimplify](autosimplify.md)
+### 翻译选中文字
+
+来自于 [AutoTranslate](autotranslate.md)
+
+### 转为简体中文
+
+::: tip 更新
+[v4.0.6](/update.md) 新增
+:::
+
+来自于 [AutoSimplify](autosimplify.md)

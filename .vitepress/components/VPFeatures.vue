@@ -39,7 +39,7 @@ const grid = computed(() => {
   <div v-if="features" class="VPFeatures">
     <div class="VPContainer">
       <div v-for="(value,key,index) in features">
-        <div :class="[ index?' mt-1.5em':'', 'mb-0.5em details' ]"><span class="arrow">>>></span> To {{key}}</div>
+        <div :class="[ index?' mt-1.5em':'', 'mb-0.5em details' ]"><span class="arrow">>>></span> 给{{key}}带来</div>
         <div class="items">
           <div v-for="feature in value" :key="feature.title" class="item" :class="[grid[key]]">
             <VPFeature :icon="feature.icon" :title="feature.title" :details="feature.details" />

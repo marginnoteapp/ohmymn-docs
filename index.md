@@ -3,29 +3,35 @@ layout: home
 sidebar: false
 
 title: OhMyMN
-titleTemplate: MarginNote Addon Development Framework
+titleTemplate: MarginNote 插件开发框架
 
 hero:
   name: OhMyMN
-  text: MarginNote Addon Development Framework
-  tagline: Also a toolbox that can process excerpts automatically
+  text: MarginNote 插件开发框架
+  tagline: 同时也是一个可以自动处理摘录的工具箱
   image:
     src: /logo-shadow.svg
     alt: ohmymn
   actions:
     - theme: alt
-      text: Development
+      text: 开发文档
       link: /dev/
     - theme: alt
-      text: API
+      text: API 文档
       link: /api/
     - theme: brand
-      text: Guide
+      text: 使用指南
       link: /guide/
     - theme: alt
-      text: Download
+      text: 立即下载
       link: https://bbs.marginnote.cn/t/topic/20501
     - theme: alt
-      text: View on GitHub
+      text: 查看源码
       link: https://github.com/marginnoteapp/ohmymn
 ---
+<script setup>
+import HomePage from "/.vitepress/components/HomePage.vue"
+import Feature from "/.vitepress/components/Feature.vue"
+</script>
+<Feature />
+<HomePage />

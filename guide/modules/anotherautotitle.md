@@ -1,26 +1,33 @@
 # Another AutoTitle
 
-What kind of excerpts should be set as titles?
+什么样的摘录该设置为标题？
 
-## Preset
+## 预设
 
 ::: tip
-Only needs to meet one of the presets to automatically turn it into a title
+预设只需要满足一个就会自动转为标题
 :::
 
-1. Word Count: This is the easiest criterion to think of. When you have only two words in an excerpt, you naturally want to use this excerpt as a title. As long as it does not exceed the set number of words, it will automatically be turned into a title. If there are numbers or words in a Chinese sentence, they are not counted separately. A word or number will also occupy a Chinese character-like word count.
-   - Chinese-character-like word count: Anything that is not made up of letters is Chinese.
-   - English-word-like word count: That is, the number of words. Here I consider the Arabic number as a word as well.
-2. Not Contain Dot Symbols: Dot symbols are `。.、？?！!，,；;：:`. If there is no punctuation mark indicating a pause, the excerpt is highly likely to be converted into a title.
+1. 字数：这是最容易想到的判断标准，当你某一次只摘录了两个字，必然想把这个摘录作为标题。只要不超过设置的字数，就会自动转为标题。如果中文句子中出现数字或者单词，并不会分开计算，一个单词或者数字也会占用一个类中文字数。
 
-## Custom
+   - 类中文字数：不是由字母组成的都属于类中文。
+   - 类英文字数：也就是单词数，这里我把数字也看作一个单词。
 
-Use regular expressions to determine if the excerpted text meets the requirements, and turn it into a title if it does.
+2. 不含有点号：所谓点号，标点标点，包含标号和点号，点号就是指表示停顿的一类标点符号，比如 `。.、？?！!，,；;：:`。没有表示停顿的符号，大概率是作为标题。
 
-::: warning Input Format
-[Regular expressions - Judgment](../custom.md#regular-expression)
+## 自定义
+
+使用正则表达式来判断摘录的文字是否满足要求，满足就转为标题。
+
+::: warning 输入格式
+[正则表达式——判断](../custom.md#正则表达式)
 :::
 
-**Example**
+**示例**
 
-For example, if you want the excerpt to be automatically converted to a title if it is in full Chinese with no punctuation and contains no more than 10 characters, you can write `/^[\u4e00-\u9fa5]{0,10}$/`.
+比如你如果希望在全中文下，没有标点，字数不超过 10，就会自动转为标题，则可以写成 `/^[\u4e00-\u9fa5]{0,10}$/`。
+
+## ~~标题摘录始终为标题~~
+::: tip 更新
+[v4.0.10](/update) 移除
+:::

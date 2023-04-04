@@ -1,29 +1,26 @@
-# Replace() Method
+# Replace() 函数
 
-In order to make OhMyMN more free and powerful, many customizations in OhMyMN use [replace() method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace) as drivers. This allows you to do almost anything with the excerpt text, but to avoid more of the ambiguity of crashing the plugin, <u>OhMyMN restricts functions as arguments and supports only regular expressions</u>.
+为了使 OhMyMN 更加自由，更加强大，OhMyMN 中很多自定义都采用 [Replace()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace) 函数作为驱动。这使得你几乎可以对摘录进行任何处理，不过为了避免更多的导致插件崩溃的不确定因素，<u>OhMyMN 限制了将函数作为参数，以及仅支持正则表达式</u>。
 
-## Replace
+## 替换
 
-[Replace() method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace) is used to replace the matched content with the given string, and then return all the replaced content.
-
-::: tip Input format
-
+[Replace()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace) 函数的作用其实就是将匹配到的内容替换为给的文字，然后返回替换后的所有内容。
+::: tip 输入格式
 ```js
 (/regex/, "newSubStr")
 ```
 :::
 
-- `regex` is [Regular Expression](regex), used to match content which you want.
-- `newSubStr` is a norma string, used to replace matched content.
+- `regex` 是 [正则表达式](regex)，用来匹配需要替换的内容。
+- `newSubStr` 为普通字符串，需要使用双引号包裹，比如`"xxx"`，表示想要替换成的内容。
+在 `newSubStr` 中，可以使用一些变量，来引用匹配到的内容：
 
-In the `newSubStr`, you can use some variables to refer to the matched content or other content.
+1. `$&` 表示匹配的字符串。
+2. `` $` `` 表示匹配的字符串前面的内容。
+3. `$'` 表示匹配的字符串后面的内容。
+4. `$n` 如果你在 `regex` 中使用了[捕获组](regex#分组)，你就可以用 `$+数字` 来引用你捕获的内容。
+5. 在 v4 版本中，某些情况下还可以使用模版变量，点击查看 [模版语法](mustache.md)。
 
-1. `$&` matched substring.
-2. `` $` `` the portion of the string that precedes the matched substring.
-3. `$'` the portion of the string that follows the matched substrng.
-4. `$n` the nth (1-indexed) capturing group where n is a positive integer less than 100.
-5. In the OhMyMN v4, templates variables are also available in some cases, click to view [Template Syntax](mustache.md)。
+## 提取
 
-## Extract
-
-All extraction operations in OhMyMN return `newSubStr` directly as a value. This is equivalent to returning `newSubStr` whenever a regular match is found, and using the capture group, you can also capture it and return it. To achieve this effect, you need to use the [match() method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match). Of course, you don't need to know this. Just use the same syntax as for the previous substitution, except that `newSubStr` will be returned at the end instead of the whole replaced string.
+OhMyMN 中所有的提取操作都是直接将 `newSubStr` 作为了返回值。相当于只要正则匹配到了就返回 `newSubStr`，而使用捕获组，还可以将其捕获并返回。能实现这个效果，其实还需要用到 [Match()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/match) 函数。当然，这个你不需要了解。只需要按照前面替换的语法一样使用即可，只是最后会返回 `newSubStr` 而不是整个字符串。

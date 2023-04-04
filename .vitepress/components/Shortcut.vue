@@ -41,282 +41,261 @@ const lightThemeOverrides: GlobalThemeOverrides = {
 
 
 
-const cardActions = [{
-  key: "manageProfile",
-  type: 2,
-  label: "Manage Profile",
-  option: [
-    "Read Profile",
-    "Write Profile",
-    "Reset Profile",
-    "Sync Profile with Other Windows"
-  ],
-  help: "Please make sure that the card has at least one child card when writing the profile. Multiple child cards can share the profile together to prevent a single card from having too many words.",
-  module: "magicaction4card",
-  moduleName: "MagicAction For Card"
-},
-{
-  type: 3,
-  label: "Filter Cards",
-  option: ["All", "Title", "Excerpt", "Comment", "Tag"],
-  key: "filterCard",
-  module: "magicaction4card",
-  moduleName: "MagicAction For Card"
-},
-{
-  type: 2,
-  label: "Merge Multiple Cards",
-  key: "mergeCard",
-  option: ["Merge Title", "Not Merge Titles"],
-  module: "magicaction4card",
-  moduleName: "MagicAction For Card"
-},
-{
-  type: 3,
-  label: "Rename Titles",
-  key: "renameTitle",
-  help: "$& refers to the original title. Enter \"%['1'] $&\" to Quickly number the selected card title.",
-  module: "magicaction4card",
-  moduleName: "MagicAction For Card"
-},
-{
-  type: 2,
-  label: "Merge Text",
-  key: "mergeText",
-  option: ["Merged as Excerpt", "Merged as Comment"],
-  help: "Only support merging text excerpt and text comment, not merging tags and link, other content will be pinned after merging",
-  module: "magicaction4card",
-  moduleName: "MagicAction For Card"
-},
-{
-  key: "switchTitle",
-  type: 2,
-  label: "Switch Excerpt / Title",
-  option: ["Switch to Non-Existent", "Swap Title and Excerpt"],
-  help: "Use [Swap Title and Excerpt] when both are present」",
-  module: "magicaction4card",
-  moduleName: "MagicAction For Card"
-},
-{
-  type: 3,
-  label: "Extract Title",
-  option: ["Use AutoDef Settings", "Confirm"],
-  key: "extractTitle",
-  moduleName: "Another AutoDef",
-  module: "anotherautodef",
-  help: "This action comes from Another AutoDef and uses the same settings. "
-},
-{
-  type: 3,
-  label: "Split Excerpt Text",
-  key: "splitExcerpt",
-  option: ["Use AutoDef Settings", "Confirm"],
-  help: "This action comes from Another AutoDef and uses the same settings. Split the excerpt into title (definiendum) and excerpt (definiens) parts.",
-  moduleName: "Another AutoDef",
-  module: "anotherautodef"
-},
-{
-  key: "formatCard",
-  type: 2,
-  label: "Format Excerpt Text",
-  option: ["All", "Only Title", "Only Excerpt Text"],
-  moduleName: "AutoFormat",
-  module: "autoformat",
-  help: "This action comes from AutoFormat and uses the same settings. "
-},
-{
-  key: "completeWord",
-  type: 2,
-  label: "Generate Word Card",
-  option: ["Append", "Replace"],
-  moduleName: "AutoComplete",
-  module: "autocomplete",
-  help: "This action comes from AutoComplete and uses the same settings. "
-},
-{
-  type: 3,
-  label: "Replace Excerpt Text",
-  key: "replaceCard",
-  option: ["Use AutoReplace Settings", "Confirm"],
-  moduleName: "AutoReplace",
-  module: "autoreplace",
-  help: "This action comes from AutoReplace and uses the same settings. "
-},
-{
-  type: 3,
-  label: "Add Line Breaks",
-  key: "listCard",
-  option: ["Use AutoList Settings", "Confirm"],
-  moduleName: "AutoList",
-  module: "autolist",
-  help: "This action comes from AutoList and uses the same settings. "
-},
-{
-  type: 3,
-  label: "Add Tags",
-  key: "addTag",
-  option: ["Use AutoTag Settings", "Confirm"],
-  moduleName: "AutoTag",
-  module: "autotag",
-  help: "This action comes from AutoTag and uses the same settings. "
-},
-{
-  type: 3,
-  label: "Modify Excerpt Color",
-  key: "changeColor",
-  option: ["Use AutoStyle Settings", "Confirm"],
-  help: "This action comes from AutoStyle and uses the same settings. Enter the color index, 1 to 16",
-  moduleName: "AutoStyle",
-  module: "autostyle"
-},
-{
-  type: 2,
-  label: "Modify Excerpt Style",
-  key: "changeStyle",
-  option: ["Use AutoStyle Settings", "Outline+Fill", "Fill", "Outline"],
-  moduleName: "AutoStyle",
-  module: "autostyle",
-  help: "This action comes from AutoStyle and uses the same settings. "
-},
-{
-  type: 2,
-  key: "searchCardInfo",
-  label: "Search Card Content",
-  option: [
-    "Chinese",
-    "English",
-    "Dict",
-    "Translation",
-    "Academic",
-    "Question",
-    "Other"
-  ],
-  moduleName: "CopySearch",
-  module: "copysearch",
-  help: "This action comes from CopySearch and uses the same settings. "
-},
-{
-  type: 2,
-  key: "copyCardInfo",
-  label: "Copy Card Content",
-  option: ["Dynamic Selection", "Title First", "Excerpt First", "Custom"],
-  moduleName: "CopySearch",
-  module: "copysearch",
-  help: "This action comes from CopySearch and uses the same settings. "
-},
-{
-  key: "translateCard",
-  type: 2,
-  label: "Translate Excerpt Text",
-  help: "This action comes from AutoTranslate and uses the same settings. Translate all excerpts in the card, note that too many translations at the same time may cause the translation to fail.",
-  moduleName: "AutoTranslate",
-  module: "autotranslate"
-},
-{
-  type: 3,
-  label: "Add Comment",
-  key: "addComment",
-  option: ["Use AutoComment Settings", "Confirm"],
-  moduleName: "AutoComment",
-  module: "autocomment",
-  help: "This action comes from AutoComment and uses the same settings. "
-},
-{
-  type: 2,
-  label: "Convert to Simplified Chinese",
-  key: "simplifyCard",
-  option: ["Excerpt and Title", "Only Excerpt", "Only Title"],
-  moduleName: "AutoSimplify",
-  module: "autosimplify",
-  help: "This action comes from AutoSimplify and uses the same settings. "
-}
-]
-const textActions = [
+const cardActions = [
   {
+    key: "manageProfile",
     type: 2,
-    key: "copyText",
-    label: "Copy Selected Text",
-    module: "magicaction4text",
-    moduleName: "MagicAction For Text"
+    label: "配置管理",
+    option: ["读取配置", "写入配置", "重置配置", "同步其他窗口的配置"],
+    help: "写入配置时请确保该卡片至少有一张子卡片。多张子卡片可以一起分担配置，防止单张卡片字数过多。",
+    module: "magicaction4card",
+    moduleName: "MagicAction For Card"
+  },
+  {
+    type: 3,
+    label: "筛选卡片",
+    option: ["所有", "标题", "摘录", "评论", "标签"],
+    key: "filterCard",
+    module: "magicaction4card",
+    moduleName: "MagicAction For Card"
   },
   {
     type: 2,
-    key: "searchText",
-    label: "Search Selected Text",
-    option: [
-      "Chinese",
-      "English",
-      "Dict",
-      "Translation",
-      "Academic",
-      "Question",
-      "Other"
-    ],
+    label: "合并卡片",
+    key: "mergeCard",
+    option: ["同时合并标题", "不合并标题"],
+    module: "magicaction4card",
+    moduleName: "MagicAction For Card"
+  },
+  {
+    type: 3,
+    label: "重命名标题",
+    key: "renameTitle",
+    help: "$& 指代原标题。输入 \"%['1'] $&\" 可快速为选中卡片标题编号。",
+    module: "magicaction4card",
+    moduleName: "MagicAction For Card"
+  },
+  {
+    type: 2,
+    label: "合并卡片内文字",
+    key: "mergeText",
+    option: ["合并为摘录", "合并为评论"],
+    help: "仅支持合并文字摘录和文字评论，不合并标签和链接，其余内容会在合并后置顶。",
+    module: "magicaction4card",
+    moduleName: "MagicAction For Card"
+  },
+  {
+    key: "switchTitle",
+    type: 2,
+    label: "切换摘录标题",
+    option: ["切换为不存在的", "交换标题和摘录"],
+    help: "当两者都存在时请使用「交换标题和摘录」。",
+    module: "magicaction4card",
+    moduleName: "MagicAction For Card"
+  },
+  {
+    type: 3,
+    label: "提取标题",
+    option: ["使用 AutoDef 中的设置", "确定"],
+    key: "extractTitle",
+    moduleName: "Another AutoDef",
+    module: "anotherautodef",
+    help: "该动作来自于 Another AutoDef，与其使用相同的设置。"
+  },
+  {
+    type: 3,
+    label: "拆分摘录",
+    key: "splitExcerpt",
+    option: ["使用 AutoDef 中的设置", "确定"],
+    help: "该动作来自于 Another AutoDef，与其使用相同的设置。将摘录拆分为标题（被定义项）和摘录（定义项）两部分。",
+    moduleName: "Another AutoDef",
+    module: "anotherautodef"
+  },
+  {
+    key: "formatCard",
+    type: 2,
+    label: "优化排版格式",
+    option: ["标题和摘录", "仅标题", "仅摘录"],
+    moduleName: "AutoFormat",
+    module: "autoformat",
+    help: "该动作来自于 AutoFormat，与其使用相同的设置。"
+  },
+  {
+    key: "completeWord",
+    type: 2,
+    label: "英文单词制卡",
+    option: ["追加", "替换"],
+    moduleName: "AutoComplete",
+    module: "autocomplete",
+    help: "该动作来自于 AutoComplete，与其使用相同的设置。"
+  },
+  {
+    type: 3,
+    label: "替换摘录内容",
+    key: "replaceCard",
+    option: ["使用 AutoReplace 的设置", "确定"],
+    moduleName: "AutoReplace",
+    module: "autoreplace",
+    help: "该动作来自于 AutoReplace，与其使用相同的设置。"
+  },
+  {
+    type: 3,
+    label: "添加换行",
+    key: "listCard",
+    option: ["使用 AutoList 的设置", "确定"],
+    moduleName: "AutoList",
+    module: "autolist",
+    help: "该动作来自于 AutoList，与其使用相同的设置。"
+  },
+  {
+    type: 3,
+    label: "添加标签",
+    key: "addTag",
+    option: ["使用 AutoTag 的设置", "确定"],
+    moduleName: "AutoTag",
+    module: "autotag",
+    help: "该动作来自于 AutoTag，与其使用相同的设置。"
+  },
+  {
+    type: 3,
+    label: "修改摘录颜色",
+    key: "changeColor",
+    option: ["使用 AutoStyle 的设置", "确定"],
+    help: "该动作来自于 AutoStyle，与其使用相同的设置。输入颜色索引，也就是顺序，1 到 16。",
+    moduleName: "AutoStyle",
+    module: "autostyle"
+  },
+  {
+    type: 2,
+    label: "修改摘录样式",
+    key: "changeStyle",
+    option: ["使用 AutoStyle 的设置", "线框+填充", "填充", "线框"],
+    moduleName: "AutoStyle",
+    module: "autostyle",
+    help: "该动作来自于 AutoStyle，与其使用相同的设置。"
+  },
+  {
+    type: 2,
+    key: "searchCardInfo",
+    label: "搜索卡片内容",
+    option: ["中文", "英文", "词典", "翻译", "学术", "问题", "其他"],
     moduleName: "CopySearch",
     module: "copysearch",
-    help: "This action comes from CopySearch and uses the same settings. "
+    help: "该动作来自于 CopySearch，与其使用相同的设置。"
   },
   {
     type: 2,
-    key: "formulaOCR",
-    label: "Formula OCR",
-    option: ["Pure Latex", "$ Latex $", "$$ Latex $$"],
-    help: 'This action comes from AutoOCR and uses the same settings. For "Markdown" Addon, please choose Pure Latex',
-    moduleName: "AutoOCR",
-    module: "autoocr"
+    key: "copyCardInfo",
+    label: "复制卡片内容",
+    option: ["动态选择", "优先标题", "优先摘录", "自定义"],
+    moduleName: "CopySearch",
+    module: "copysearch",
+    help: "该动作来自于 CopySearch，与其使用相同的设置。"
   },
   {
+    key: "translateCard",
     type: 2,
-    key: "textOCR",
-    label: "Text OCR",
-    moduleName: "AutoOCR",
-    module: "autoocr",
-    help: "This action comes from AutoOCR and uses the same settings. "
-  },
-  {
-    type: 2,
-    key: "handWrittingOCR",
-    label: "Handwritting OCR",
-    moduleName: "AutoOCR",
-    module: "autoocr",
-    help: "This action comes from AutoOCR and uses the same settings. "
-  },
-  {
-    type: 2,
-    key: "QRCodeOCR",
-    label: "QRCode OCR",
-    moduleName: "AutoOCR",
-    module: "autoocr",
-    help: "This action comes from AutoOCR and uses the same settings. "
-  },
-  {
-    key: "translateText",
-    type: 2,
-    label: "Translate Selected Text",
+    label: "翻译摘录内容",
+    help: "该动作来自于 AutoTranslate，与其使用相同的设置。会翻译卡片中所有的摘录，注意不要同时翻译太多内容。",
     moduleName: "AutoTranslate",
-    module: "autotranslate",
-    help: "This action comes from AutoTranslate and uses the same settings. "
+    module: "autotranslate"
+  },
+  {
+    type: 3,
+    label: "添加评论",
+    key: "addComment",
+    option: ["使用 AutoComment 的设置", "确定"],
+    moduleName: "AutoComment",
+    module: "autocomment",
+    help: "该动作来自于 AutoComment，与其使用相同的设置。"
   },
   {
     type: 2,
-    label: "Convert to Simplified Chinese",
-    key: "simplifyText",
+    label: "转换为简体中文",
+    key: "simplifyCard",
+    option: ["摘录和标题", "仅摘录", "仅标题"],
     moduleName: "AutoSimplify",
     module: "autosimplify",
-    help: "This action comes from AutoSimplify and uses the same settings. "
+    help: "该动作来自于 AutoSimplify，与其使用相同的设置。"
   }
 ]
 
+const textActions = [{
+  type: 2,
+  key: "copyText",
+  label: "复制选中文字",
+  module: "magicaction4text",
+  moduleName: "MagicAction For Text"
+},
+{
+  type: 2,
+  key: "searchText",
+  label: "搜索选中文字",
+  option: ["中文", "英文", "词典", "翻译", "学术", "问题", "其他"],
+  moduleName: "CopySearch",
+  module: "copysearch",
+  help: "该动作来自于 CopySearch，与其使用相同的设置。"
+},
+{
+  type: 2,
+  key: "formulaOCR",
+  label: "公式识别",
+  option: ["Pure Latex", "$ Latex $", "$$ Latex $$"],
+  help: '该动作来自于 AutoOCR，与其使用相同的设置。"Markdown" 插件请选择 Pure Latex',
+  moduleName: "AutoOCR",
+  module: "autoocr"
+},
+{
+  type: 2,
+  key: "textOCR",
+  label: "文字识别",
+  moduleName: "AutoOCR",
+  module: "autoocr",
+  help: "该动作来自于 AutoOCR，与其使用相同的设置。"
+},
+{
+  type: 2,
+  key: "handWrittingOCR",
+  label: "手写识别",
+  moduleName: "AutoOCR",
+  module: "autoocr",
+  help: "该动作来自于 AutoOCR，与其使用相同的设置。"
+},
+{
+  type: 2,
+  key: "QRCodeOCR",
+  label: "二维码识别",
+  moduleName: "AutoOCR",
+  module: "autoocr",
+  help: "该动作来自于 AutoOCR，与其使用相同的设置。"
+},
+{
+  key: "translateText",
+  type: 2,
+  label: "翻译选中文字",
+  moduleName: "AutoTranslate",
+  module: "autotranslate",
+  help: "该动作来自于 AutoTranslate，与其使用相同的设置。"
+},
+{
+  type: 2,
+  label: "转换为简体中文",
+  key: "simplifyText",
+  moduleName: "AutoSimplify",
+  module: "autosimplify",
+  help: "该动作来自于 AutoSimplify，与其使用相同的设置。"
+}
+]
 
 const options = [
   {
     value: 'card',
-    label: 'Card Actions',
+    label: '卡片动作',
     children: cardActions
   },
   {
     value: 'text',
-    label: 'Text Action',
+    label: '文字动作',
     children: textActions
   }
 ].map((h) => {
@@ -324,30 +303,34 @@ const options = [
     ...h,
     children: h.children.map(k => {
       if (!k?.option?.length)
-        k.option = ["Confirm"]
+        k.option = ["确定"]
       return {
         value: k.key,
         label: k.label,
         children: k.option.map((o, i) => {
           return {
-            value: `${k.moduleName}-${h.value}-${k.type === 3 && !/Use.*Settings/.test(o)}-${k.key}-${i}`,
+            value: `${k.moduleName}-${h.value}-${k.type === 3 && !/使用.*的设置/.test(o)}-${k.key}-${i}`,
             label: o,
           }
-        })
+        }
+        )
       }
     })
   }
 })
 
-const selections = reactive<{
+interface Section {
   action: string
   type: "text" | "card"
   label: string
   option: string
   input?: boolean
   content?: string
-}[]>([])
+}
+
+const selections = reactive<Section[]>([])
 const moduleNames = reactive<Set<string>>(new Set())
+
 const content = ref<string>("")
 
 const result = reactive({
@@ -413,15 +396,15 @@ const copy = () => {
     <div class="my-2">
       <div class="flex">
         <n-space vertical class="flex-grow">
-          <n-cascader placeholder="Please Select A Action" :expand-trigger="'hover'" :options="options"
-            @update:value="handleSelect" :check-strategy="'child'" size="small" clearable multiple :cascade="false"
+          <n-cascader placeholder="请选择动作" :expand-trigger="'hover'" :options="options" @update:value="handleSelect"
+            :check-strategy="'child'" size="small" clearable multiple :cascade="false"
             :status="error ? 'error' : 'success'" />
           <n-input v-if="!error" v-for="param in selections.filter(k => k.input)" v-model:value="param.content"
-            type="textarea" :placeholder="`「${param.label}」Need Input`" autosize clearable size="small" />
+            type="textarea" :placeholder="`「${param.label}」有输入`" autosize clearable size="small" />
         </n-space>
         <n-button :text-color="isDark ? '#fff' : '#000'" @click="generate" size="small"
           :disabled="selections.length === 0 || error || !!selections.find(k => k.input && !k.content)" class="!ml-4">
-          Generate
+          生成
         </n-button>
       </div>
       <p />
@@ -431,12 +414,11 @@ const copy = () => {
         <n-tooltip placement="bottom" trigger="click">
           <template #trigger>
             <n-button @click="copy" size="small" class="!ml-4" :text-color="isDark ? '#fff' : '#000'">
-              Copy
+              复制
             </n-button>
           </template>
-          <span v-if="moduleNames.size">Copied successfully! This shortcut requires {{ [...moduleNames].join("、") }}
-            module(s), please make sure you have enabled</span>
-          <span v-else> Copied Successfully </span>
+          <span v-if="moduleNames.size">复制成功，该捷径需要用到 {{ [...moduleNames].join("、") }} 模块，请确保已经启用</span>
+          <span v-else>复制成功</span>
         </n-tooltip>
       </div>
     </div>

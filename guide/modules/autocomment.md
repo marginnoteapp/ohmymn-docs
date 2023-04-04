@@ -1,23 +1,29 @@
 # AutoComment
 
-Automatically add specified comments if a regex is matched, or extract specific content from an excerpt as a comment.
+在匹配到正则的情况下自动添加指定评论，也可以从摘录中提取特定内容为评论。
 
-## Custom
+## 自定义
 
-::: warning Input Format
-[Replace() Method Format —— Extract](../custom.md#replace-method)
+::: warning 输入格式
+[Replace() 函数格式——提取](../custom.md#replace-函数)
 :::
 
-**Example**
+**例**
 
-- `(/./, "This is an example")` will add one comment as "This is an example" for each iteration.
+- `(/^.+$/gs, "这是一个例子")` 即可每次都添加一条评论为“这是一个例子”。
 
-## [MagicAction for Card](magicaction4card.md#add-comment)
-
-### Add Comment
-
-::: warning Input Format
-[Replace() Method Format —— Extract](../custom.md#replace-method)
+::: tip 更新
+[v4.0.11](/update) 支持图片摘录自动添加评论。
 :::
 
-Since in most cases it's just to add a comment without extracting it, so you can just type in the comment content and I will complete it as `(/./, "<comment>")`.
+- `(/@picture/gs, "这是一张图片")` 摘录图片时自动添加评论。
+
+## [MagicAction for Card](magicaction4card.md#添加评论)
+
+### 添加评论
+
+::: warning 输入格式
+[Replace() 函数格式——提取](../custom.md#replace-函数)，传入卡片中的摘录。
+:::
+
+由于大部分情况下只是为了添加评论，而无须提取，所以你可以直接输入评论内容。

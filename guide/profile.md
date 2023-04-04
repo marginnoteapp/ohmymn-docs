@@ -1,45 +1,40 @@
-# Profile Management
+# 配置管理
 
-::: tip Profile
-I like to call the configuration/setting as the profile, also like to call the plugin as the addon.
-:::
-
-
-## Profile Structure
+## 配置结构
 
 ::: tip
+笔记本配置和文档配置都会有注释说明，没有说明的情况下都是全局配置。
 
-The notebook profile and the doc profile are annotated with instructions. Those without instructions are global profiles.
-
-- [Only Current Notebook]
-- [Only Current Document]
+- 【仅当前笔记本】
+- 【仅当前文档】
 
 :::
 
-- Global Profile x 4: Different global profiles can be selected for different notebooks. Multiple global profiles are used for several different learning scenarios. For example, if you have 4 subjects, then you can use exactly 4 sets of profiles. If you feel that 4 sets are not enough, then I think you should make them as compatible as possible. Try to find the greatest common factor among different learning scenarios and balance flexibility and convenience.
-- Doc Profile: different for each document.
-- Notebook Profile: different for each notebook.
+- 全局配置 x 4：可可以为不同笔记本选择不同的全局配置。多套全局配置用于多个不同的学习场景。比如 4 个科目，那么刚好就可以使用 4 套配置文件。如果你觉得 4 套不够，那么我认为你应该尽可能的让他们兼容，找出不同学习场景的最大公约数，兼顾灵活和方便。
+  - 全局配置中又包含了所有模块的配置。
+- 文档配置：每个文档不一样。
+- 笔记本配置：每个笔记本不一样。
 
-## Initialize
+## 初始化
 
-If you think the initial profile doesn't suit your needs and it's too tedious to modify different notebooks or documents one by one. Don't worry, I've already thought of it. You may have noticed that the last item in `OhMyMN-Select Global Profile` is called `Initialize`. When you make changes to this profile, it will be synchronized to all documents and notebooks. However, note that the options `OhMyMN-Select Global Profile` and `OhMyMN-Module Quick Switch` will not participate in the synchronization.
+如果你觉得初始配置不符合你的需求，不同笔记本，文档一一修改太过繁琐，放心，我肯定是想到了。你可能已经发现了 `OhMyMN-选择配置文件` 中最后一项叫做 `初始化`，当你在这个配置文件中修改时，它会同步到所有文档，笔记本。不过要注意，`OhMyMN-选择配置文件`、`OhMyMN-模块快捷开关` 这两个选项不会参与同步。
 
-::: tip Update
-[v4.1.1](https://github.com/marginnoteapp/ohmymn/releases) Improved. The initialized document profile and notebook profile will be used as the default profile for new documents and new notebooks.
+::: tip 更新
+[v4.1.1](/update.md) 改进，会作为新文档和新笔记本的默认配置。
 :::
 
-~~For document profiles and notebook profiles, the initialization will only work on documents or notebooks that have already been opened.~~
+~~对于文档配置和笔记本配置，初始化只会作用于已经打开过的文档或笔记本。~~
 
-## Export & Import
+## 导出、导入
 
-You can also export all your profiles to mindmap cards so that they can be synchronized with MarginNote using iCloud. You can also share profiles by exporting your notebook. For more information, you can continue reading [MagicAction for Card —— Manage Profile](modules/magicaction4card#manage-profile).
+你还可以将所有的配置导出到脑图卡片中，这样就可以随着 MarginNote 一起使用 iCloud 同步，也可以通过导出笔记本来分享配置文件。更多内容可以继续阅读 [MagicAction for Card-配置管理](modules/magicaction4card#配置管理)。
 
-## Reset & Sync Multi-window Profiles
+## 重置、同步多窗口的配置
 
-OhMyMN profile changes in the case of multiple windows will not be synchronized immediately. You can force the synchronization with [MagicAction for Card —— Manage Profile —— Sync Profile With Other Windows](modules/magicaction4card#manage-profile).
+OhMyMN 在多窗口的情况下修改配置不会立刻同步过去，你可以通过 [MagicAction for Card-配置管理-同步多窗口的配置 ](modules/magicaction4card#配置管理) 来强制同步。
 
-Use [MagicAction for Card-Manage Profile —— Reset Profile](modules/magicaction4card#manage-profile) to reset the profile. The option to reset the configuration is also provided when deactivating or uninstalling the plugin.
+使用 [MagicAction for Card-配置管理-重置配置 ](modules/magicaction4card#配置管理) 来重置配置。在停用或者卸载插件时也会提供选项来重置配置。
 
-## Write Custom Input Content to Mindmap Cards
+## 将自定义设置写入卡片中
 
-Based on MarginNote's mindmap, OhMyMN can also write custom input content into the mindmap cards for easy arrangement. For more information, you can continue reading [Custom Input Format](custom.md#mnlink).
+基于 MarginNote 的脑图，OhMyMN 还可以将自定义的设置写入脑图卡片中，轻松实现排列组合，更多内容可以继续阅读 [自定义输入格式](custom.md#mnlink)。

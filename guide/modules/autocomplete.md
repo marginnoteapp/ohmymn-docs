@@ -1,90 +1,95 @@
 # AutoComplete
 
-**Powered by [ECDICT](https://github.com/skywind3000/ECDICT) & [API](http://dict.e.opac.vip/dict.php)**
-::: warning
-This module will use an online API to get data, which requires internet connection and may not work properly for foreign users because the server is in China. The API is currently free to use, but it is not guaranteed to be valid for a long time. v4 version provides a local database version, you can choose to download and open it yourself, available in Github Release. The database is large, the first installation will decompress the database, please wait patiently.
+::: warning **Powered by [ECDICT](https://github.com/skywind3000/ECDICT) & [API](http://dict.e.opac.vip/dict.php)**
+本模块会用到一个在线 API 来获取数据，需要联网，并且由于服务器在国内，国外用户有可能无法正常使用。目前该 API 使用免费，但不保证长期有效。v4 版本提供了本地数据库版本，可以自行选择下载和开启，可在 [QQ 频道](https://bbs.marginnote.cn/t/topic/20501#heading-6) 中获取。数据库较大，首次安装会解压数据库，请耐心等待。
 :::
 
-This feature is used to solve one of the issues of using MarginNote to learn English and extract English words. In an English article, words are often not in basic forms and thus cannot make good use of the title links. When you turn on the AutoComplete feature, it will automatically complete the third-person singular form, plural form, past tense, perfect tense, comparative form, and other forms.
+该模块用于解决使用 MarginNote 学习英语，摘录英文单词的一个困扰，那就是在实际文章中，英文单词往往都不是原型，无法很好的利用标题链接。开启该功能后，会自动补全第三人称，复数，过去，完成，比较级等等形式。
 
-What's even more powerful is that the feature can automatically determine whether your excerpt is in the basic form or not, and then complete all forms.
+更为强大的是，不管你摘录的是不是原型，都可以自动判断，然后补全所有形式。
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic/f5ed247b373a2f5f053b6f3523.gif?x-oss-process=base_webp)
 
-## Collins Star Filtering
+## 柯林斯星级筛选
 
-The more commonly used the word is in the Collins dictionary, the higher the star rating. There are 6 levels from 0 to 5 stars. Usually, words with 5 stars are relatively simple words and can be filtered.
+越常用的单词柯林斯星级就越高，一共 6 个等级，0-5 星。通常 5 星的单词都是比较简单的单词，可以排除。
 
-## Fill in Word Information
+## 填充单词信息
 
-It is possible to add some information about the words as comments to create cards automatically.
+可以将单词的部分信息添加为评论，达到自动制卡的目的。
 
-### Custom
+### 自定义
 
-::: warning Custom Format
-[Template](../custom.md#template)
+::: warning 自定义格式
+[模版](../custom.md#模版)
 :::
 
-There are the following variables
+有以下几个变量
 ::: v-pre
-| Variable   | Comments                                                |
-|------------|---------------------------------------------------------|
-| `word`     | the basic form of the excerpted word                    |
-| `phonetic` | phonetic symbols (mostly in British IPA)                |
-| `zh`       | Chinese interpretation                                  |
-| `en`       | English interpretation                                  |
-| `tags`     | tags such as college entrance exams, CET 4, CET 6, etc. |
-| `collins`  | word frequency according to Collins Dictionary          |
+| 变量名     | 备注                  |
+|------------|---------------------|
+| `word`     | 单词原型              |
+| `phonetic` | 音标，大部分为英式音标 |
+| `zh`       | 中文释义              |
+| `en`       | 英文释义              |
+| `tags`     | 高考、四六级等等标签   |
+| `collins`  | 柯林斯星级            |
 
-There are two input fields, which can generate two comments. Usually, the first field is filled with information such as phonetic symbols, labels, etc., and the second field is filled with the interpretation in Chinese or English. This makes it easy to put the comments on the back of the card separately in the Review Mode.
+有两个输入栏，可以生成两个评论，通常第一栏填入音标，标签等信息，第二栏填入中文或者英文释义。这样方便在复习模式中将释义单独放在卡片背面。
 
-Default Placeholder 1: `{{#phonetic}}🔈[{{phonetic}}] {{/phonetic}} {{collins}}{{#tags}}\n🏷 {{tags}}{{/tags}}`
+默认填充 1: `{{#phonetic}}🔈[{{phonetic}}] {{/phonetic}} {{collins}}{{#tags}}\n🏷 {{tags}}{{/tags}}`
 
-Default Placeholder 2: `✍🏻\n{{zh}}\n👀`
+默认填充 2: `✍🏻\n{{zh}}\n👀`
 :::
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220730234119.png?x-oss-process=base_webp)
 
-## Dynamic Interpretation Selection
+## 动态选择释义
 
-When this option is turned on, a pop-up window will appear during the excerpt to select the meaning in the current text (up to 9). If you are not satisfied with the results, you can enter a custom one in the input box.
+开启此选项后，摘录的时候会弹出弹窗来选择当前文中的含义（最多 9 个），如果没有，则可以在输入框中输入来自定义。
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic20220731000657.png?x-oss-process=base_webp)
 
-### Multi-select Interpretation
+### 多选释义
 
-Multi-select the interpretation by entering the specified variable in the input box.
+通过在输入框中输入指定的变量，来多选释义。
 
-- `[all]`: All interpretations.
-- `[1-9]`: Interpretations #1-9.
-- `[123789]`：Interpretations #1, 2, 3, 7, 8, 9, and so on.
-- `[adj]`: The interpretation of adjectives, and so on.
+- `[all]`: 所有释义。
+- `[1-9]`: 编号 1-9 的释义。
+- `[123789]`：编号 1，2，3，7，8，9 的释义，依次类推。
+- `[adj]`: 词性为 adj 的释义，依次类推。
 
-Multi-select Interpretation and Custom Interpretation can be used simultaneously, such as `[all] v. new interpretation`。
+多选释义和自定义释义可以同时使用，比如 `[all] v.新的释义`。
 
-## Dynamic Basic Form Selection
+## 动态选择单词原形
 
-Some words, such as "lay", are both the past tense of "lie" and the basic form of "laid". This is where you need to make a choice.
+有些单词比如 lay，既是 lie 的过去式，也是 laid 的原形。这时候就需要主动选择一下。
 
-## Auto Excerpt Context
+## 自动摘录上下文
 
-::: tip
-If you use [AutoTranslate](autotranslate.md), the excerpt text will be translated automatically.
+::: tip 更新
+[v4.0.10](/update) 上下文作为摘录而不是评论。
 :::
 
-As the name suggests, it can automatically extract the sentence in which the current word is located, thus preserving the context and making it easy to review and memorize.
+顾名思义，可以自动摘录当前单词所在的句子，从而保留语境，方便复习记忆。
 
-OCR Pro is not currently supported, and will not work if the PDF itself does not have a text layer. If you rely heavily on this feature, you can use Abbyy to OCR the entire book.
+目前不支持 OCR Pro，如果 PDF 本身没有文字层，则无法正常工作。如果非常依赖这个功能，可以使用 Abbyy 来 OCR 整本书。
 
-## [MagicAction for Card](magicaction4card.md#generate-word-card)
-
-### Generate Word Card
-
-::: tip
-When you selected more than one card, the `Dynamic Basic Form Selection` and `Dynamic Basic Form Selection` will be turn off automatically.
+### ~~翻译上下文~~
+::: tip 更新
+[v4.0.10](/update) 移除，请直接用 AutoTranslate。
 :::
 
-Using the same settings, the information generated by AutoComplete belongs to comments, which cannot be modified and can only be deleted and re-added.
 
-- Append: add new comments
-- Replace: First delete the old comment, and then add the new comment (Images may be moved to the top)
+## [MagicAction for Card](magicaction4card.md#英文单词制卡)
+
+### 英文单词制卡
+
+::: tip 更新
+[v4.0.16](/update.md) 改进，多选模式下自动关闭词义选择和原型选择。
+:::
+
+使用相同的配置。AutoComplete 生成的信息都属于评论，评论无法被修改，只能删除重新添加。
+
+- 追加：添加新的评论。
+- 替换: 先删除旧评论，再添加新的评论（如果有图片，可能会跑顶上去）。

@@ -1,49 +1,53 @@
 # AutoTranslate
 
-The primary role of AutoTranslate is to auto translate  during excerpting (the result of the translation is saved as a separate comment).
+AutoTranslate 的主要职责是在摘录的时候自动翻译（翻译的结果单独作为评论）。
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic/ed1df2deb0a2aff5ad680bd12cb7fc847bbd6f72.gif?x-oss-process=base_webp)
 
-## Get API key
+## 获取 API 密钥
 
-First of all, you need to know that this service invokes a third-party translation service, so you need to get the key of this service by yourself and you cannot use it directly. I provide Baidu Translate and LingoCloud to choose from, Baidu Translate as well as LingoCloud have free trials, which are enough for you to use.
+首先你需要知道这个服务是调用的第三方的翻译服务，所以需要你自行去获取这个服务的密钥，没办法直接使用。我提供了百度翻译和彩云小译可以选择，百度翻译以及彩云小译都有免费的额度，足够你使用。
 
-### Baidu Translate
+### 百度翻译
 
-::: warning Notice
-Search for [How to apply the Baidu Translate API](https://www.google.com/search?q=How+to+apply+the+Baidu+Translate+API) by yourself, the exact price and amount is subject to the official website, and any fees incurred are not related to OhMyMN.
+::: warning 注意
+自行搜索 [如何申请百度翻译 API](https://cn.bing.com/search?q=如何申请百度翻译+API)，具体价格和额度以官网为准，所产生的任何费用与 OhMyMN 无关。
 :::
 
-Baidu translation seems to translate more accurately. It supports more languages and custom terminology database. You can customize the correspondences of professional terminologies, so as to translate accurately.
+AutoTranslate 使用的是百度翻译高级版本，会更准确一点，支持的语言会更多，还支持自定义术语库，可以自定义一些专业术语的对应关系，从而精确翻译。
 
-### LingoCloud Translate
+### 彩云小译
 
-::: warning Notice
-Search for [How to apply the LingoCloud Translate API](https://www.google.com/search?q=How+to+apply+the+LingoCloud+Translate+API) by yourself, the exact price and amount is subject to the official website, and any fees incurred are not related to OhMyMN.
+::: warning 注意
+自行搜索 [如何申请彩云小译 API](https://cn.bing.com/search?q=如何申请彩云小译+API)，具体价格和额度以官网为准，所产生的任何费用与 OhMyMN 无关。
 :::
 
-LingoCloud only supports the translation among Chinese, English and Japanese. You can switch to LingoCloud after the free trials of Baidu translate is used up.
+彩云小译只支持中英日三国语言的互译，对大部分国内学生来说就够用了，可以在百度翻译的免费额度用完后切换到彩云小译。
 
-## Restrictions on Triggering
+## 限制触发的条件
 
-I have only provided a word limit. Below a certain number of words it will not be executed. This is exactly the same as the word limit in  [Another AutoTitle](anotherautotitle.md#预设) which is further divided into Chinese-character-like or English-word-liken word count.
+虽然我只提供了字数上的限制，低于某个字数就不会执行，这个和 [Another AutoTitle](anotherautotitle.md#预设) 中的字数限制一模一样，分了类中文和类英文，这里不多说。
 
-At the bottom I have added a layer of restriction, that is, if the excerpted language itself is not part of the input language you have chosen, it will not be executed. Of course, I can only determine this based on the presence of letters and whether they are half-width characters, which may not be too accurate, for example, to distinguish between English and French.
+底层我还加了一层限制，那就是如果摘录的语言本身不属于你选择的输入语言，就不会执行。当然，我也只能基于是否有字母，是否是半角来判断，可能不会太精确，比如英语和法语之间就没办法。
 
-## [MagicAction for Card](./magicaction4card.md#translate-excerpt-text)
+## [MagicAction for Card](./magicaction4card.md#翻译摘录内容)
 
-### Translate Excerpt Text
+### 翻译摘录内容
 
-Supports translating all excerpts in the card, and the translation results are added to the card as comments. Please do not translate too much content at the same time to avoid triggering API restrictions.
+::: tip 更新
+[v4.0.16](/update.md) 新增
+:::
 
-## [MagicAction for Text](magicaction4text.md#translate-selected-text)
+支持翻译卡片中的所有摘录，翻译结果作为评论添加到卡片中。请勿同时翻译过多内容，以免触发 API 限制。
 
-### Translate selected text
+## [MagicAction for Text](magicaction4text.md#翻译选中文字)
 
-This makes the so-called "word-underscoring translation" possible.
+### 翻译选中文字
+
+可以实现所谓的划词翻译。
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic/5e42ca59095a4ba58c881aa7f86fc2f212d7e8d3.gif?x-oss-process=base_webp)
 
-Use the [Gesture](gesture.md) module to add trigger gestures for word translation without worrying about accidental touches.
+利用 Gesture 模块，添加触发手势，真正实现划词翻译，还不用担心误触。
 
 ![](https://testmnbbs.oss-cn-zhangjiakou.aliyuncs.com/pic/8d0fb21b9ae2fea0b3dd6864345034dedbb59bf8.gif?x-oss-process=base_webp)

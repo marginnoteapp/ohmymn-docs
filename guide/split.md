@@ -1,13 +1,13 @@
-# Split() Method
+# Split() 函数
 
-[Split() method](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/split) is currently only used in [Another AutoDef](modules/anotherautodef) to split the excerpt text into two parts: the title and the excerpt.
+[Split()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/split) 函数目前只在 [Another AutoDef](modules/anotherautodef) 中使用，用于将摘录的内容分割成标题和摘录两部分。
 
-Just provide a [Regular Expression](regex) as the split point to split the string in two parts.
+只需要提供一个 [正则表达式](regex)，作为分割点，将字符串分割成两部分。
 
-if you use a capture group in your regular expression, it puts the captured content in the split result, resulting in a split into three parts. If you have to group, you can use a non-capture group.
+这里要单独提一下是因为 split 有个特性，如果你正则表达式中使用了 [捕获组](regex#分组)，就会把捕获的内容放在分割后的结果中，导致分成了三个部分。 如果你必须要分组，可以使用 [非捕获组](regex#分组)。
 
-There is actually a benefit to capture groups, which is when you can't find a clear split, such as a multiple-choice question where you want to use the question as the title and the options as excerpts. That's when you have to use the capture group and the capture is all the options.
+其实捕获组也有个好处，就是当你找不到一个明确的分割点，比如选择题，你想把题目作为标题，选项作为摘录。这时候就必须用到捕获组，并且捕获的内容就是所有选项。
 
-[definiendum, definiens] ⇒ [definiendum, capture group]
+`[被定义项, 定义项]` ⇒ `[被定义项, 捕获组]`
 
-In addition, the capture group allows you to restrict the definiendum or definiens.
+另外，通过捕获组还可以对被定义项或者定义项进行限制。

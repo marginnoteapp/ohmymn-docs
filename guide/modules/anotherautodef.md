@@ -1,24 +1,18 @@
 # Another AutoDef
 
-The difference between this function and [Another AutoTitle](anotherautotitle.md) is that Another AutoTitle is mainly used to convert excerpts to titles, while Another AutoDef uses part of the excerpt as the title and the remaining content as the excerpt, which plays a splitting and extracting role.
+该功能与 [Another AutoTitle](anotherautotitle.md) 的区别在于，Another AutoTitle 主要用于将摘录转换为标题，而 Another AutoDef 更多是将摘录的部分内容作为标题，剩余部分作为摘录，起到的是分割和提取的作用。
 
-As for why it is called AutoDef, it is because this function is most often used for definition.
+至于为什么叫做 AutoDef，因为这个功能最常用到的就是定义。
 
-::: tip The definition of "definition"
-The word or group of words that is to be defined is called the `definiendum`, and the word, group of words, or action that defines it is called the `definiens`. For example, in the definition "An elephant is a large gray animal native to Asia and Africa", the word "elephant" is the definiendum, and everything after the word "is" is the definiens. And "is" is called `definition connective`
+::: tip 对定义的定义
+定义是透过列出一个事件或者一个物件的基本属性来描述或规范一个词或一个概念的意义。被定义的事物或者物件叫做 `被定义项`，其定义叫做 `定义项`。例如，在“大象是一种原产于亚洲和非洲的大型灰色动物”的定义中，“大象”这个词是被定义项，“是”之后的所有词都是定义项，而“是”可以称为`定义联项`。
 :::
 
-This definition connective can either be used as a splitting point to divide content into two parts, the title and the excerpt, or it can be used to determine whether the excerpt is a definition or not, so that it can be processed automatically.
+这个定义联项既可以作为分割点，将其分为标题和摘录两部分，也可以通过这个定义联项来判断摘录的内容是否是一个定义，从而自动进行处理。
 
-## Preset
+## 预设
 
-::: tip
-The current presets are for Chinese only. Welcome to submit your presets on Github.
-:::
-
-I have set up a few commonly seen connectives. It will be restrained to avoid affecting the normal excerpting behavior. `xxx` is the definiendum and `yyy` is the definiens.
-
-Note: some regex contain/are designed for Chinese text
+我已经设置了几个常见的定义联项，为了避免影响正常的摘录行为，所以会比较克制。`xxx` 为定义项，`yyy` 为被定义项。
 
 - xxx : yyy `/[：:]/`
 - xxx —— yyy `/[一\-—]{1,2}/`
@@ -28,63 +22,83 @@ Note: some regex contain/are designed for Chinese text
 - yyy，\_\_\_称(之)为 xxx `/[,，].*称之?为/y`
 - yyy(被)称(之)为 xxx `/(?:通常|一般)?被?称之?为/y`
 
-
-## Custom Definition Connective
-
-::: warning Custom formats
-[Regular Expression —— Split](../custom.md#regular-expression)
+::: tip 更新
+[v4.0.6](/update.md) 删除该选项，现在默认开启该选项，无法关闭。如果想要只提取请使用 `自定义提取标题` 来代替。
 :::
 
-I've written the regular expressions behind the above presets clearly, and you can customize the connectives you need. Here's how it works: [split function](... /split.md), which uses the connective as a splitting point, and naturally divides the definition into the definiendum and the definiens.
+~~默认开启 `摘录仅保留定义项`，也就是将被定义项作为标题，定义项作为摘录。如果关闭，则只会把被定义项作为标题，摘录内容不变，相当于提取出了标题。~~
 
-As you may have noticed, the last two rules in the presets use a flag `y`, and they both belong to the case where the definiendum comes after it. `y` is rarely used in the regular, so I've included it as a parameter. Whenever you use`y`, AutoDef will automatically swap the definiendum and definiens.
+## 自定义定义联项
 
-## Custom Titles Extraction
+::: warning 自定义格式
+[正则表达式——分割](../custom.md#正则表达式)
 
-::: warning Custom Formats
-[Replace() Method Format —— Extract](../custom.md#replace-method)
-
-Note: If you use regular expression arrays, such as `[/test1/, /test2/]`, the `/test1/` will be the main regex to split the content, and the `/test2/` will be used to restrict `/test1/` matched.
+[v4.0.7](/update.md) 进行改进：如果使用了正则表达式数组，数组中第一个正则作为分割点，其余正则作为该点的限制条件。
 :::
 
-Extract the title directly from the excerpt.
+上面的预设我已经写清楚了背后的正则表达式，你可以自定义你需要的定义联项。这里的工作原理是 [Split() 函数](../split.md)，把定义联项作为分割点，自然而然就分成了被定义项和定义项。
 
-The third parameter of this format `fnKey` is used here.
+你可能已经发现了，前面预设中后两个的正则用了一个标志 `y`，并且它们都属于被定义项在后面的情况。`y` 在正则中用的很少，所以我将其作为了一个参数，你只要用了 `y`，AutoDef 就会自动交换定义项和被定义项。
 
-- The default is 0, which can be omitted, meaning that the excerpt content is retained. However, if you enter 1, the excerpt content will not be retained.
+## 自定义提取标题
 
-## Custom Alias Separator
-
-Defined items usually have alias in them, and if you turn on the `Convert Alias To Muilt Titles` option, AutoDef will automatically split them into multiple titles to be used for title links.
-
-Default separator:
-
-- Default: `/或者?|[简又]?称(?:之?为)?/`
-- Punctuation Marks: `/[、。,，‘’“”"『』()（）【】「」《》«»\/\[\]]/`
-
-::: warning Custom Formats
-[Regular Expression —— Split](../custom.md#regular-expression)
-
-Note: If you use regular expression arrays, such as `[/test1/, /test2/]`, the `/test1/` will be the main regex to split the content, and the `/test2/` will be used to restrict `/test1/` matched.
+::: warning 自定义格式
+[Replace() 函数格式——提取](../custom.md#replace-函数)
 :::
 
+直接从摘录中提取出标题。
 
-## [MagicAction for Card](magicaction4card.md#extract-title)
-
-### Extract Title
-
-::: warning Custom Formats
-[Replace() Method Format —— Extract](../custom.md#replace-method)
+::: tip 更新
+[v4.0.16](/update.md) 删除了 fnKey。自定义提取标题现在也支持了 `别名转为多个标题`。
 :::
 
-- `Use the Configuration of AutoDef`: uses the custom regex entered in `Custom Title Extraction`.
+如果你想将上面的定义联项预设转为 `自定义提取标题` 的语法，实现只提取标题，你可以这样写：
 
-### Split Excerpt Text
+- xxx : yyy `(/^(.+)[：:]/, "$1")`
+- xxx —— yyy `(/^(.+)[一\-—]{1,2}/, "$1")`
+- xxx ，是(指) yyy `(/^(.+)[,，]\s*(?:通常|一般)*是指?/, "$1")`
+- xxx 是(指)， yyy `(/^(.+)(?:通常|一般)*是指?\s*[,，]/, "$1")`
+- xxx 是指 yyy `(/^(.+)(?:通常|一般)*是指/, "$1")`
+- yyy，\_\_\_称(之)为 xxx `(/[,，].*称之?为(.+)$/, "$1")`
+- yyy(被)称(之)为 xxx `(/(?:通常|一般)?被?称之?为(.+)$/, "$1")`
 
-::: warning Custom Formats
-[Regular Expression —— Split](../custom.md#regular-expression)
+## 自定义别名分词
+
+生成的标题中通常会有别名，如果你打开 `别名转为多个标题` 选项，AutoDef 会自动将其拆分为多个标题，供标题链接使用。
+
+自带的分词策略:
+
+- 默认：`/或者?|[简又]?称(?:之?为)?/`
+- 标点符号：`/[、。,，‘’“”"『』()（）【】「」《》«»\/\[\]]/`
+
+::: warning 自定义格式
+[正则表达式——分割](../custom.md#正则表达式)
+
+[v4.0.7](/update.md) 进行改进：如果使用了正则表达式数组，数组中第一个正则作为分割点，其余正则作为该点的限制条件。
 :::
 
-- `Use the Configuration of AutoDef`: Split using the presets in AutoDef, excluding `Custom Title Extraction`.
+## [MagicAction for Card](magicaction4card.md#提取标题)
 
-If the card already has a title, it will be automatically merged.
+### 提取标题
+
+::: warning 自定义格式
+[Replace() 函数格式——提取](../custom.md#replace-函数)
+:::
+
+- `使用 AutoDef 的设置`：使用 `自定义提取标题` 中输入的自定义表达式。
+
+[v4.0.7](/update.md) 改进： 如果卡片已有标题，会自动合并。
+
+### 拆分摘录
+
+::: tip 更新
+[v4.0.6](/update.md) 新增
+:::
+
+::: warning 自定义格式
+[正则表达式——分割](../custom.md#正则表达式)
+:::
+
+- `使用 AutoDef 的设置`：使用 AutoDef 中的预设进行拆分，不包括 `自定义提取标题`。
+
+如果卡片已有标题，会自动合并。

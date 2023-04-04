@@ -1,5 +1,5 @@
 const modules = {
-  const: [
+  required: [
     ["OhMyMN", "ohmymn"],
     ["MagicAction for Card", "magicaction4card"],
     ["MagicAction for Text", "magicaction4text"]
@@ -22,7 +22,7 @@ const modules = {
     ["AutoSimplify", "autosimplify"]
   ]
 } as {
-  const: [string, string][]
+  required: [string, string][]
   optional: [string, string][]
 }
 
