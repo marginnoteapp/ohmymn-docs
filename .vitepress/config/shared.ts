@@ -16,7 +16,6 @@ export const sharedConfig = defineConfig({
   },
 
   head: [
-    ["meta", { name: "naive-ui-style" }],
     ["meta", { name: "theme-color", content: "#e9dd1b" }],
     ["link", { rel: "icon", href: "/logo.svg", type: "image/svg+xml" }],
     [
@@ -55,8 +54,12 @@ export const sharedConfig = defineConfig({
   themeConfig: {
     logo: "/logo.svg",
     outline: [2, 3],
-
     socialLinks: [{ icon: "github", link: github }],
+    algolia: {
+      appId: "58GKGEP8Q0",
+      apiKey: "27d364ba4e1ef8bd5f374377f0941845",
+      indexName: "doc-cn"
+    },
 
     footer: {
       message: "Released under the MIT License.",

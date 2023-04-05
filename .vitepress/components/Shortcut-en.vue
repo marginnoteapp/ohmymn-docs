@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { darkTheme, GlobalThemeOverrides, NConfigProvider } from 'naive-ui';
+import { darkTheme, GlobalThemeOverrides, NConfigProvider, NTooltip, NButton, NInput, NCascader, NSpace } from 'naive-ui';
 import { useData } from "vitepress";
 
 const { isDark } = useData()

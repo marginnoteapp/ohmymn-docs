@@ -3,7 +3,7 @@ import { version, unsignedVersion } from "../../package.json"
 import modules from "../../modules"
 import { releases } from ".vitepress/meta"
 
-export const META_DESCRIPTION = "MarginNote 插件开发框架"
+export const META_DESCRIPTION = "MarginNote Addon Development Framework"
 
 export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
   description: META_DESCRIPTION,
@@ -14,18 +14,12 @@ export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
 
   themeConfig: {
     editLink: {
-      pattern:
-        "https://github.com/marginnoteapp/ohmymn-docs/tree/main/en/:path",
+      pattern: "https://github.com/marginnoteapp/ohmymn-docs/tree/main/:path",
       text: "Edit this page on GitHub"
     },
 
     outline: {
       label: "TOC"
-    },
-    algolia: {
-      appId: "58GKGEP8Q0",
-      apiKey: "27d364ba4e1ef8bd5f374377f0941845",
-      indexName: "doc"
     },
     nav: [
       {

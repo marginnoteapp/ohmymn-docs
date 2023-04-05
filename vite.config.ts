@@ -1,50 +1,26 @@
-import fs from "fs"
-import type { Plugin } from "vite"
-import { defineConfig } from "vite"
+import { defineConfig, type Plugin } from "vite"
 import Unocss from "unocss/vite"
 import { presetAttributify, presetIcons, presetUno } from "unocss"
 import { resolve } from "pathe"
 import { VitePWA } from "vite-plugin-pwa"
-import fg from "fast-glob"
 import {
   githubusercontentRegex,
   pwaFontStylesRegex,
   pwaFontsRegex
 } from "./.vitepress/meta"
 import AutoImport from "unplugin-auto-import/vite"
-import Components from "unplugin-vue-components/vite"
-import { NaiveUiResolver } from "unplugin-vue-components/resolvers"
 import { title } from "./.vitepress/meta"
 import { META_DESCRIPTION } from ".vitepress/config/en"
+import fs from "fs"
+import fg from "fast-glob"
 
 export default defineConfig({
-  ssr: {
-    format: "cjs"
-  },
-  legacy: {
-    buildSsrCjsExternalHeuristics: true
-  },
   optimizeDeps: {
-    // vitepress is aliased with replacement `join(DIST_CLIENT_PATH, '/index')`
-    // This needs to be excluded from optimization
     exclude: ["vitepress"]
   },
   plugins: [
     AutoImport({
-      imports: [
-        "vue",
-        {
-          "naive-ui": [
-            "useDialog",
-            "useMessage",
-            "useNotification",
-            "useLoadingBar"
-          ]
-        }
-      ]
-    }),
-    Components({
-      resolvers: [NaiveUiResolver()]
+      imports: ["vue"]
     }),
     Unocss({
       shortcuts: [
@@ -62,7 +38,7 @@ export default defineConfig({
           scale: 1.2
         })
       ]
-    }) as unknown as Plugin,
+    }),
     IncludesPlugin(),
     VitePWA({
       outDir: ".vitepress/dist",

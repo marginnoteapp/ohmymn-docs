@@ -1,6 +1,3 @@
-<script setup>
-import Shortcut from '/.vitepress/components/Shortcut.vue';
-</script>
 # Gesture
 
 ::: warning 注意

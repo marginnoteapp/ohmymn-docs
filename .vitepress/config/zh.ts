@@ -16,12 +16,6 @@ export const zhConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
       pattern: "https://github.com/marginnoteapp/ohmymn-docs/tree/main/:path",
       text: "为此页提供修改建议"
     },
-
-    algolia: {
-      appId: "58GKGEP8Q0",
-      apiKey: "27d364ba4e1ef8bd5f374377f0941845",
-      indexName: "doc-cn"
-    },
     outline: {
       label: "目录"
     },

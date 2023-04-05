@@ -1,6 +1,3 @@
-<script setup>
-import Shortcut from '/.vitepress/components/Shortcut-en.vue';
-</script>
 # Shortcut
 
 ::: warning Note
@@ -20,8 +17,6 @@ URLs can be set for each action as well as for any input value, and set them as 
 
 ::: warning Shortcut Generator
 [Find custom shortcuts shared by others](https://busiyi.notion.site/56fa8c4a189240ac88cfc33c1aa42c0f?v=acc4098de9c1497c8b191dda25af718a)
-
-<Shortcut/>
 
 :::
 
