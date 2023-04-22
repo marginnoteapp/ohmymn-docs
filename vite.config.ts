@@ -8,7 +8,6 @@ import {
   pwaFontStylesRegex,
   pwaFontsRegex
 } from "./.vitepress/meta"
-import AutoImport from "unplugin-auto-import/vite"
 import { title } from "./.vitepress/meta"
 import { META_DESCRIPTION } from ".vitepress/config/en"
 import fs from "fs"
@@ -19,9 +18,6 @@ export default defineConfig({
     exclude: ["vitepress"]
   },
   plugins: [
-    AutoImport({
-      imports: ["vue"]
-    }),
     Unocss({
       shortcuts: [
         [

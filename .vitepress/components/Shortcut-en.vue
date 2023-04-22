@@ -1,45 +1,6 @@
 <script lang="ts" setup>
-import { darkTheme, GlobalThemeOverrides, NConfigProvider, NTooltip, NButton, NInput, NCascader, NSpace } from 'naive-ui';
-import { useData } from "vitepress";
-
-const { isDark } = useData()
-const darkPrimary = "rgba(255, 197, 23, 0.25)"
-const darkThemeOverrides: GlobalThemeOverrides = {
-  common: {
-    primaryColor: darkPrimary,
-    primaryColorHover: darkPrimary,
-  },
-  Cascader: {
-    menuColor: "#2f2f2f",
-    menuBorderRadius: "8px",
-  },
-  Button: {
-    colorHover: darkPrimary,
-    borderPressed: darkPrimary,
-  },
-  Tooltip: {
-    color: "#2f2f2f",
-  },
-}
-const lightThemeOverrides: GlobalThemeOverrides = {
-  common: {
-    primaryColor: darkPrimary,
-    primaryColorHover: darkPrimary,
-  },
-  Cascader: {
-    menuBorderRadius: "8px",
-  },
-  Button: {
-    colorHover: darkPrimary,
-    borderPressed: darkPrimary,
-  },
-  Tooltip: {
-    color: darkPrimary,
-    textColor: "2f2f2f",
-  },
-}
-
-
+import { watchEffect, reactive } from 'vue';
+import { ElPopover, ElButton, ElCascader, ElInputNumber, ElRadio, ElRadioGroup, ElInput, CascaderValue } from "element-plus"
 
 const cardActions = [{
   key: "manageProfile",
@@ -307,81 +268,102 @@ const textActions = [
   }
 ]
 
-
-const options = [
-  {
-    value: 'card',
-    label: 'Card Actions',
-    children: cardActions
-  },
-  {
-    value: 'text',
-    label: 'Text Action',
-    children: textActions
-  }
-].map((h) => {
+const cardOptions = cardActions.map(k => {
+  if (!k?.option?.length)
+    k.option = ["Confirm"]
   return {
-    ...h,
-    children: h.children.map(k => {
-      if (!k?.option?.length)
-        k.option = ["Confirm"]
+    value: k.key,
+    label: k.label,
+    children: k.option.map((o, i) => {
       return {
-        value: k.key,
-        label: k.label,
-        children: k.option.map((o, i) => {
-          return {
-            value: `${k.moduleName}-${h.value}-${k.type === 3 && !/Use.*Settings/.test(o)}-${k.key}-${i}`,
-            label: o,
-          }
-        })
+        value: `${k.type === 3 && !/Use.*Settings/.test(o)}-${i}`,
+        label: o,
       }
-    })
+    }
+    )
   }
 })
 
-const selections = reactive<{
+const textOptions = textActions.map(k => {
+  if (!k?.option?.length)
+    k.option = ["Confirm"]
+  return {
+    value: k.key,
+    label: k.label,
+    children: k.option.map((o, i) => {
+      return {
+        value: `${k.type === 3 && !/Use.*Settings/.test(o)}-${i}`,
+        label: o,
+      }
+    }
+    )
+  }
+})
+
+interface Selection {
   action: string
   type: "text" | "card"
   label: string
   option: string
   input?: boolean
   content?: string
-}[]>([])
-const moduleNames = reactive<Set<string>>(new Set())
-const content = ref<string>("")
-
-const result = reactive({
-  show: false,
-  content: ""
-})
-
-const error = ref(false)
-const handleSelect = (valList: string[], _: any, pathList: { label: string }[][]) => {
-  selections.length = 0
-  moduleNames.clear()
-  if (valList.length) {
-    valList.forEach((k, i) => {
-      const [moduleName, type, input, action, option] = k.split('-')
-      !moduleName.startsWith("MagicAction") && moduleNames.add(moduleName)
-      selections.push({
-        type: type as "text" | "card",
-        input: input === "true",
-        label: pathList[i].map(k => k.label).join(' / '),
-        content: "",
-        action,
-        option
-      })
-    })
-  }
-  error.value = new Set(selections.map(k => k.type)).size === 2
-  result.show = false
-  result.content = ""
-  content.value = ""
 }
 
-const generate = () => {
-  result.show = true
-  const actions = selections.map(k => {
+const state = reactive({
+  num: 1,
+  type: "card" as "text" | "card",
+  options: cardOptions,
+  selections: [] as Selection[],
+  error: false
+})
+
+watchEffect(() => {
+  state.options = state.type === "card" ? cardOptions : textOptions
+  state.selections = []
+  state.num = 1
+})
+
+watchEffect(() => {
+  if (state.num > state.selections.length) {
+    for (let i = state.selections.length; i < state.num; i++)
+      state.selections.push({
+        action: "",
+        type: state.type,
+        label: "",
+        option: "",
+        input: false,
+        content: ""
+      })
+  } else if (state.num < state.selections.length) {
+    for (let i = state.selections.length; i > state.num; i--)
+      state.selections.pop()
+  }
+})
+
+watchEffect(() => {
+  const status = !state.selections.every(k => k.action && (!k.input || (k.input && k.content)))
+  state.error = status
+})
+
+function handleSelect(val: CascaderValue, selection: Selection) {
+  if (val) {
+    // @ts-ignore
+    const [action, extra] = val
+    const [input, option] = extra.split("-")
+    selection.action = action
+    selection.input = input === "true"
+    selection.option = option
+  } else {
+    selection.action = ""
+    selection.input = false
+    selection.option = ""
+    selection.content = ""
+  }
+}
+
+
+function genShortcut() {
+  const actions = state.selections.map(k => {
     if (k.input && k.content)
       return {
         action: k.action,
@@ -396,49 +378,79 @@ const generate = () => {
       content: ""
     }
   })
-  result.content = `marginnote3app://addon/ohmymn?actions=${encodeURIComponent(JSON.stringify(actions))}`
+  const shortcut = `marginnote3app://addon/ohmymn?actions=${encodeURIComponent(JSON.stringify(actions))}`
+  copyToClipboard(shortcut)
 }
 
-const copy = () => {
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(result.content);
+async function copyToClipboard(text: string) {
+  if (!text) return
+  try {
+    return await navigator.clipboard.writeText(text)
+  } catch {
+    const element = document.createElement("textarea")
+    const previouslyFocusedElement = document.activeElement
+
+    element.value = text
+
+    // Prevent keyboard from showing on mobile
+    element.setAttribute("readonly", "")
+
+    element.style.contain = "strict"
+    element.style.position = "absolute"
+    element.style.left = "-9999px"
+    element.style.fontSize = "12pt" // Prevent zooming on iOS
+
+    const selection = document.getSelection()
+    const originalRange = selection
+      ? selection.rangeCount > 0 && selection.getRangeAt(0)
+      : null
+
+    document.body.appendChild(element)
+    element.select()
+
+    // Explicit selection workaround for iOS
+    element.selectionStart = 0
+    element.selectionEnd = text.length
+
+    document.execCommand("copy")
+    document.body.removeChild(element)
+
+    if (originalRange) {
+      selection!.removeAllRanges() // originalRange can't be truthy when selection is falsy
+      selection!.addRange(originalRange)
+    }
+
+    // Get the focus back on the previously focused element, if any
+    if (previouslyFocusedElement) {
+      ; (previouslyFocusedElement as HTMLElement).focus()
+    }
   }
 }
-
 </script>
 
 <template>
-  <n-config-provider :theme="isDark ? darkTheme : undefined"
-    :theme-overrides="isDark ? darkThemeOverrides : lightThemeOverrides">
+  <client-only>
     <div class="my-2">
-      <div class="flex">
-        <n-space vertical class="flex-grow">
-          <n-cascader placeholder="Please Select A Action" :expand-trigger="'hover'" :options="options"
-            @update:value="handleSelect" :check-strategy="'child'" size="small" clearable multiple :cascade="false"
-            :status="error ? 'error' : 'success'" />
-          <n-input v-if="!error" v-for="param in selections.filter(k => k.input)" v-model:value="param.content"
-            type="textarea" :placeholder="`「${param.label}」Need Input`" autosize clearable size="small" />
-        </n-space>
-        <n-button :text-color="isDark ? '#fff' : '#000'" @click="generate" size="small"
-          :disabled="selections.length === 0 || error || !!selections.find(k => k.input && !k.content)" class="!ml-4">
-          Generate
-        </n-button>
-      </div>
-      <p />
-      <div class="flex" v-if="result.show && result.content">
-        <n-input v-model:value="result.content" type="textarea" placeholder="" readonly autosize size="small"
-          status="warning" />
-        <n-tooltip placement="bottom" trigger="click">
-          <template #trigger>
-            <n-button @click="copy" size="small" class="!ml-4" :text-color="isDark ? '#fff' : '#000'">
-              Copy
-            </n-button>
-          </template>
-          <span v-if="moduleNames.size">Copied successfully! This shortcut requires {{ [...moduleNames].join("、") }}
-            module(s), please make sure you have enabled</span>
-          <span v-else> Copied Successfully </span>
-        </n-tooltip>
-      </div>
+      <el-radio-group v-model="state.type">
+        <el-radio label="card" border>Card Action</el-radio>
+        <el-radio label="text" border>Text Action</el-radio>
+      </el-radio-group>
     </div>
-  </n-config-provider>
+    <div class="flex justify-between itmes-center my-2">
+      <el-input-number v-model="state.num" :min="1" :max="10" />
+      <el-popover placement="top-end" trigger="click" content="Copied Successfully" :width="180">
+        <template #reference>
+          <el-button plain @click="genShortcut" :disabled="state.error">Generate & Copy</el-button>
+        </template>
+      </el-popover>
+    </div>
+    <hr />
+    <div v-for="(selection, i) in state.selections">
+      <div class="text-sm my-2"> Action {{ i + 1 }} </div>
+      <el-cascader placeholder="Select" :options="state.options" clearable filterable
+        @change="(val) => handleSelect(val, selection)" class="w-full" />
+      <el-input class="mt-2" v-show="selection.input" v-model:model-value="selection.content" autosize type="textarea"
+        placeholder="The current action requires an input value" clearable />
+    </div>
+  </client-only>
 </template>

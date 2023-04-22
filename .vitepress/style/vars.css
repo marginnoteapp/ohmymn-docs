@@ -40,6 +40,10 @@
   --vp-c-text-dark-3: rgba(235, 235, 235, 0.38);
 }
 
+:root {
+  --el-color-primary: var(--vp-c-brand) !important;
+}
+
 /**
  * Component: Button
  * -------------------------------------------------------------------------- */

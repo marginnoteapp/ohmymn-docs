@@ -1,3 +1,6 @@
+<script setup>
+import Shortcut from '/.vitepress/components/Shortcut.vue';
+</script>
 # Shortcut
 
 ::: tip 更新
@@ -24,6 +27,7 @@
 ::: warning 捷径生成器
 [查找其他人分享的自定义捷径](https://busiyi.notion.site/901a63985532448e80ea493c461448c5?v=94f16166782c4285bf6fcb5937803d30)
 
+<Shortcut/>
 :::
 
 

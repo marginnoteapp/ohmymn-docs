@@ -45,7 +45,16 @@ export const enConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
     ],
     sidebar: {
       "/en/dev/": [],
-      "/en/api/": [],
+      "/en/api/": [
+        {
+          text: "API",
+          link: "/en/api/"
+        },
+        {
+          text: "Origin API",
+          link: "/en/api/origin"
+        }
+      ],
       "/en/": [
         {
           text: "Foundation",

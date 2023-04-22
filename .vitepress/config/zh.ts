@@ -48,8 +48,43 @@ export const zhConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
       }
     ],
     sidebar: {
-      "/dev/": [],
-      "/api/": [],
+      "/dev/": [
+        {
+          text: "基础",
+          items: [
+            {
+              text: "开始",
+              link: "/dev/"
+            },
+            {
+              text: "插件实例",
+              link: "/dev/jsextension"
+            }
+          ]
+        },
+        {
+          text: "MN 插件（Lite）",
+          link: "/dev/lite"
+        },
+        {
+          text: "OhMyMN 模块",
+          link: "/dev/module"
+        },
+        {
+          text: "MN 插件（OhMyMN）",
+          link: "/dev/ohmymn"
+        }
+      ],
+      "/api/": [
+        {
+          text: "API",
+          link: "/api/"
+        },
+        {
+          text: "Origin API",
+          link: "/api/origin"
+        }
+      ],
       "/": [
         {
           text: "基础",

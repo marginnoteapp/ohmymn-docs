@@ -5,7 +5,7 @@ import { defineConfig } from "vitepress"
 export const sharedConfig = defineConfig({
   title,
   markdown: {
-    lineNumbers: true,
+    lineNumbers: false,
     theme: {
       light: "vitesse-light",
       dark: "vitesse-dark"
