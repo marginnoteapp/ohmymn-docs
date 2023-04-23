@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import VPFeatures from './VPFeatures.vue';
 const features = {
-  "Developer": [
+  "For Developer": [
     {
       title: "Modern Development Framework",
       details: "Developed with TypeScript, bundled with ESbuild. A lot of APIs are encapsulated to help you develop more powerful mnaddon."
@@ -15,7 +15,7 @@ const features = {
       details: "Develop mnaddon with modular development, just like building blocks."
     },
   ],
-  "Normal User": [
+  "For Normal User": [
     {
       title: "Custom",
       details: "With the control panel, MarginNote addon can finally be customized."

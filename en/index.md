@@ -13,15 +13,15 @@ hero:
     src: /logo-shadow.svg
     alt: ohmymn
   actions:
+    - theme: brand
+      text: Guide
+      link: /en/guide/
     - theme: alt
       text: Development
       link: /en/dev/
     - theme: alt
       text: API
       link: /en/api/
-    - theme: brand
-      text: Guide
-      link: /en/guide/
     - theme: alt
       text: Download
       link: https://forum.marginnote.com/t/5883

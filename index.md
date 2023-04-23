@@ -13,15 +13,15 @@ hero:
     src: /logo-shadow.svg
     alt: ohmymn
   actions:
+    - theme: brand
+      text: 使用指南
+      link: /guide/
     - theme: alt
       text: 开发文档
       link: /dev/
     - theme: alt
       text: API 文档
       link: /api/
-    - theme: brand
-      text: 使用指南
-      link: /guide/
     - theme: alt
       text: 立即下载
       link: https://bbs.marginnote.cn/t/topic/20501

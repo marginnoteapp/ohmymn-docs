@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import VPFeatures from './VPFeatures.vue';
 const features = {
-  "插件开发者": [
+  "给插件开发者带来": [
     {
       title: "现代化的开发框架",
       details: "使用 TypeScript 开发，ESbuild 打包。封装大量 API，助力你开发更加强大的插件。"
@@ -15,7 +15,7 @@ const features = {
       details: "像搭积木一样不断累加模块，最终开发出强大的插件。"
     },
   ],
-  "普通用户": [
+  "给普通用户带来": [
     {
       title: "自定义",
       details: "有了控制面板之后，MarginNote 插件终于可以自定义了。"
