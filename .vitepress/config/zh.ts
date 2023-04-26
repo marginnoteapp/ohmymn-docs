@@ -59,6 +59,14 @@ export const zhConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
             {
               text: "插件实例",
               link: "/dev/jsextension"
+            },
+            {
+              text: "生命周期",
+              link: "/dev/lifecycle"
+            },
+            {
+              text: "事件监听",
+              link: "/dev/events"
             }
           ]
         },
@@ -68,7 +76,7 @@ export const zhConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
         },
         {
           text: "OhMyMN 模块",
-          link: "/dev/module"
+          link: "/dev/module/"
         },
         {
           text: "MN 插件（OhMyMN）",

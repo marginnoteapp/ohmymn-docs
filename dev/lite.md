@@ -65,6 +65,7 @@ mnaddon-lite build
     name: "Template",
     key: "template"
   }
+  // 同时适配中英文
   const lang = isZH() ? zh : en
   function isZH() {
     return (
@@ -72,12 +73,14 @@ mnaddon-lite build
       NSLocale.preferredLanguages()[0].startsWith("zh")
     )
   }
-  // You can filter by "template" in the Console.app
+  // 可以在 控制台.app 中查看 log 输出。可以通过 key 来筛选。
   const console = {
     log(obj) {
       JSB.log(`${Addon.key} %@`, obj)
     }
   }
+  
+  // 弹窗
   const popup = (title, message, buttons = [lang.confirm]) => {
     return new Promise(resolve =>
       UIAlertView.showWithTitleMessageStyleCancelButtonTitleOtherButtonTitlesTapBlock(
@@ -94,7 +97,7 @@ mnaddon-lite build
       )
     )
   }
-  // 给 JSB.newAddon 赋予一个创建 JSExtension 对象的函数，这样就可以创建插件了。
+  
   JSB.newAddon = () => {
     const showHUD = (text, duration = 2) => {
       self.app.showHUD(text, self.window, duration)
@@ -113,11 +116,15 @@ mnaddon-lite build
     return JSB.defineClass(
       Addon.name + ": JSExtension",
       {
+        // 新的 MN 窗口打开
         sceneWillConnect() {
           self.status = false
           self.app = Application.sharedInstance()
           self.studyController = self.app.studyController(self.window)
         },
+        
+        // 设置插件按钮图标以及选中状态。点击插件按钮会触发 "onToggle" 方法。
+        // 只在脑图模式下才显示图标。
         queryAddonCommandStatus() {
           return self.studyController.studyMode !== 3
             ? {
@@ -128,8 +135,11 @@ mnaddon-lite build
               }
             : null
         },
+        
+        // 点击插件图标执行的方法。效果就是按钮被选中，然后弹窗，然后取消选中。
         async onToggle() {
           self.status = true
+          // 刷新插件按钮状态
           self.studyController.refreshAddonCommands()
           await go()
           self.status = false
